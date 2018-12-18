@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activesupport", "~> 5.2.2"
   spec.add_dependency "connection_pool", "~> 2.2.1"
   spec.add_dependency "json-schema", "~> 2.7.0"
-  spec.add_dependency "jwt", "~> 1.5.6"
+  spec.add_dependency "jwt", "~> 2.1"
   spec.add_dependency "sneakers", "~> 2.4.0"
 
   spec.add_development_dependency "bump", "~> 0.5.3"

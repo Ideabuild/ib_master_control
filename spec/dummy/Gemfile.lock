@@ -7,7 +7,7 @@ PATH
       activesupport (~> 5.2.2)
       connection_pool (~> 2.2.1)
       json-schema (~> 2.7.0)
-      jwt (~> 1.5.6)
+      jwt (~> 2.1)
       sneakers (~> 2.4.0)
 
 GEM
@@ -83,7 +83,7 @@ GEM
     json-schema (2.7.0)
       addressable (>= 2.4)
     jsonapi-renderer (0.2.0)
-    jwt (1.5.6)
+    jwt (2.1.0)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
