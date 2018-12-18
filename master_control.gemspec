@@ -30,9 +30,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.test_files    = Dir["spec/**/*"]
 
-  spec.add_dependency "activejob", "~> 5.0.7"
+  spec.add_dependency "activejob", "~> 5.2.2"
   spec.add_dependency "active_model_serializers", "~> 0.10.4"
-  spec.add_dependency "activesupport", "~> 5.0.7"
+  spec.add_dependency "activesupport", "~> 5.2.2"
   spec.add_dependency "connection_pool", "~> 2.2.1"
   spec.add_dependency "json-schema", "~> 2.7.0"
   spec.add_dependency "jwt", "~> 1.5.6"
