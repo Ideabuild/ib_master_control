@@ -14,7 +14,7 @@ RSpec.describe MasterControl::Models::Customer do
   let(:city) { Faker::Address.city }
   let(:state) { Faker::Address.state_abbr }
   let(:postal_code) { Faker::Address.zip_code }
-  let(:is_active) { true }
+  let(:active) { true }
   let(:customer_type_id) { SecureRandom.uuid }
   let(:customer_type_name) { 'Rehab' }
 
@@ -32,7 +32,7 @@ RSpec.describe MasterControl::Models::Customer do
       city: city,
       state: state,
       postal_code: postal_code,
-      is_active: is_active,
+      active: active,
       customer_type_id: customer_type_id,
       customer_type_name: customer_type_name
     }
@@ -55,7 +55,7 @@ RSpec.describe MasterControl::Models::Customer do
       :id,
       :name,
       :npi,
-      :is_active,
+      :active,
       :customer_type_id,
       :customer_type_name
     ].each do |attribute|

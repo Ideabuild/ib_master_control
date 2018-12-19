@@ -17,7 +17,7 @@ RSpec.describe MasterControl::Models::Role do
   let(:is_client_selectable) { true }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
-  let(:is_active) { true }
+  let(:active) { true }
 
   let(:physician) do
     {
@@ -31,7 +31,7 @@ RSpec.describe MasterControl::Models::Role do
       is_client_selectable: is_client_selectable,
       created_at: created_at,
       updated_at: updated_at,
-      is_active: is_active
+      active: active
     }
   end
 

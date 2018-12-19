@@ -7,7 +7,7 @@ RSpec.describe MasterControl::Models::User do
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:id) { SecureRandom.uuid }
-  let(:is_active) { true }
+  let(:active) { true }
   let(:email) { Faker::Internet.email }
   let(:first_name) { Faker::Name.first_name }
   let(:last_name) { Faker::Name.last_name }
@@ -21,7 +21,7 @@ RSpec.describe MasterControl::Models::User do
       created_at: created_at,
       updated_at: updated_at,
       id: id,
-      is_active: is_active,
+      active: active,
       email: email,
       first_name: first_name,
       last_name: last_name,
@@ -45,7 +45,7 @@ RSpec.describe MasterControl::Models::User do
       :created_at,
       :updated_at,
       :id,
-      :is_active,
+      :active,
       :email,
       :first_name,
       :last_name,
