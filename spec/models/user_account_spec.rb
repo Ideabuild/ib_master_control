@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::UserAccount do
-  let(:canonical_klass) { 'MasterControl::Models::UserAccount' }
+RSpec.describe MasterControl::Models::User do
+  let(:canonical_klass) { 'MasterControl::Models::User' }
   let(:version) { '1.1.0' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
@@ -14,7 +14,7 @@ RSpec.describe MasterControl::Models::UserAccount do
   let(:customer_id) { SecureRandom.uuid }
   let(:roles) { [{ id: SecureRandom.uuid, name: 'Admin' }] }
 
-  let(:user_account) do
+  let(:user) do
     {
       canonical_klass: canonical_klass,
       version: version,
@@ -31,7 +31,7 @@ RSpec.describe MasterControl::Models::UserAccount do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::UserAccount.json_schema, user_account)
+    JSON::Validator.validate!(MasterControl::Models::User.json_schema, user)
   end
 
   context 'happy path' do

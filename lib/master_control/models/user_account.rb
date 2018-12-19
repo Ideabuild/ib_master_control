@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class UserAccount < MasterControl::Models::Base
+    class User < MasterControl::Models::Base
       attributes \
         :id,
         :is_active,
