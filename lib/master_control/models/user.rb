@@ -4,7 +4,7 @@ module MasterControl
     class User < MasterControl::Models::Base
       attributes \
         :id,
-        :is_active,
+        :active,
         :email,
         :first_name,
         :last_name,
