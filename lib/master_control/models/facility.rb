@@ -7,6 +7,7 @@ module MasterControl
         :name,
         :customer_id,
         :facility_type_id,
+        :facility_type_name,
         :aasm_state,
         :last_modified,
         :updated_by
@@ -25,6 +26,7 @@ module MasterControl
               name: { type: 'string' },
               customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               facility_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              facility_type_name: { type: 'string' },
               aasm_state: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
@@ -38,6 +40,7 @@ module MasterControl
               :name,
               :customer_id,
               :facility_type_id,
+              :facility_type_name,
               :aasm_state,
               :created_at,
               :updated_at,

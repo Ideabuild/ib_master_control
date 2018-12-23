@@ -1,35 +1,32 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::Role do
-  NULLEABLE_ATTRIBUTES = [
-                          :resource_type,
-                          :resource_id
-  ].freeze
+RSpec.describe MasterControl::Models::Facility do
+  NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::Provider' }
+  let(:canonical_klass) { 'MasterControl::Models::Facility' }
   let(:version) { '1.0.0' }
   let(:id) { SecureRandom.uuid }
-  let(:name) { 'sys_admin' }
-  let(:display_name) { 'Sys Admin' }
-  let(:resource_type) { 'User' }
-  let(:resource_id) { SecureRandom.uuid }
-  let(:is_client_selectable) { true }
+  let(:name) { Faker::Company.name }
+  let(:customer_id) { SecureRandom.uuid }
+  let(:facility_type_id) { SecureRandom.uuid }
+  let(:facility_type_name) { 'Overnight' }
+  let(:aasm_state) { 'new' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:role) do
+  let(:facility) do
     {
       canonical_klass: canonical_klass,
       version: version,
       id: id,
       name: name,
-      display_name: display_name,
-      resource_type: resource_type,
-      resource_id: resource_id,
-      is_client_selectable: is_client_selectable,
+      customer_id: customer_id,
+      facility_type_id: facility_type_id,
+      facility_type_name: facility_type_name,
+      aasm_state: aasm_state,
       created_at: created_at,
       updated_at: updated_at,
       updated_by: updated_by,
@@ -38,7 +35,7 @@ RSpec.describe MasterControl::Models::Role do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::Role.json_schema, role)
+    JSON::Validator.validate!(MasterControl::Models::Facility.json_schema, facility)
   end
 
   context 'happy path' do
@@ -51,7 +48,10 @@ RSpec.describe MasterControl::Models::Role do
       :id,
       :version,
       :name,
-      :display_name,
+      :customer_id,
+      :facility_type_id,
+      :facility_type_name,
+      :aasm_state,
       :created_at,
       :updated_at,
       :updated_by
