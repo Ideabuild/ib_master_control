@@ -1,12 +1,12 @@
 PATH
   remote: ../..
   specs:
-    master_control (1.0.6)
+    master_control (1.0.7)
       active_model_serializers (~> 0.10.4)
       activejob (~> 5.2.2)
       activesupport (~> 5.2.2)
       connection_pool (~> 2.2.1)
-      json-schema (~> 2.7.0)
+      json-schema (~> 2.8.0)
       jwt (~> 2.1)
       sneakers (~> 2.4.0)
 
@@ -80,7 +80,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.2.0)
       concurrent-ruby (~> 1.0)
-    json-schema (2.7.0)
+    json-schema (2.8.1)
       addressable (>= 2.4)
     jsonapi-renderer (0.2.0)
     jwt (2.1.0)
