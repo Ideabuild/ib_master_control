@@ -1,18 +1,14 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class Customer < MasterControl::Models::Base
-
+    class AddressType < MasterControl::Models::Base
       attributes \
         :id,
         :name,
-        :npi,
-        :owner_id,
-        :active,
-        :created_at,
-        :updated_at,
-        :customer_type_id,
-        :customer_type_name
+        :system_code,
+        :last_modified,
+        :updated_by
+
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -20,30 +16,26 @@ module MasterControl
           {
             type: 'object',
             properties: {
+              id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               canonical_klass: { type: 'string' },
               version: { type: 'string' },
-              id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              name: { type: 'string' },
-              npi: { type: 'string' },
-              owner_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              customer_type_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              customer_type_name: { type: ['string'] },
               active: { type: 'boolean' },
+              name: { type: 'string' },
+              system_code: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
-              updated_at: { type: 'string', format: 'date-time' }
+              updated_at: { type: 'string', format: 'date-time' },
+              updated_by: { type: 'string' }
             },
             required: [
               :canonical_klass,
               :version,
               :id,
-              :name,
-              :npi,
               :active,
-              :owner_id,
+              :name,
+              :system_code,
               :created_at,
               :updated_at,
-              :customer_type_id,
-              :customer_type_name
+              :updated_by
             ],
             additionalProperties: false
           }.to_json

@@ -68,7 +68,7 @@ module MasterControl
       end
 
       def verify(payload)
-        unless payload[:is_active]
+        unless payload[:active]
           message = "User #{payload[:id]} is not active"
           raise Exceptions::AccessDeniedError, message
         end

@@ -1,0 +1,83 @@
+# frozen_string_literal: true
+module MasterControl
+  module Models
+    class Address < MasterControl::Models::Base
+      attributes \
+        :id,
+        :street1,
+        :street2,
+        :city,
+        :city_id,
+        :state,
+        :state_id,
+        :zipcode,
+        :zipcode_id,
+        :phone_number,
+        :fax_number,
+        :fips_code,
+        :latitude,
+        :longitude,
+        :parent_id,
+        :parent_type,
+        :address_type_id,
+        :aasm_state,
+        :last_modified,
+        :updated_by
+
+
+      class << self
+        # rubocop:disable Metrics/MethodLength
+        def json_schema
+          {
+            type: 'object',
+            properties: {
+              id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              canonical_klass: { type: 'string' },
+              version: { type: 'string' },
+              active: { type: 'boolean' },
+              street1: { type: 'string' },
+              street2: { type: ['string', 'null'] },
+              city: { type: 'string' },
+              city_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              state: { type: 'string' },
+              state_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              zipcode: { type: 'string' },
+              zipcode_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              phone_number: { type: ['string', 'null'] },
+              fax_number: { type: ['string', 'null'] },
+              fips_code: { type: ['string', 'null'] },
+              latitude: { type: ['number', 'null'] },
+              longitude: { type: ['number', 'null'] },
+              parent_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              parent_type: { type: 'string' },
+              address_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              aasm_state: { type: 'string' },
+              created_at: { type: 'string', format: 'date-time' },
+              updated_at: { type: 'string', format: 'date-time' },
+              updated_by: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+            },
+            required: [
+              :canonical_klass,
+              :version,
+              :id,
+              :active,
+              :street1,
+              :city,
+              :state,
+              :zipcode,
+              :parent_id,
+              :parent_type,
+              :address_type_id,
+              :aasm_state,
+              :created_at,
+              :updated_at,
+              :updated_by
+            ],
+            additionalProperties: false
+          }.to_json
+        end
+        # rubocop:enable Metrics/MethodLength
+      end
+    end
+  end
+end

@@ -9,7 +9,8 @@ module MasterControl
         :resource_id,
         :resource_type,
         :is_client_selectable,
-        :last_modified
+        :last_modified,
+        :updated_by
 
 
       class << self
@@ -18,7 +19,7 @@ module MasterControl
           {
             type: 'object',
             properties: {
-              id: { type: 'string' },
+              id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               canonical_klass: { type: 'string' },
               version: { type: 'string' },
               active: { type: 'boolean' },
@@ -28,7 +29,8 @@ module MasterControl
               resource_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               is_client_selectable: { type: 'boolean' },
               created_at: { type: 'string', format: 'date-time' },
-              updated_at: { type: 'string', format: 'date-time' }
+              updated_at: { type: 'string', format: 'date-time' },
+              updated_by: { type: 'string' }
             },
             required: [
               :canonical_klass,
@@ -41,7 +43,8 @@ module MasterControl
               :resource_id,
               :is_client_selectable,
               :created_at,
-              :updated_at
+              :updated_at,
+              :updated_by
             ],
             additionalProperties: false
           }.to_json

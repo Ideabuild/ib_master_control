@@ -9,13 +9,9 @@ RSpec.describe MasterControl::Models::Customer do
   let(:id) { SecureRandom.uuid }
   let(:name) { Faker::Company.name }
   let(:npi) { Faker::Lorem.sentence(3) }
-  let(:address_1) { Faker::Address.street_address }
-  let(:address_2) { Faker::Address.secondary_address }
-  let(:city) { Faker::Address.city }
-  let(:state) { Faker::Address.state_abbr }
-  let(:postal_code) { Faker::Address.zip_code }
   let(:active) { true }
   let(:customer_type_id) { SecureRandom.uuid }
+  let(:owner_id) { SecureRandom.uuid }
   let(:customer_type_name) { 'Rehab' }
 
   let(:customer) do
@@ -27,11 +23,7 @@ RSpec.describe MasterControl::Models::Customer do
       id: id,
       name: name,
       npi: npi,
-      address_1: address_1,
-      address_2: address_2,
-      city: city,
-      state: state,
-      postal_code: postal_code,
+      owner_id: owner_id,
       active: active,
       customer_type_id: customer_type_id,
       customer_type_name: customer_type_name
@@ -55,6 +47,7 @@ RSpec.describe MasterControl::Models::Customer do
       :id,
       :name,
       :npi,
+      :owner_id,
       :active,
       :customer_type_id,
       :customer_type_name
@@ -68,13 +61,7 @@ RSpec.describe MasterControl::Models::Customer do
   end
 
   context 'nullable attributes' do
-    [
-      :address_1,
-      :address_2,
-      :city,
-      :state,
-      :postal_code
-    ].each do |attribute|
+    [].each do |attribute|
       context attribute do
         let(attribute) { nil }
 

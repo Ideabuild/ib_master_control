@@ -8,7 +8,9 @@ module MasterControl
         :email,
         :first_name,
         :last_name,
-        :customer_id
+        :aasm_state,
+        :customer_id,
+        :updated_by
 
       attribute :roles
 
@@ -18,13 +20,14 @@ module MasterControl
           {
             type: 'object',
             properties: {
-              id: { type: 'string' },
+              id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               canonical_klass: { type: 'string' },
               version: { type: 'string' },
               active: { type: 'boolean' },
               email: { type: 'string' },
               first_name: { type: 'string' },
               last_name: { type: 'string' },
+              aasm_state: { type: 'string' },
               customer_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               roles: {
                 type: 'array',
@@ -36,8 +39,19 @@ module MasterControl
                   }
                 }
               },
+              ib_applications: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+                    name: { type: 'string' }
+                  }
+                }
+              },
               created_at: { type: 'string', format: 'date-time' },
-              updated_at: { type: 'string', format: 'date-time' }
+              updated_at: { type: 'string', format: 'date-time' },
+              updated_by: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
             },
             required: [
               :canonical_klass,
@@ -47,10 +61,12 @@ module MasterControl
               :email,
               :first_name,
               :last_name,
+              :aasm_state,
               :customer_id,
               :roles,
               :created_at,
-              :updated_at
+              :updated_at,
+              :updated_by
             ],
             additionalProperties: false
           }.to_json

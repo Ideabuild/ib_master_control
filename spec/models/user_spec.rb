@@ -11,8 +11,10 @@ RSpec.describe MasterControl::Models::User do
   let(:email) { Faker::Internet.email }
   let(:first_name) { Faker::Name.first_name }
   let(:last_name) { Faker::Name.last_name }
+  let(:aasm_state) { 'new' }
   let(:customer_id) { SecureRandom.uuid }
   let(:roles) { [{ id: SecureRandom.uuid, name: 'Admin' }] }
+  let(:updated_by) { SecureRandom.uuid }
 
   let(:user) do
     {
@@ -25,7 +27,9 @@ RSpec.describe MasterControl::Models::User do
       email: email,
       first_name: first_name,
       last_name: last_name,
+      aasm_state: aasm_state,
       customer_id: customer_id,
+      updated_by: updated_by,
       roles: roles
     }
   end
@@ -49,6 +53,8 @@ RSpec.describe MasterControl::Models::User do
       :email,
       :first_name,
       :last_name,
+      :aasm_state,
+      :updated_by,
       :roles
     ].each do |attribute|
       context attribute do

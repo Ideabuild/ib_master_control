@@ -24,7 +24,7 @@ RSpec.describe MasterControl::Authentication::Service do
 
       it 'returns the token data' do
         payload = subject.payload_for(token)
-        expect(payload).to include(:id, :first_name, :last_name, :email, :roles, :is_active)
+        expect(payload).to include(:id, :first_name, :last_name, :email, :roles, :active)
         expect(payload[:email]).to eq(options[:email])
         expect(payload[:roles]).to eq(['data_entry'])
       end
@@ -32,7 +32,7 @@ RSpec.describe MasterControl::Authentication::Service do
 
     context 'with VALID token for an inactive user' do
       let(:token_expiration) { 1.hour.from_now.to_i }
-      let(:options) { { is_active: false, application: application } }
+      let(:options) { { active: false, application: application } }
       let(:token) { jwt_token(secret, token_expiration, options) }
 
       it 'raises exception' do
@@ -84,7 +84,7 @@ RSpec.describe MasterControl::Authentication::Service do
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       email: Faker::Internet.email,
-      is_active: true,
+      active: true,
       roles: ['data_entry'],
       applications: [
         {

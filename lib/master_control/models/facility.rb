@@ -1,18 +1,16 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class Customer < MasterControl::Models::Base
-
+    class Facility < MasterControl::Models::Base
       attributes \
         :id,
         :name,
-        :npi,
-        :owner_id,
-        :active,
-        :created_at,
-        :updated_at,
-        :customer_type_id,
-        :customer_type_name
+        :customer_id,
+        :facility_type_id,
+        :aasm_state,
+        :last_modified,
+        :updated_by
+
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -20,30 +18,30 @@ module MasterControl
           {
             type: 'object',
             properties: {
+              id: { type: 'string' },
               canonical_klass: { type: 'string' },
               version: { type: 'string' },
-              id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              name: { type: 'string' },
-              npi: { type: 'string' },
-              owner_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              customer_type_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              customer_type_name: { type: ['string'] },
               active: { type: 'boolean' },
+              name: { type: 'string' },
+              customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              facility_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              aasm_state: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
-              updated_at: { type: 'string', format: 'date-time' }
+              updated_at: { type: 'string', format: 'date-time' },
+              updated_by: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
             },
             required: [
               :canonical_klass,
               :version,
               :id,
-              :name,
-              :npi,
               :active,
-              :owner_id,
+              :name,
+              :customer_id,
+              :facility_type_id,
+              :aasm_state,
               :created_at,
               :updated_at,
-              :customer_type_id,
-              :customer_type_name
+              :updated_by
             ],
             additionalProperties: false
           }.to_json
