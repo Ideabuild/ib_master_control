@@ -17,7 +17,7 @@ RSpec.describe MasterControl::Models::Role do
   let(:is_client_selectable) { true }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
-  let(:updated_by) { SecureRandom.uuid }
+  let(:updated_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
   let(:role) do
@@ -32,7 +32,7 @@ RSpec.describe MasterControl::Models::Role do
       is_client_selectable: is_client_selectable,
       created_at: created_at,
       updated_at: updated_at,
-      updated_by: updated_by,
+      updated_by_id: updated_by_id,
       active: active
     }
   end
@@ -54,7 +54,7 @@ RSpec.describe MasterControl::Models::Role do
       :display_name,
       :created_at,
       :updated_at,
-      :updated_by
+      :updated_by_id
     ].each do |attribute|
       context attribute do
         let(attribute) { nil }

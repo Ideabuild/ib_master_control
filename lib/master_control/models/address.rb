@@ -22,7 +22,7 @@ module MasterControl
         :address_type_id,
         :aasm_state,
         :last_modified,
-        :updated_by
+        :updated_by_id
 
 
       class << self
@@ -54,7 +54,7 @@ module MasterControl
               aasm_state: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
-              updated_by: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+              updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
             },
             required: [
               :canonical_klass,
@@ -71,7 +71,7 @@ module MasterControl
               :aasm_state,
               :created_at,
               :updated_at,
-              :updated_by
+              :updated_by_id
             ],
             additionalProperties: false
           }.to_json
