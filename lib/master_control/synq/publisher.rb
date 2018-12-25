@@ -4,6 +4,8 @@ module MasterControl
     class Publisher
       class << self
         def publish(event, object)
+          puts "--------event: #{event.to_json}"
+          puts "--------object: #{object.to_json}"
           enqueue(event, object)
         end
 

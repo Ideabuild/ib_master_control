@@ -14,7 +14,6 @@ module MasterControl
 
       module InstanceMethods
         def publish(event)
-          puts "--------self: #{self.to_json}"
           MasterControl::Synq::Publisher.publish(event, self)
         end
 
