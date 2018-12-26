@@ -6,7 +6,6 @@ module MasterControl
         :id,
         :name,
         :system_code,
-        :last_modified,
         :updated_by,
         :active
 
