@@ -7,7 +7,8 @@ module MasterControl
         :name,
         :system_code,
         :last_modified,
-        :updated_by
+        :updated_by,
+        :active
 
 
       class << self

@@ -11,6 +11,7 @@ RSpec.describe MasterControl::Models::Customer do
   let(:npi) { Faker::Lorem.sentence(3) }
   let(:active) { true }
   let(:customer_type_id) { SecureRandom.uuid }
+  let(:management_customer_id) { SecureRandom.uuid }
   let(:owner_id) { SecureRandom.uuid }
   let(:customer_type_name) { 'Rehab' }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -27,6 +28,7 @@ RSpec.describe MasterControl::Models::Customer do
       owner_id: owner_id,
       active: active,
       customer_type_id: customer_type_id,
+      management_customer_id: management_customer_id,
       customer_type_name: customer_type_name,
       updated_by_id: updated_by_id
     }
@@ -76,7 +78,9 @@ RSpec.describe MasterControl::Models::Customer do
   context 'empty array attributes' do
     [].each do |attribute|
       context attribute do
-        let(attribute) { [] }
+        let(attribute) { [
+                            :management_customer_id
+                          ] }
 
         specify { expect { validate! }.to_not raise_error }
       end

@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class Facility < MasterControl::Models::Base
+    class CustomerType < MasterControl::Models::Base
       attributes \
         :id,
         :name,
-        :customer_id,
-        :facility_type_id,
-        :facility_type_name,
-        :aasm_state,
+        :system_code,
+        :last_modified,
         :updated_by_id,
         :active
 
@@ -19,15 +17,12 @@ module MasterControl
           {
             type: 'object',
             properties: {
-              id: { type: 'string' },
+              id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               canonical_klass: { type: 'string' },
               version: { type: 'string' },
               active: { type: 'boolean' },
               name: { type: 'string' },
-              customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              facility_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              facility_type_name: { type: 'string' },
-              aasm_state: { type: 'string' },
+              system_code: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
@@ -38,10 +33,7 @@ module MasterControl
               :id,
               :active,
               :name,
-              :customer_id,
-              :facility_type_id,
-              :facility_type_name,
-              :aasm_state,
+              :system_code,
               :created_at,
               :updated_at,
               :updated_by_id
