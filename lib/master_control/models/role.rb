@@ -9,7 +9,8 @@ module MasterControl
         :resource_id,
         :resource_type,
         :is_client_selectable,
-        :updated_by_id
+        :updated_by_id,
+        :active
 
 
       class << self
