@@ -7,8 +7,6 @@ RSpec.describe MasterControl::Synq::Queue do
   let(:rabbitmq_channel) { double }
   let(:rabbitmq_queue) { double }
   let(:exchange_name) { 'strings' }
-  let(:subscriber_klass) { Array }
-  let(:subscriber_object) { [] }
   let(:queue_name) { 'example_application.arrays' }
 
   before do
@@ -31,15 +29,10 @@ RSpec.describe MasterControl::Synq::Queue do
     )
   end
 
-  describe '.queue_name' do
-    it 'derives the queue_name from the class' do
-      expect(described_class.queue_name(subscriber_klass)).to eq queue_name
-    end
-  end
 
   describe '.bind' do
     def bind!
-      described_class.bind(exchange_name, subscriber_klass)
+      described_class.bind(exchange_name, queue_name)
     end
 
     it 'creates the queue' do

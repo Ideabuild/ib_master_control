@@ -4,11 +4,11 @@ module MasterControl
     class Configuration
       attr_accessor \
         :exchanges,
-        :subscribers
+        :queues
 
       def initialize
         @exchanges = []
-        @subscribers = {}
+        @queues = []
       end
     end
   end

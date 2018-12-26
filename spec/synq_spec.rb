@@ -4,12 +4,12 @@ require 'spec_helper'
 RSpec.describe MasterControl::Synq do
   describe 'configure' do
     let(:exchanges) { [] }
-    let(:subscribers) { {} }
+    let(:queues) { [] }
 
     def configure!
       MasterControl::Synq.configure do |config|
         config.exchanges = exchanges
-        config.subscribers = subscribers
+        config.queues = queues
       end
     end
 
@@ -31,12 +31,14 @@ RSpec.describe MasterControl::Synq do
       end
     end
 
-    context 'with subscribers' do
-      let(:subscribers) do
-        {
-          first_exchange: String,
-          second_exchange: Array
-        }
+    context 'with queues' do
+      let(:exchanges) do
+          [:first_exchange,
+          :second_exchange]
+      end
+
+      let(:queues) do
+          [:first_queue, :second_queue]
       end
 
       it 'creates the exchanges' do
@@ -45,8 +47,10 @@ RSpec.describe MasterControl::Synq do
       end
 
       it 'binds the queues' do
-        expect(MasterControl::Synq::Queue).to have_received(:bind).with(:first_exchange, String).ordered
-        expect(MasterControl::Synq::Queue).to have_received(:bind).with(:second_exchange, Array).ordered
+        expect(MasterControl::Synq::Queue).to have_received(:bind).with(:first_exchange, :first_queue).ordered
+        expect(MasterControl::Synq::Queue).to have_received(:bind).with(:first_exchange, :second_queue).ordered
+        expect(MasterControl::Synq::Queue).to have_received(:bind).with(:second_exchange, :first_queue).ordered
+        expect(MasterControl::Synq::Queue).to have_received(:bind).with(:second_exchange, :second_queue).ordered
       end
     end
 

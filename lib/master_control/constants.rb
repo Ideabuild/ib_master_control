@@ -25,6 +25,14 @@ module MasterControl
       SYSTEM = 'ib_healthcare_portal'
     end
 
+    module HealthcareIntake
+      SYSTEM = 'ib_healthcare_intake'
+    end
+
+    module HealthcareDocumanager
+      SYSTEM = 'ib_healthcare_documanager'
+    end
+
     module DataCentral
       SYSTEM = 'ib_data_central'
     end

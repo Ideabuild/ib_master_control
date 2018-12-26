@@ -3,20 +3,15 @@ module MasterControl
   module Synq
     class Queue
       class << self
-        def bind(exchange, subscriber)
-          rabbitmq_queue(subscriber).bind(exchange)
-        end
-
-        # UserAccountSubscriber => gatekeeper.user_account_subscribers
-        def queue_name(subscriber_klass)
-          "#{application}.#{subscriber_klass.name.tableize}"
+        def bind(exchange, queue)
+          rabbitmq_queue(queue).bind(exchange)
         end
 
         private
 
-        def rabbitmq_queue(queue_klass)
+        def rabbitmq_queue(queue_name)
           rabbitmq_channel.queue(
-            queue_name(queue_klass),
+            queue_name,
             durable: true
           )
         end
