@@ -9,7 +9,6 @@ module MasterControl
         :resource_id,
         :resource_type,
         :is_client_selectable,
-        :last_modified,
         :updated_by_id
 
 
