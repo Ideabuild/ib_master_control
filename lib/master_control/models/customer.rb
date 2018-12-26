@@ -28,7 +28,7 @@ module MasterControl
               name: { type: 'string' },
               npi: { type: 'string' },
               owner_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              management_customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              management_customer_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_type_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_type_name: { type: ['string'] },
               active: { type: 'boolean' },
