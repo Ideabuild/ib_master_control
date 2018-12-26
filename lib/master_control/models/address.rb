@@ -21,7 +21,6 @@ module MasterControl
         :parent_type,
         :address_type_id,
         :aasm_state,
-        :last_modified,
         :updated_by_id
 
 

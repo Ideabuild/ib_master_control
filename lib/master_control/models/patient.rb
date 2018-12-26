@@ -16,7 +16,6 @@ module MasterControl
         :last_name,
         :gender,
         :is_deceased,
-        :last_modified,
         :marital_status,
         :chart_number,
         :phone_number,
