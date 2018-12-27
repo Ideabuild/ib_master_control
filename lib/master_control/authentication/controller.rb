@@ -7,7 +7,7 @@ module MasterControl
       included do
         prepend_before_action :authenticate_user!
 
-        helper_method :current_user
+        # helper_method :current_user
 
         rescue_from MasterControl::Exceptions::AccessDeniedError, with: :response_for_access_denied
       end
@@ -20,6 +20,7 @@ module MasterControl
       protected
 
       def authenticate_user!
+        puts "------------current_user: #{current_user.to_json}"
         return true if current_user
 
         authenticate_user(request.headers['Authorization']) ||
