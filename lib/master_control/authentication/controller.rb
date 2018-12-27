@@ -20,7 +20,6 @@ module MasterControl
       protected
 
       def authenticate_user!
-        puts "------------current_user: #{current_user.to_json}"
         return true if current_user
 
         authenticate_user(request.headers['Authorization']) ||
