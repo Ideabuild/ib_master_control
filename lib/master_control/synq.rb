@@ -12,7 +12,7 @@ module MasterControl
         yield(configuration)
 
         create_exchanges
-        # bind_queues
+        bind_queues
       rescue Bunny::TCPConnectionFailedForAllHosts,
              AMQ::Protocol::EmptyResponseError,
              Timeout::Error,
@@ -22,10 +22,14 @@ module MasterControl
 
       def create_exchanges
         configuration.exchanges.each do |exchange|
+          MasterControl::Synq::Exchange.create(exchange)       
+        end
+      end
+
+      def bind_queues
+        configuration.subscribers.each do |exchange, subscriber|
           MasterControl::Synq::Exchange.create(exchange)
-          configuration.queues.each do |queue|
-            MasterControl::Synq::Queue.bind(exchange, queue)
-          end
+          MasterControl::Synq::Queue.bind(exchange, subscriber)
         end
       end
 

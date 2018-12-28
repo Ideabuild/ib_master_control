@@ -3,8 +3,8 @@ module MasterControl
   module Synq
     class Queue
       class << self
-        def bind(exchange, queue)
-          rabbitmq_queue(queue).bind(exchange)
+        def bind(exchange, subscriber)
+          rabbitmq_queue(subscriber).bind(exchange)
         end
 
         # UserSubscriber => user_account_subscribers
@@ -14,9 +14,9 @@ module MasterControl
 
         private
 
-        def rabbitmq_queue(queue_name)
+        def rabbitmq_queue(queue_klass)
           rabbitmq_channel.queue(
-            queue_name,
+            queue_name(queue_klass),
             durable: true
           )
         end
