@@ -11,7 +11,7 @@ module MasterControl
         base.extend ClassMethods
 
         # define which queue this subscriber reads from (uses Synq::Queue to determine appropriate name)
-        # env is set to nil since by default the actual queue name would be "gatekeeper.users_development"
+        # env is set to nil since by default the actual queue name would be "authenticator.users_development"
         from_queue queue_name, env: nil
 
         def self.queue_name

@@ -7,6 +7,11 @@ module MasterControl
           rabbitmq_queue(queue).bind(exchange)
         end
 
+        # UserSubscriber => user_account_subscribers
+        def queue_name(subscriber_klass)
+          "#{application}.#{subscriber_klass.name.tableize}"
+        end
+
         private
 
         def rabbitmq_queue(queue_name)
