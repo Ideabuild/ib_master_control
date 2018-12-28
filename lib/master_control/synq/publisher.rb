@@ -15,7 +15,7 @@ module MasterControl
 
         def enqueue(event, object)
           MasterControl::Synq::PublishJob.perform_later(
-            exchange: 'ib.' + object.class.name.tableize,
+            exchange: object.class.name.tableize,
             event: event.to_s,
             object: MasterControl::Synq::Serializer.serialize(object)
           )

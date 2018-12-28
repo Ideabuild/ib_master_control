@@ -47,7 +47,7 @@ RSpec.describe MasterControl::Synq::Publisher do
     it 'enqueues a PublishJob with the expected arguments' do
       expect(MasterControl::Synq::PublishJob).to(
         have_received(:perform_later).with(
-          exchange: 'ib.' + exchange,
+          exchange: exchange,
           event: 'upsert',
           object: serialized_object
         )
@@ -67,7 +67,7 @@ RSpec.describe MasterControl::Synq::Publisher do
     it 'enqueues a PublishJob with the expected arguments' do
       expect(MasterControl::Synq::PublishJob).to(
         have_received(:perform_later).with(
-          exchange: 'ib.' + exchange,
+          exchange: exchange,
           event: 'custom_event',
           object: serialized_object
         )
