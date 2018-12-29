@@ -31,7 +31,7 @@ RSpec.describe MasterControl::Synq do
       end
     end
 
-    context 'with queues' do
+    context 'with subscribers' do
       let(:subscribers) do
         {
           first_exchange: String,

@@ -15,6 +15,7 @@ RSpec.describe MasterControl::Models::Customer do
   let(:owner_id) { SecureRandom.uuid }
   let(:customer_type_name) { 'Rehab' }
   let(:updated_by_id) { SecureRandom.uuid }
+  let(:created_by_id) { SecureRandom.uuid }
 
   let(:customer) do
     {
@@ -30,7 +31,8 @@ RSpec.describe MasterControl::Models::Customer do
       customer_type_id: customer_type_id,
       management_customer_id: management_customer_id,
       customer_type_name: customer_type_name,
-      updated_by_id: updated_by_id
+      updated_by_id: updated_by_id,
+      created_by_id: created_by_id
     }
   end
 
@@ -55,7 +57,8 @@ RSpec.describe MasterControl::Models::Customer do
       :active,
       :customer_type_id,
       :customer_type_name,
-      :updated_by_id
+      :updated_by_id,
+      :created_by_id
     ].each do |attribute|
       context attribute do
         let(attribute) { nil }

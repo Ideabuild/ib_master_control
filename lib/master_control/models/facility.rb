@@ -10,6 +10,7 @@ module MasterControl
         :facility_type_name,
         :aasm_state,
         :updated_by_id,
+        :created_by_id,
         :active
 
 
@@ -30,7 +31,8 @@ module MasterControl
               aasm_state: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
-              updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+              updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              created_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
             },
             required: [
               :canonical_klass,
@@ -44,7 +46,8 @@ module MasterControl
               :aasm_state,
               :created_at,
               :updated_at,
-              :updated_by_id
+              :updated_by_id,
+              :created_by_id
             ],
             additionalProperties: false
           }.to_json

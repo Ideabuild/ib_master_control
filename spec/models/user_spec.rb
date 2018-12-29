@@ -15,6 +15,7 @@ RSpec.describe MasterControl::Models::User do
   let(:customer_id) { SecureRandom.uuid }
   let(:roles) { [{ id: SecureRandom.uuid, name: 'Admin' }] }
   let(:updated_by_id) { SecureRandom.uuid }
+  let(:created_by_id) { SecureRandom.uuid }
 
   let(:user) do
     {
@@ -30,6 +31,7 @@ RSpec.describe MasterControl::Models::User do
       aasm_state: aasm_state,
       customer_id: customer_id,
       updated_by_id: updated_by_id,
+      created_by_id: created_by_id,
       roles: roles
     }
   end
@@ -55,6 +57,7 @@ RSpec.describe MasterControl::Models::User do
       :last_name,
       :aasm_state,
       :updated_by_id,
+      :created_by_id,
       :roles
     ].each do |attribute|
       context attribute do

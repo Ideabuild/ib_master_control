@@ -10,7 +10,8 @@ module MasterControl
         :last_name,
         :aasm_state,
         :customer_id,
-        :updated_by_id
+        :updated_by_id,
+        :created_by_id
 
       attribute :roles
 
@@ -51,7 +52,8 @@ module MasterControl
               },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
-              updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+              updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              created_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
             },
             required: [
               :canonical_klass,
@@ -66,7 +68,8 @@ module MasterControl
               :roles,
               :created_at,
               :updated_at,
-              :updated_by_id
+              :updated_by_id,
+              :created_by_id
             ],
             additionalProperties: false
           }.to_json

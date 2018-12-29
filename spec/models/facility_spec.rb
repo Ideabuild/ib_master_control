@@ -15,6 +15,7 @@ RSpec.describe MasterControl::Models::Facility do
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
+  let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
   let(:facility) do
@@ -30,6 +31,7 @@ RSpec.describe MasterControl::Models::Facility do
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
+      created_by_id: created_by_id,
       active: active
     }
   end
@@ -54,7 +56,8 @@ RSpec.describe MasterControl::Models::Facility do
       :aasm_state,
       :created_at,
       :updated_at,
-      :updated_by_id
+      :updated_by_id,
+      :created_by_id
     ].each do |attribute|
       context attribute do
         let(attribute) { nil }

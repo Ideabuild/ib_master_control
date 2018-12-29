@@ -6,7 +6,8 @@ module MasterControl
         :id,
         :name,
         :system_code,
-        :updated_by_id
+        :updated_by_id,
+        :created_by_id
 
 
       class << self
@@ -23,7 +24,8 @@ module MasterControl
               system_code: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
-              updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+              updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              created_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
             },
             required: [
               :canonical_klass,
@@ -34,7 +36,8 @@ module MasterControl
               :system_code,
               :created_at,
               :updated_at,
-              :updated_by_id
+              :updated_by_id,
+              :created_by_id
             ],
             additionalProperties: false
           }.to_json
