@@ -7,7 +7,8 @@ RSpec.describe MasterControl::Models::Provider do
                           ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::Provider' }
-  let(:version) { '1.0.0' }
+  let(:master_control_version) { '1.0.0' }
+  let(:version) { 1 }
   let(:customer_id) { SecureRandom.uuid }
   let(:id) { SecureRandom.uuid }
   let(:title) { 'Dr.' }
@@ -20,6 +21,7 @@ RSpec.describe MasterControl::Models::Provider do
   let(:provider) do
     {
       canonical_klass: canonical_klass,
+      master_control_version: master_control_version,
       version: version,
       customer_id: customer_id,
       id: id,
@@ -44,6 +46,7 @@ RSpec.describe MasterControl::Models::Provider do
     [
       :canonical_klass,
       :id,
+      :master_control_version,
       :version,
       :first_name,
       :last_name,

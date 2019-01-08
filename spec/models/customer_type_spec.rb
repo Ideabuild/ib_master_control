@@ -5,7 +5,8 @@ RSpec.describe MasterControl::Models::CustomerType do
   NULLEABLE_ATTRIBUTES = [].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::CustomerType' }
-  let(:version) { '1.0.0' }
+  let(:master_control_version) { '1.0.0' }
+  let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:system_code) { 'billing' }
@@ -18,6 +19,7 @@ RSpec.describe MasterControl::Models::CustomerType do
   let(:customer_type) do
     {
       canonical_klass: canonical_klass,
+      master_control_version: master_control_version,
       version: version,
       id: id,
       name: name,
@@ -42,6 +44,7 @@ RSpec.describe MasterControl::Models::CustomerType do
     [
       :canonical_klass,
       :id,
+      :master_control_version,
       :version,
       :name,
       :system_code,

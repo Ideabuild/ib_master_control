@@ -23,7 +23,8 @@ module MasterControl
             properties: {
               id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               canonical_klass: { type: 'string' },
-              version: { type: 'string' },
+              master_control_version: { type: 'string' },
+              version: { type: 'integer' },
               active: { type: 'boolean' },
               email: { type: 'string' },
               first_name: { type: 'string' },
@@ -57,6 +58,7 @@ module MasterControl
             },
             required: [
               :canonical_klass,
+              :master_control_version,
               :version,
               :id,
               :active,

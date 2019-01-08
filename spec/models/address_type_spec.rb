@@ -5,7 +5,8 @@ RSpec.describe MasterControl::Models::AddressType do
   NULLEABLE_ATTRIBUTES = [].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::AddressType' }
-  let(:version) { '1.0.0' }
+  let(:master_control_version) { '1.0.0' }
+  let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:system_code) { 'billing' }
@@ -18,6 +19,7 @@ RSpec.describe MasterControl::Models::AddressType do
   let(:address_type) do
     {
       canonical_klass: canonical_klass,
+      master_control_version: master_control_version,
       version: version,
       id: id,
       name: name,

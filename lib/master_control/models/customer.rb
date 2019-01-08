@@ -24,7 +24,8 @@ module MasterControl
             type: 'object',
             properties: {
               canonical_klass: { type: 'string' },
-              version: { type: 'string' },
+              master_control_version: { type: 'string' },
+              version: { type: 'integer' },
               id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               name: { type: 'string' },
               npi: { type: 'string' },
@@ -40,6 +41,7 @@ module MasterControl
             },
             required: [
               :canonical_klass,
+              :master_control_version,
               :version,
               :id,
               :name,

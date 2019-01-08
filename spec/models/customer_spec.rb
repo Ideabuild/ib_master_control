@@ -3,7 +3,8 @@ require 'spec_helper'
 
 RSpec.describe MasterControl::Models::Customer do
   let(:canonical_klass) { 'MasterControl::Models::Customer' }
-  let(:version) { '1.1.0' }
+  let(:master_control_version) { '1.0.0' }
+  let(:version) { 1 }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:id) { SecureRandom.uuid }
@@ -20,6 +21,7 @@ RSpec.describe MasterControl::Models::Customer do
   let(:customer) do
     {
       canonical_klass: canonical_klass,
+      master_control_version: master_control_version,
       version: version,
       created_at: created_at,
       updated_at: updated_at,

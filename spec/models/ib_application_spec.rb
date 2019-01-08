@@ -5,7 +5,8 @@ RSpec.describe MasterControl::Models::IbApplication do
   NULLEABLE_ATTRIBUTES = [].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::IbApplication' }
-  let(:version) { '1.0.0' }
+  let(:master_control_version) { '1.0.0' }
+  let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:name) { 'AMD Integrator' }
   let(:system_code) { 'AMD_INTEGRATOR' }
@@ -18,6 +19,7 @@ RSpec.describe MasterControl::Models::IbApplication do
   let(:ib_application) do
     {
       canonical_klass: canonical_klass,
+      master_control_version: master_control_version,
       version: version,
       id: id,
       name: name,
@@ -42,6 +44,7 @@ RSpec.describe MasterControl::Models::IbApplication do
     [
       :canonical_klass,
       :id,
+      :master_control_version,
       :version,
       :name,
       :system_code,

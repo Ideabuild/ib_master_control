@@ -4,12 +4,12 @@ module MasterControl
     class Base < ActiveModel::Serializer
       attributes \
         :canonical_klass,
-        :version
+        :master_control_version
 
       attribute :created_at_string, key: :created_at
       attribute :updated_at_string, key: :updated_at
 
-      def version
+      def master_control_version
         MasterControl::VERSION
       end
 

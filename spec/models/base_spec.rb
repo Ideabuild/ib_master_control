@@ -7,6 +7,6 @@ RSpec.describe MasterControl::Models::Base do
     let(:object) { OpenStruct.new(version: MasterControl::VERSION, created_at: Time.now, updated_at: Time.now) }
     let(:attributes) { subject.attributes }
 
-    specify { expect(attributes[:version]).to eq MasterControl::VERSION }
+    specify { expect(attributes[:master_control_version]).to eq MasterControl::VERSION }
   end
 end

@@ -18,7 +18,8 @@ RSpec.describe MasterControl::Models::Guarantor do
                           :last_modified].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::Guarantor' }
-  let(:version) { '1.0.0' }
+  let(:master_control_version) { '1.0.0' }
+  let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:address_1) { Faker::Address.street_address }
   let(:address_2) { Faker::Address.secondary_address }
@@ -38,6 +39,7 @@ RSpec.describe MasterControl::Models::Guarantor do
   let(:guarantor) do
     {
       canonical_klass: canonical_klass,
+      master_control_version: master_control_version,
       version: version,
       id: id,
       address_1: address_1,
@@ -68,6 +70,7 @@ RSpec.describe MasterControl::Models::Guarantor do
   describe 'required attributes (not nil)' do
     [
       :canonical_klass,
+      :master_control_version,
       :version,
       :id,
       :created_at,

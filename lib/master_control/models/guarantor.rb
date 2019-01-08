@@ -25,7 +25,8 @@ module MasterControl
             properties: {
               id: { type: 'string' },
               canonical_klass: { type: 'string' },
-              version: { type: 'string' },
+              master_control_version: { type: 'string' },
+              version: { type: 'integer' },
               customer_id: { type: ['string', 'null'] },
               customer_key: { type: 'string' },
               first_name: { type: ['string', 'null'] },
@@ -44,6 +45,7 @@ module MasterControl
             },
             required: [
               :canonical_klass,
+              :master_control_version,
               :version,
               :id,
               :created_at,

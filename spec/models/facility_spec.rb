@@ -5,7 +5,8 @@ RSpec.describe MasterControl::Models::Facility do
   NULLEABLE_ATTRIBUTES = [].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::Facility' }
-  let(:version) { '1.0.0' }
+  let(:master_control_version) { '1.0.0' }
+  let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:name) { Faker::Company.name }
   let(:customer_id) { SecureRandom.uuid }
@@ -21,6 +22,7 @@ RSpec.describe MasterControl::Models::Facility do
   let(:facility) do
     {
       canonical_klass: canonical_klass,
+      master_control_version: master_control_version,
       version: version,
       id: id,
       name: name,
@@ -48,6 +50,7 @@ RSpec.describe MasterControl::Models::Facility do
     [
       :canonical_klass,
       :id,
+      :master_control_version,
       :version,
       :name,
       :customer_id,

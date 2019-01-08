@@ -17,7 +17,8 @@ module MasterControl
             type: 'object',
             properties: {
               canonical_klass: { type: 'string' },
-              version: { type: 'string' },
+              master_control_version: { type: 'string' },
+              version: { type: 'integer' },
               id: { type: 'string' },
               title: { type: ['string', 'null'] },
               first_name: { type: 'string' },
@@ -29,6 +30,7 @@ module MasterControl
             },
             required: [
               :canonical_klass,
+              :master_control_version,
               :version,
               :id,
               :first_name,

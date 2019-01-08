@@ -15,7 +15,8 @@ RSpec.describe MasterControl::Models::Address do
   ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::Address' }
-  let(:version) { '1.0.0' }
+  let(:version) { 1 }
+  let(:master_control_version) { '1.0.0' }
   let(:id) { SecureRandom.uuid }
   let(:street1) { Faker::Address.street_address }
   let(:street2) { Faker::Address.secondary_address }
@@ -42,6 +43,7 @@ RSpec.describe MasterControl::Models::Address do
   let(:address) do
     {
       canonical_klass: canonical_klass,
+      master_control_version: master_control_version,
       version: version,
       id: id,
       street1: street1,
@@ -80,6 +82,7 @@ RSpec.describe MasterControl::Models::Address do
     [
       :canonical_klass,
       :id,
+      :master_control_version,
       :version,
       :street1,
       :city,
