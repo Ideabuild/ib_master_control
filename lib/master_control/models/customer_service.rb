@@ -5,7 +5,9 @@ module MasterControl
       attributes \
         :id,
         :customer_id,
-        :service_line_id,
+        :customer_service_line_id,
+        :service_id,
+        :service_level_id,
         :name,
         :system_code,
         :version,
