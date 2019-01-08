@@ -15,7 +15,9 @@ module MasterControl
         :state,
         :zip,
         :zip_plus_four,
-        :phone
+        :version,
+        :phone,
+        :active
 
       class << self
         # rubocop:disable Metrics/MethodLength

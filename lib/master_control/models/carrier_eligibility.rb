@@ -14,8 +14,12 @@ module MasterControl
         :secondary_supported,
         :blue_ink_required,
         :message,
+        :version,
+        :created_at,
+        :updated_at,
         :updated_by_id,
-        :created_by_id
+        :created_by_id,
+        :active
 
 
       class << self

@@ -9,6 +9,9 @@ module MasterControl
         :facility_type_id,
         :facility_type_name,
         :aasm_state,
+        :version,
+        :created_at,
+        :updated_at,
         :updated_by_id,
         :created_by_id,
         :active

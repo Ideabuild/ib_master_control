@@ -7,8 +7,12 @@ module MasterControl
         :name,
         :system_code,
         :order,
+        :version,
+        :created_at,
+        :updated_at,
         :updated_by_id,
-        :created_by_id
+        :created_by_id,
+        :active
 
 
       class << self

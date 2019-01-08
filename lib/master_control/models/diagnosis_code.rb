@@ -8,8 +8,12 @@ module MasterControl
         :code,
         :codeset,
         :search_terms,
+        :version,
+        :created_at,
+        :updated_at,
         :updated_by_id,
-        :created_by_id
+        :created_by_id,
+        :active
 
 
       class << self

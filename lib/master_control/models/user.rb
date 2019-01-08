@@ -10,6 +10,9 @@ module MasterControl
         :last_name,
         :aasm_state,
         :customer_id,
+        :version,
+        :created_at,
+        :updated_at,
         :updated_by_id,
         :created_by_id
 

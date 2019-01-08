@@ -13,8 +13,12 @@ module MasterControl
         :chart_number,
         :is_deceased,
         :ssn,
+        :version,
         :created_at,
-        :updated_at
+        :updated_at,
+        :created_at,
+        :updated_at,
+        :active
 
       class << self
         # rubocop:disable Metrics/MethodLength

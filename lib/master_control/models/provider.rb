@@ -8,7 +8,8 @@ module MasterControl
         :first_name,
         :last_name,
         :npi,
-        :customer_id
+        :customer_id,
+        :active
 
       class << self
         # rubocop:disable Metrics/MethodLength

@@ -15,8 +15,12 @@ module MasterControl
         :longitude,
         :is_daylight_savings,
         :msa_code,
+        :version,
+        :created_at,
+        :updated_at,
         :updated_by_id,
-        :created_by_id
+        :created_by_id,
+        :active
 
 
       class << self
