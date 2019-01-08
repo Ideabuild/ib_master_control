@@ -10,6 +10,7 @@ module MasterControl
         :owner_id,
         :management_customer_id,
         :active,
+        :version,
         :created_at,
         :updated_at,
         :customer_type_id,
