@@ -1,41 +1,52 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::Provider do
+RSpec.describe MasterControl::Models::Taxonomy do
   NULLEABLE_ATTRIBUTES = [
-                          :title
-                          ].freeze
+    :definition,
+    :notes
+  ].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::Provider' }
+  let(:canonical_klass) { 'MasterControl::Models::Taxonomy' }
   let(:master_control_version) { '1.0.0' }
   let(:version) { 1 }
-  let(:customer_id) { SecureRandom.uuid }
   let(:id) { SecureRandom.uuid }
-  let(:title) { 'Dr.' }
-  let(:first_name) { Faker::Name.first_name }
-  let(:last_name) { Faker::Name.last_name }
-  let(:npi) { '01164749' }
+  let(:taxonomy_code) { 'Code 12' }
+  let(:taxonomy_type) { 'Simple' }
+  let(:taxonomy_classification) { 'General' }
+  let(:taxonomy_specialization) { 'Hindsight' }
+  let(:definition) { "long definition" }
+  let(:notes) { 'Some notes' }
+  let(:search_terms) { 'terms here and there '}
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
+  let(:updated_by_id) { SecureRandom.uuid }
+  let(:created_by_id) { SecureRandom.uuid }
+  let(:active) { true }
 
-  let(:provider) do
+  let(:taxonomy_object) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
       version: version,
-      customer_id: customer_id,
       id: id,
-      title: title,
-      first_name: first_name,
-      last_name: last_name,
-      npi: npi,
+      taxonomy_code: taxonomy_code,
+      taxonomy_type: taxonomy_type,
+      taxonomy_classification: taxonomy_classification,
+      taxonomy_specialization: taxonomy_specialization,
+      definition: definition,
+      notes: notes,
+      search_terms: search_terms,
       created_at: created_at,
-      updated_at: updated_at
+      updated_at: updated_at,
+      updated_by_id: updated_by_id,
+      created_by_id: created_by_id,
+      active: active
     }
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::Provider.json_schema, provider)
+    JSON::Validator.validate!(MasterControl::Models::Taxonomy.json_schema, taxonomy_object)
   end
 
   context 'happy path' do
@@ -48,11 +59,16 @@ RSpec.describe MasterControl::Models::Provider do
       :id,
       :master_control_version,
       :version,
-      :first_name,
-      :last_name,
-      :npi,
+      :active,
+      :taxonomy_code,
+      :taxonomy_type,
+      :taxonomy_classification,
+      :taxonomy_specialization,
+      :search_terms,
       :created_at,
-      :updated_at
+      :updated_at,
+      :updated_by_id,
+      :created_by_id
     ].each do |attribute|
       context attribute do
         let(attribute) { nil }

@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class FacilityType < MasterControl::Models::Base
+    class TaxonomiesInsuranceServiceType < MasterControl::Models::Base
       attributes \
         :id,
-        :name,
-        :system_code,
-        :definition,
+        :taxonomy_id,
+        :insurance_service_type_id,
         :version,
         :created_at,
         :updated_at,
@@ -26,9 +25,8 @@ module MasterControl
               master_control_version: { type: 'string' },
               version: { type: 'integer' },
               active: { type: 'boolean' },
-              name: { type: 'string' },
-              system_code: { type: 'string' },
-              definition: { type: 'string' },
+              taxonomy_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              insurance_service_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -40,9 +38,8 @@ module MasterControl
               :version,
               :id,
               :active,
-              :name,
-              :definition,
-              :system_code,
+              :taxonomy_id,
+              :insurance_service_type_id,
               :created_at,
               :updated_at,
               :updated_by_id,

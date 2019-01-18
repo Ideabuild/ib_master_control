@@ -1,31 +1,30 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::FacilityType do
-  NULLEABLE_ATTRIBUTES = [].freeze
+RSpec.describe MasterControl::Models::TaxonomiesInsuranceServiceType do
+  NULLEABLE_ATTRIBUTES = [
+  ].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::FacilityType' }
+  let(:canonical_klass) { 'MasterControl::Models::TaxonomiesInsuranceServiceType' }
   let(:master_control_version) { '1.0.0' }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:name) { 'Billing' }
-  let(:system_code) { 'billing' }
-  let(:definition) { 'A definition' }
+  let(:taxonomy_id) { SecureRandom.uuid }
+  let(:insurance_service_type_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:facility_type) do
+  let(:taxonomies_insurance_service_type_object) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
       version: version,
       id: id,
-      name: name,
-      system_code: system_code,
-      definition: definition,
+      taxonomy_id: taxonomy_id,
+      insurance_service_type_id: insurance_service_type_id,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -35,7 +34,7 @@ RSpec.describe MasterControl::Models::FacilityType do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::FacilityType.json_schema, facility_type)
+    JSON::Validator.validate!(MasterControl::Models::TaxonomiesInsuranceServiceType.json_schema, taxonomies_insurance_service_type_object)
   end
 
   context 'happy path' do
@@ -48,9 +47,9 @@ RSpec.describe MasterControl::Models::FacilityType do
       :id,
       :master_control_version,
       :version,
-      :name,
-      :system_code,
-      :definition,
+      :active,
+      :taxonomy_id,
+      :insurance_service_type_id,
       :created_at,
       :updated_at,
       :updated_by_id,
