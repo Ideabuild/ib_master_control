@@ -47,7 +47,7 @@ RSpec.describe MasterControl::Authentication::Service do
       it 'raises exception' do
         expect { subject.payload_for(token) }.to raise_error(MasterControl::Exceptions::AccessDeniedError)
       end
-    end
+    end 
 
     context 'with VALID expired token' do
       let(:token_expiration) {  1.hour.ago.to_i }

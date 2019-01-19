@@ -17,6 +17,7 @@ module MasterControl
         :created_by_id
 
       attribute :roles
+      attribute :ib_applications
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -71,6 +72,7 @@ module MasterControl
               :aasm_state,
               :customer_id,
               :roles,
+              :ib_applications,
               :created_at,
               :updated_at,
               :updated_by_id,
