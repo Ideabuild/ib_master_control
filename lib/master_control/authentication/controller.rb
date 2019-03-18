@@ -21,8 +21,8 @@ module MasterControl
 
       def authenticate_user!
         return true if current_user
-        puts "----------------request.headers['Authorization']: ${request.headers['Authorization']}"
-        puts "----------------request.headers['authorization']: ${request.headers['authorization']}"
+        puts "----------------request.headers['Authorization']: #{request.headers['Authorization']}"
+        puts "----------------request.headers['authorization']: #{request.headers['authorization']}"
         
         authenticate_user(request.headers['Authorization']) ||
           raise(MasterControl::Exceptions::AccessDeniedError)
