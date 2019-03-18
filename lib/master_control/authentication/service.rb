@@ -8,6 +8,7 @@ module MasterControl
 
       def payload_for(token)
         payload = decode(token).first
+        puts "-----------decoded payload: #{payload}"
         verify_expiration(payload['exp'])
 
         data = payload['data'].with_indifferent_access

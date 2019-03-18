@@ -40,8 +40,9 @@ module MasterControl
         return nil if authorization_header.blank?
 
         token = authorization_header.split(' ').last
+        puts "-------------token: #{token}"
         payload = authentication_service.payload_for(token)
-
+        puts "-------------payload: #{payload}"
         @current_user = ensure_user(payload)
       end
 
