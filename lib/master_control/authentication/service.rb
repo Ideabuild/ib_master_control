@@ -11,7 +11,7 @@ module MasterControl
         puts "-----------decoded payload: #{payload}"
         verify_expiration(payload['exp'])
 
-        data = payload['data'].with_indifferent_access
+        data = ActiveSupport::JSON.decode(payload['data']).with_indifferent_access
 
         verify(data)
         transform(data)
