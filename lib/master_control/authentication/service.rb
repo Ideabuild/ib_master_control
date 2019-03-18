@@ -91,7 +91,8 @@ module MasterControl
       end
 
       def find_app_in(payload)
-        payload[:applications].detect { |item| item[:key] == application_key }
+        puts "------------------payload[:applications]: #{payload[:applications]}"
+        payload[:applications].detect { |item| item == application_key }
       end
     end
   end
