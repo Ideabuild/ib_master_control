@@ -14,7 +14,7 @@ module MasterControl
         data = payload['data'].with_indifferent_access
 
         verify(data)
-        transform(data)
+        # transform(data)
       end
 
       private
