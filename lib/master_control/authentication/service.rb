@@ -14,7 +14,7 @@ module MasterControl
         data = payload['data'].with_indifferent_access
 
         verify(data)
-        # transform(data)
+        data
       end
 
       private
@@ -83,7 +83,7 @@ module MasterControl
       end
 
       def transform(payload)
-        payload.merge(roles: find_app_in(payload)[:roles]).except(:applications)
+        payload.merge(roles: payload[:roles]).except(:applications)
       end
 
       def application_key
