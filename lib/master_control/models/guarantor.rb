@@ -28,6 +28,7 @@ module MasterControl
               id: { type: 'string' },
               canonical_klass: { type: 'string' },
               master_control_version: { type: 'string' },
+              is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
               customer_id: { type: ['string', 'null'] },
               customer_key: { type: 'string' },
@@ -48,6 +49,7 @@ module MasterControl
             required: [
               :canonical_klass,
               :master_control_version,
+              :is_sync_update,
               :version,
               :id,
               :created_at,

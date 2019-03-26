@@ -27,6 +27,7 @@ module MasterControl
               service_line_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               canonical_klass: { type: 'string' },
               master_control_version: { type: 'string' },
+              is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
               active: { type: 'boolean' },
               name: { type: 'string' },
@@ -39,6 +40,7 @@ module MasterControl
             required: [
               :canonical_klass,
               :master_control_version,
+              :is_sync_update,
               :version,
               :id,
               :customer_id,

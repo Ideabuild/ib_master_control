@@ -17,6 +17,7 @@ RSpec.describe MasterControl::Models::Address do
   let(:canonical_klass) { 'MasterControl::Models::Address' }
   let(:version) { 1 }
   let(:master_control_version) { '1.0.0' }
+  let(:is_sync_update) { true }
   let(:id) { SecureRandom.uuid }
   let(:street1) { Faker::Address.street_address }
   let(:street2) { Faker::Address.secondary_address }
@@ -44,6 +45,7 @@ RSpec.describe MasterControl::Models::Address do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
+      is_sync_update: is_sync_update,
       version: version,
       id: id,
       street1: street1,
@@ -83,6 +85,7 @@ RSpec.describe MasterControl::Models::Address do
       :canonical_klass,
       :id,
       :master_control_version,
+      :is_sync_update,
       :version,
       :street1,
       :city,

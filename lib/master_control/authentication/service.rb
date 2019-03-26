@@ -8,7 +8,6 @@ module MasterControl
 
       def payload_for(token)
         payload = decode(token).first
-        puts "-----------decoded payload: #{payload}"
         verify_expiration(payload['exp'])
 
         data = payload['data'].with_indifferent_access
@@ -91,7 +90,6 @@ module MasterControl
       end
 
       def find_app_in(payload)
-        puts "------------------payload[:applications]: #{payload[:applications]}"
         payload[:applications].detect { |item| item == application_key }
       end
     end

@@ -31,6 +31,7 @@ module MasterControl
             properties: {
               canonical_klass: { type: 'string' },
               master_control_version: { type: 'string' },
+              is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
               id: { type: 'string' },
               name: { type: ['string'] },
@@ -57,6 +58,7 @@ module MasterControl
             required: [
               :canonical_klass,
               :master_control_version,
+              :is_sync_update,
               :version,
               :id,
               :name,

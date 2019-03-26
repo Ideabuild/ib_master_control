@@ -87,12 +87,7 @@ RSpec.describe MasterControl::Authentication::Service do
       active: true,
       roles: ['data_entry'],
       applications: [
-        {
-          key: options[:application],
-          roles: [
-            'data_entry'
-          ]
-        }
+       options[:application]
       ],
       permissions: {
         billing_providers: '-',

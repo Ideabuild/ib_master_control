@@ -6,6 +6,7 @@ RSpec.describe MasterControl::Models::Medication do
 
   let(:canonical_klass) { 'MasterControl::Models::Medication' }
   let(:master_control_version) { '1.0.0' }
+  let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
@@ -27,6 +28,7 @@ RSpec.describe MasterControl::Models::Medication do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
+      is_sync_update: is_sync_update,
       version: version,
       id: id,
       name: name,
@@ -59,6 +61,7 @@ RSpec.describe MasterControl::Models::Medication do
       :canonical_klass,
       :id,
       :master_control_version,
+      :is_sync_update,
       :version,
       :name,
       :generic_name,

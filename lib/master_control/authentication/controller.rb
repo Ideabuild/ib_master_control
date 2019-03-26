@@ -21,8 +21,6 @@ module MasterControl
 
       def authenticate_user!
         return true if current_user
-        puts "----------------request.headers['Authorization']: #{request.headers['Authorization']}"
-        puts "----------------request.headers['authorization']: #{request.headers['authorization']}"
         
         authenticate_user(request.headers['Authorization']) ||
           raise(MasterControl::Exceptions::AccessDeniedError)
@@ -40,9 +38,7 @@ module MasterControl
         return nil if authorization_header.blank?
 
         token = authorization_header.split(' ').last
-        puts "-------------token: #{token}"
         payload = authentication_service.payload_for(token)
-        puts "-------------payload: #{payload}"
         @current_user = ensure_user(payload)
       end
 

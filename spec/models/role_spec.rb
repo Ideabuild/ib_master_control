@@ -9,6 +9,7 @@ RSpec.describe MasterControl::Models::Role do
 
   let(:canonical_klass) { 'MasterControl::Models::Provider' }
   let(:master_control_version) { '1.0.0' }
+  let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:name) { 'sys_admin' }
@@ -26,6 +27,7 @@ RSpec.describe MasterControl::Models::Role do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
+      is_sync_update: is_sync_update,
       version: version,
       id: id,
       name: name,
@@ -54,6 +56,7 @@ RSpec.describe MasterControl::Models::Role do
       :canonical_klass,
       :id,
       :master_control_version,
+      :is_sync_update,
       :version,
       :name,
       :display_name,

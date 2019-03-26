@@ -6,6 +6,7 @@ RSpec.describe MasterControl::Models::CustomerService do
 
   let(:canonical_klass) { 'MasterControl::Models::CustomerService' }
   let(:master_control_version) { '1.0.0' }
+  let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:customer_id) { SecureRandom.uuid }
@@ -24,6 +25,7 @@ RSpec.describe MasterControl::Models::CustomerService do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
+      is_sync_update: is_sync_update,
       version: version,
       id: id,
       customer_id: customer_id,
@@ -57,6 +59,7 @@ RSpec.describe MasterControl::Models::CustomerService do
       :service_level_id,
       :service_id,
       :master_control_version,
+      :is_sync_update,
       :version,
       :name,
       :system_code,

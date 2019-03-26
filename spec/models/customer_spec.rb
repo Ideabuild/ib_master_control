@@ -4,6 +4,7 @@ require 'spec_helper'
 RSpec.describe MasterControl::Models::Customer do
   let(:canonical_klass) { 'MasterControl::Models::Customer' }
   let(:master_control_version) { '1.0.0' }
+  let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
@@ -22,6 +23,7 @@ RSpec.describe MasterControl::Models::Customer do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
+      is_sync_update: is_sync_update,
       version: version,
       created_at: created_at,
       updated_at: updated_at,
@@ -49,6 +51,8 @@ RSpec.describe MasterControl::Models::Customer do
   describe 'required attributes (not nil)' do
     [
       :canonical_klass,
+      :master_control_version,
+      :is_sync_update,
       :version,
       :created_at,
       :updated_at,

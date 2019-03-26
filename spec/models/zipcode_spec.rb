@@ -6,6 +6,7 @@ RSpec.describe MasterControl::Models::Zipcode do
 
   let(:canonical_klass) { 'MasterControl::Models::Zipcode' }
   let(:master_control_version) { '1.0.0' }
+  let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:zipcode) { '95403' }
@@ -29,6 +30,7 @@ RSpec.describe MasterControl::Models::Zipcode do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
+      is_sync_update: is_sync_update,
       version: version,
       id: id,
       zipcode: zipcode,
@@ -63,6 +65,7 @@ RSpec.describe MasterControl::Models::Zipcode do
       :canonical_klass,
       :id,
       :master_control_version,
+      :is_sync_update,
       :version,
       :zipcode,
       :city_id,

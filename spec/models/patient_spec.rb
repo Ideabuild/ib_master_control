@@ -6,6 +6,7 @@ RSpec.describe MasterControl::Models::Patient do
 
   let(:canonical_klass) { 'MasterControl::Models::Patient' }
   let(:master_control_version) { '1.0.0' }
+  let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:customer_id) { SecureRandom.uuid }
   let(:date_of_birth) { Faker::Date.backward(2500).to_s(:iso8601) }
@@ -25,6 +26,7 @@ RSpec.describe MasterControl::Models::Patient do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
+      is_sync_update: is_sync_update,
       version: version,
       customer_id: customer_id,
       first_name: first_name,
@@ -54,6 +56,7 @@ RSpec.describe MasterControl::Models::Patient do
     [
       :canonical_klass,
       :master_control_version,
+      :is_sync_update,
       :first_name,
       :last_name,
       :date_of_birth,

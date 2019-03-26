@@ -28,6 +28,7 @@ module MasterControl
             properties: {
               canonical_klass: { type: 'string' },
               master_control_version: { type: 'string' },
+              is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
               id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -47,6 +48,7 @@ module MasterControl
             required: [
               :canonical_klass,
               :master_control_version,
+              :is_sync_update,
               :version,
               :first_name,
               :last_name,
