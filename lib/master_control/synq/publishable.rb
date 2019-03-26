@@ -22,7 +22,9 @@ module MasterControl
         end
 
         def publish_upsert
-          publish(:upsert) unless previous_changes.empty?
+          if (!previous_changes.empty? && self.is_sync_update)
+            publish(:upsert) unless previous_changes.empty?
+          end
         end
 
         def publish_resolved
