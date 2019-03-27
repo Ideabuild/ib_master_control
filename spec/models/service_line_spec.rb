@@ -22,7 +22,6 @@ RSpec.describe MasterControl::Models::ServiceLine do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
-      is_sync_update: is_sync_update,
       version: version,
       id: id,
       name: name,
@@ -49,7 +48,6 @@ RSpec.describe MasterControl::Models::ServiceLine do
       :canonical_klass,
       :id,
       :master_control_version,
-      :is_sync_update,
       :version,
       :name,
       :system_code,
