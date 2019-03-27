@@ -17,7 +17,8 @@ module MasterControl
         :customer_type_id,
         :customer_type_name,
         :updated_by_id,
-        :created_by_id
+        :created_by_id,
+        :ib_applications
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -39,6 +40,16 @@ module MasterControl
               active: { type: 'boolean' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
+              ib_applications: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+                    name: { type: 'string' }
+                  }
+                }
+              },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               created_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
             },
@@ -58,7 +69,8 @@ module MasterControl
               :customer_type_id,
               :customer_type_name,
               :updated_by_id,
-              :created_by_id
+              :created_by_id,
+              :ib_applications
             ],
             additionalProperties: false
           }.to_json
