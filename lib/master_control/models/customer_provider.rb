@@ -21,6 +21,7 @@ module MasterControl
         :provider_type,
         :customer_id,
         :provider_id,
+        :is_sync_update,
         :active
 
       class << self

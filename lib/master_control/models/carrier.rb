@@ -8,6 +8,7 @@ module MasterControl
         :carrier_type_id,
         :carrier_family_id,
         :version,
+        :is_sync_update,
         :created_at,
         :updated_at,
         :updated_by_id,

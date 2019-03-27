@@ -10,6 +10,7 @@ module MasterControl
         :resource_type,
         :is_client_selectable,
         :version,
+        :is_sync_update,
         :created_at,
         :updated_at,
         :updated_by_id,

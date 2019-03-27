@@ -11,6 +11,7 @@ module MasterControl
         :management_customer_id,
         :active,
         :version,
+        :is_sync_update,
         :created_at,
         :updated_at,
         :customer_type_id,

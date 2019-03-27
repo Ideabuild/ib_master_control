@@ -16,6 +16,7 @@ module MasterControl
         :zip,
         :zip_plus_four,
         :version,
+        :is_sync_update,
         :phone,
         :active
 

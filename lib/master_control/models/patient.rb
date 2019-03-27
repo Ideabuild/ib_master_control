@@ -14,6 +14,7 @@ module MasterControl
         :is_deceased,
         :ssn,
         :version,
+        :is_sync_update,
         :created_at,
         :updated_at,
         :created_at,

@@ -15,6 +15,7 @@ module MasterControl
         :blue_ink_required,
         :message,
         :version,
+        :is_sync_update,
         :created_at,
         :updated_at,
         :updated_by_id,

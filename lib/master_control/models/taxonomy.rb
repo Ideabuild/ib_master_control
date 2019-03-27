@@ -12,6 +12,7 @@ module MasterControl
         :notes,
         :search_terms,
         :version,
+        :is_sync_update,
         :created_at,
         :updated_at,
         :updated_by_id,

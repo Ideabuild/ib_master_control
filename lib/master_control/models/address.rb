@@ -21,6 +21,7 @@ module MasterControl
         :parent_type,
         :address_type_id,
         :aasm_state,
+        :is_sync_update,
         :updated_by_id
 
 
