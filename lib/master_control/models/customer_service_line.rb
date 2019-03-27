@@ -52,7 +52,6 @@ module MasterControl
             required: [
               :canonical_klass,
               :master_control_version,
-              :is_sync_update,
               :version,
               :id,
               :customer_id,
