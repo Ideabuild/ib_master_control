@@ -5,17 +5,12 @@ module MasterControl
       attributes \
         :canonical_klass,
         :master_control_version
-        :is_sync_update
 
       attribute :created_at_string, key: :created_at
       attribute :updated_at_string, key: :updated_at
 
       def master_control_version
         MasterControl::VERSION
-      end
-
-      def is_sync_update
-        true
       end
 
       def canonical_klass
