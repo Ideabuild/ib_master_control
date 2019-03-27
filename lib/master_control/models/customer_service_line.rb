@@ -15,6 +15,7 @@ module MasterControl
         :created_by_id,
         :active
 
+      attribute :customer_services
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -35,7 +36,18 @@ module MasterControl
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              created_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+              created_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              customer_services: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+                    name: { type: 'string' },
+                    system_code: { type: 'string' }
+                  }
+                }
+              }
             },
             required: [
               :canonical_klass,
@@ -48,6 +60,7 @@ module MasterControl
               :active,
               :name,
               :system_code,
+              :customer_services,
               :created_at,
               :updated_at,
               :updated_by_id,

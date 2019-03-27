@@ -9,8 +9,6 @@ RSpec.describe MasterControl::Models::Service do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:service_line_id) { SecureRandom.uuid }
-  let(:service_level_id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:system_code) { 'billing' }
   let(:created_at) { Time.now.to_s(:iso8601) }
@@ -26,8 +24,6 @@ RSpec.describe MasterControl::Models::Service do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      service_line_id: service_line_id,
-      service_level_id: service_level_id,
       name: name,
       system_code: system_code,
       created_at: created_at,
@@ -50,8 +46,6 @@ RSpec.describe MasterControl::Models::Service do
     [
       :canonical_klass,
       :id,
-      :service_line_id,
-      :service_level_id,
       :master_control_version,
       :is_sync_update,
       :version,

@@ -4,8 +4,6 @@ module MasterControl
     class Service < MasterControl::Models::Base
       attributes \
         :id,
-        :service_line_id,
-        :service_level_id,
         :name,
         :system_code,
         :version,
@@ -25,8 +23,6 @@ module MasterControl
               id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_service_line_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              service_line_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              service_level_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               canonical_klass: { type: 'string' },
               master_control_version: { type: 'string' },
               is_sync_update: { type: 'boolean' },
@@ -45,8 +41,6 @@ module MasterControl
               :is_sync_update,
               :version,
               :id,
-              :service_line_id,
-              :service_level_id,
               :active,
               :name,
               :system_code,

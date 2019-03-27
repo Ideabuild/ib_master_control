@@ -17,6 +17,7 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
+  let(:customer_services) { [{ id: SecureRandom.uuid, name: 'A service', system_code: 'a_service' }] }
   let(:active) { true }
 
   let(:customer_service_line) do
@@ -30,6 +31,7 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       service_line_id: service_line_id,
       name: name,
       system_code: system_code,
+      customer_services: customer_services,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -57,6 +59,7 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       :version,
       :name,
       :system_code,
+      :customer_services,
       :created_at,
       :updated_at,
       :updated_by_id,
