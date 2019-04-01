@@ -10,9 +10,6 @@ RSpec.describe MasterControl::Models::County do
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:name) { "happy Town" }
-  let(:fips_code) { 'blue' }
-  let(:ansi_code) { 'blue' }
-  let(:state_fips_code) { '124' }
   let(:state_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
@@ -28,9 +25,6 @@ RSpec.describe MasterControl::Models::County do
       version: version,
       id: id,
       name: name,
-      fips_code: fips_code,
-      ansi_code: ansi_code,
-      state_fips_code: state_fips_code,
       state_id: state_id,
       created_at: created_at,
       updated_at: updated_at,

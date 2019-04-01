@@ -1,24 +1,23 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::Carrier do
+RSpec.describe MasterControl::Models::InsuranceServiceType do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::Carrier' }
+  let(:canonical_klass) { 'MasterControl::Models::InsuranceServiceType' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
-  let(:carrier_type_name) { 'Evil' }
-  let(:carrier_family_name) { 'Greedy' }
+  let(:system_code) { 'billing' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:carrier) do
+  let(:assessment_type) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
@@ -26,8 +25,7 @@ RSpec.describe MasterControl::Models::Carrier do
       version: version,
       id: id,
       name: name,
-      carrier_type_name: carrier_type_name,
-      carrier_family_name: carrier_family_name,
+      system_code: system_code,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -37,7 +35,7 @@ RSpec.describe MasterControl::Models::Carrier do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::Carrier.json_schema, carrier)
+    JSON::Validator.validate!(MasterControl::Models::InsuranceServiceType.json_schema, assessment_type)
   end
 
   context 'happy path' do
@@ -52,8 +50,7 @@ RSpec.describe MasterControl::Models::Carrier do
       :is_sync_update,
       :version,
       :name,
-      :carrier_type_name,
-      :carrier_family_name,
+      :system_code,
       :created_at,
       :updated_at,
       :updated_by_id,

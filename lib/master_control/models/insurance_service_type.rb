@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class Carrier < MasterControl::Models::Base
+    class InsuranceServiceType < MasterControl::Models::Base
       attributes \
         :id,
         :name,
-        :carrier_type_name,
-        :carrier_family_name,
+        :system_code,
         :version,
         :is_sync_update,
         :created_at,
@@ -29,8 +28,7 @@ module MasterControl
               version: { type: 'integer' },
               active: { type: 'boolean' },
               name: { type: 'string' },
-              carrier_type_name: { type: 'string' },
-              carrier_family_name: { type: 'string' },
+              system_code: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -44,8 +42,7 @@ module MasterControl
               :id,
               :active,
               :name,
-              :carrier_type_name,
-              :carrier_family_name,
+              :system_code,
               :created_at,
               :updated_at,
               :updated_by_id,

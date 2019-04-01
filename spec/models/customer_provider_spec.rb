@@ -35,6 +35,7 @@ RSpec.describe MasterControl::Models::CustomerProvider do
   let(:other_middle_name) { Faker::Name.middle_name }
   let(:other_last_name) { Faker::Name.last_name }
   let(:provider_type) { "Individual" }
+  let(:external_reference_identifier) { "ZooBoy" }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:active) { true }
@@ -63,6 +64,7 @@ RSpec.describe MasterControl::Models::CustomerProvider do
       other_middle_name: other_middle_name,
       other_last_name: other_last_name,
       provider_type: provider_type,
+      external_reference_identifier: external_reference_identifier,
       created_at: created_at,
       updated_at: updated_at,
       active: active
@@ -91,6 +93,7 @@ RSpec.describe MasterControl::Models::CustomerProvider do
       :customer_id,
       :provider_id,
       :provider_type,
+      :external_reference_identifier,
       :created_at,
       :updated_at
     ].each do |attribute|
