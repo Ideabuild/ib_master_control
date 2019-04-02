@@ -16,6 +16,7 @@ RSpec.describe MasterControl::Models::Medication do
   let(:route) { 'billing' }
   let(:dose_form) { 'billing' }
   let(:additional_dose_information) { 'billing' }
+  let(:external_source_reference) { 'f-to-the-b' }
   let(:strength) { 'billing' }
   let(:search_terms) { 'billing' }
   let(:created_at) { Time.now.to_s(:iso8601) }
@@ -40,6 +41,7 @@ RSpec.describe MasterControl::Models::Medication do
       additional_dose_information: additional_dose_information,
       strength: strength,
       search_terms: search_terms,
+      external_source_reference: external_source_reference,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -70,6 +72,7 @@ RSpec.describe MasterControl::Models::Medication do
       :route,
       :dose_form,
       :additional_dose_information,
+      :external_source_reference,
       :strength,
       :search_terms,
       :created_at,
