@@ -63,7 +63,6 @@ module MasterControl
               :dose_form,
               :additional_dose_information,
               :strength,
-              :search_terms,
               :created_at,
               :updated_at,
               :updated_by_id,
