@@ -66,7 +66,6 @@ RSpec.describe MasterControl::Models::Taxonomy do
       :taxonomy_code,
       :taxonomy_type,
       :taxonomy_classification,
-      :taxonomy_specialization,
       :search_terms,
       :created_at,
       :updated_at,
