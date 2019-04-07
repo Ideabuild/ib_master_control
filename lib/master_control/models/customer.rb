@@ -18,7 +18,13 @@ module MasterControl
         :customer_type_name,
         :updated_by_id,
         :created_by_id,
-        :ib_applications
+        :ib_applications,
+        :amd_login_url,
+        :amd_username,
+        :amd_password_encrypted,
+        :amd_password_encrypted_iv,
+        :amd_office_key,
+        :amd_app_name
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -37,6 +43,12 @@ module MasterControl
               management_customer_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_type_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_type_name: { type: ['string'] },
+              amd_login_url: { type: ['string'] },
+              amd_username: { type: ['string'] },
+              amd_password_encrypted: { type: ['string'] },
+              amd_password_encrypted_iv: { type: ['string'] },
+              amd_office_key: { type: ['string'] },
+              amd_app_name: { type: ['string'] },
               active: { type: 'boolean' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },

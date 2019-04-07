@@ -17,6 +17,12 @@ RSpec.describe MasterControl::Models::Customer do
   let(:owner_id) { SecureRandom.uuid }
   let(:customer_type_name) { 'Rehab' }
   let(:ib_applications) { [{ id: SecureRandom.uuid, name: 'ib_authenticate' }] }
+  let(:amd_login_url) { 'https://partnerlogin.advancedmd.com' }
+  let(:amd_username) { 'API_FULL' }
+  let(:amd_password_encrypted) { 'password' }
+  let(:amd_password_encrypted_iv) { 'password' }
+  let(:amd_office_key) { '12365' }
+  let(:amd_app_name) { 'API' }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
 
@@ -38,7 +44,13 @@ RSpec.describe MasterControl::Models::Customer do
       customer_type_name: customer_type_name,
       updated_by_id: updated_by_id,
       created_by_id: created_by_id,
-      ib_applications: ib_applications
+      ib_applications: ib_applications,
+      amd_login_url: amd_login_url,
+      amd_username: amd_username,
+      amd_password_encrypted: amd_password_encrypted,
+      amd_password_encrypted_iv: amd_password_encrypted_iv,
+      amd_office_key: amd_office_key,
+      amd_app_name: amd_app_name
     }
   end
 
