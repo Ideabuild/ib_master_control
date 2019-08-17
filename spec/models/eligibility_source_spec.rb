@@ -11,6 +11,8 @@ RSpec.describe MasterControl::Models::EligibilitySource do
   let(:id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:system_code) { 'billing' }
+  let(:url) { 'http://pokitdok.com' }
+  let(:priority) { 1 }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -26,6 +28,8 @@ RSpec.describe MasterControl::Models::EligibilitySource do
       id: id,
       name: name,
       system_code: system_code,
+      url: url,
+      priority: priority,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -51,6 +55,8 @@ RSpec.describe MasterControl::Models::EligibilitySource do
       :version,
       :name,
       :system_code,
+      :url,
+      :priority,
       :created_at,
       :updated_at,
       :updated_by_id,
