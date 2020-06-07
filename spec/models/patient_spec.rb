@@ -15,7 +15,7 @@ RSpec.describe MasterControl::Models::Patient do
   let(:is_deceased) { false }
   let(:last_name) { Faker::Name.last_name }
   let(:middle_name) { 'Z' }
-  let(:chart_number) { Faker::Number.number(6) }
+  let(:chart_number) { 'TRRA0000' }
   let(:ssn) { Faker::IDNumber.valid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
