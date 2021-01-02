@@ -30,18 +30,18 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.test_files    = Dir["spec/**/*"]
 
-  spec.add_dependency "activejob", "~> 5.2.2"
+  spec.add_dependency "activejob", "~> 6.1.0"
   spec.add_dependency "active_model_serializers", "~> 0.10.4"
-  spec.add_dependency "activesupport", "~> 5.2.2"
+  spec.add_dependency "activesupport", "~> 6.1.0"
   spec.add_dependency "connection_pool", "~> 2.2.1"
   spec.add_dependency "json-schema", "~> 2.8.0"
   spec.add_dependency "jwt", "~> 2.1"
   spec.add_dependency "sneakers", "~> 2.4.0"
 
   spec.add_development_dependency "bump", "~> 0.5.3"
-  spec.add_development_dependency "bundler", "~> 1.13"
+  spec.add_development_dependency "bundler", "~> 2.1.4"
   spec.add_development_dependency "byebug", "~> 9.0.6"
-  spec.add_development_dependency "faker", "~> 1.7.2"
+  spec.add_development_dependency "faker", "~> 2.15.1"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.8"
   spec.add_development_dependency "rspec-rails", "~> 3.8"

@@ -26,7 +26,7 @@ RSpec.describe MasterControl::Models::Guarantor do
   let(:address_2) { Faker::Address.secondary_address }
   let(:city) { Faker::Address.city }
   let(:customer_id) { SecureRandom.uuid }
-  let(:last_modified) { Faker::Time.backward(14, :evening) }
+  let(:last_modified) { Faker::Time.backward(days: 14) }
   let(:first_name) { Faker::Name.first_name }
   let(:last_name) { Faker::Name.last_name }
   let(:middle_initial) { 'J' }

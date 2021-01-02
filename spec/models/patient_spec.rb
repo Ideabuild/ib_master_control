@@ -9,7 +9,7 @@ RSpec.describe MasterControl::Models::Patient do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:customer_id) { SecureRandom.uuid }
-  let(:date_of_birth) { Faker::Date.backward(2500).to_s(:iso8601) }
+  let(:date_of_birth) { Faker::Date.backward(days: 2500).to_s(:iso8601) }
   let(:first_name) { Faker::Name.first_name }
   let(:gender_id) { SecureRandom.uuid }
   let(:is_deceased) { false }

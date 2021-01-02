@@ -10,7 +10,7 @@ RSpec.describe MasterControl::Models::Customer do
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:id) { SecureRandom.uuid }
   let(:name) { Faker::Company.name }
-  let(:npi) { Faker::Lorem.sentence(3) }
+  let(:npi) { Faker::Lorem.sentence(word_count: 3) }
   let(:active) { true }
   let(:customer_type_id) { SecureRandom.uuid }
   let(:management_customer_id) { SecureRandom.uuid }

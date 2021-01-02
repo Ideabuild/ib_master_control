@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'master_control', path: '../../'
-gem 'rails', '~> 5.2.2'
+gem 'rails', '~> 6.1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
