@@ -1,7 +1,7 @@
 PATH
   remote: ../..
   specs:
-    master_control (1.1.0)
+    master_control (1.2.0)
       active_model_serializers (~> 0.10.4)
       activejob (~> 6.1.0)
       activesupport (~> 6.1.0)
@@ -87,7 +87,7 @@ GEM
     case_transform (0.2)
       activesupport
     concurrent-ruby (1.1.7)
-    connection_pool (2.2.3)
+    connection_pool (2.2.5)
     crass (1.0.6)
     diff-lcs (1.4.4)
     erubi (1.10.0)
@@ -100,7 +100,7 @@ GEM
     json-schema (2.8.1)
       addressable (>= 2.4)
     jsonapi-renderer (0.2.2)
-    jwt (2.2.2)
+    jwt (2.2.3)
     loofah (2.8.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)

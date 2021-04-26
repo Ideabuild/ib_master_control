@@ -36,5 +36,8 @@ module MasterControl
     module DataCentral
       SYSTEM = 'ib_data_central'
     end
+    module Nectar
+      SYSTEM = 'nectar'
+    end
   end
 end
