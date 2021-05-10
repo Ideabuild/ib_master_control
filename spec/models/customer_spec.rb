@@ -15,7 +15,6 @@ RSpec.describe MasterControl::Models::Customer do
   let(:customer_type_id) { SecureRandom.uuid }
   let(:management_customer_id) { SecureRandom.uuid }
   let(:owner_id) { SecureRandom.uuid }
-  let(:customer_type_name) { 'Rehab' }
   let(:ib_applications) { [{ id: SecureRandom.uuid, name: 'ib_authenticate' }] }
   let(:amd_login_url) { 'https://partnerlogin.advancedmd.com' }
   let(:amd_username) { 'API_FULL' }
@@ -41,7 +40,6 @@ RSpec.describe MasterControl::Models::Customer do
       active: active,
       customer_type_id: customer_type_id,
       management_customer_id: management_customer_id,
-      customer_type_name: customer_type_name,
       updated_by_id: updated_by_id,
       created_by_id: created_by_id,
       ib_applications: ib_applications,
@@ -76,7 +74,6 @@ RSpec.describe MasterControl::Models::Customer do
       :owner_id,
       :active,
       :customer_type_id,
-      :customer_type_name,
       :updated_by_id,
       :created_by_id,
       :ib_applications

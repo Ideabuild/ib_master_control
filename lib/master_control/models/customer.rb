@@ -15,7 +15,6 @@ module MasterControl
         :created_at,
         :updated_at,
         :customer_type_id,
-        :customer_type_name,
         :updated_by_id,
         :created_by_id,
         :ib_applications,
@@ -42,7 +41,6 @@ module MasterControl
               owner_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               management_customer_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_type_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              customer_type_name: { type: ['string'] },
               amd_login_url: { type: ['string', 'null'] },
               amd_username: { type:  ['string', 'null'] },
               amd_password_encrypted: { type: ['string', 'null'] },
@@ -79,7 +77,6 @@ module MasterControl
               :created_at,
               :updated_at,
               :customer_type_id,
-              :customer_type_name,
               :updated_by_id,
               :created_by_id,
               :ib_applications
