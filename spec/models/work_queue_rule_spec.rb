@@ -1,26 +1,23 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::Carrier do
+RSpec.describe MasterControl::Models::WorkQueueRule do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::Carrier' }
+  let(:canonical_klass) { 'MasterControl::Models::WorkQueueRule' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:name) { 'Billing' }
-  let(:carrier_type_name) { 'Evil' }
-  let(:carrier_type_code) { 'evil_code' }
-  let(:carrier_family_name) { 'Greedy' }
-  let(:carrier_family_code) { 'greedy_code' }
+  let(:name) { 'A Name' }
+  let(:system_code) { 'the_code' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:carrier) do
+  let(:work_queue_rule) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
@@ -28,10 +25,7 @@ RSpec.describe MasterControl::Models::Carrier do
       version: version,
       id: id,
       name: name,
-      carrier_type_name: carrier_type_name,
-      carrier_type_code: carrier_type_code,
-      carrier_family_name: carrier_family_name,
-      carrier_family_code: carrier_family_code,
+      system_code: system_code,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -41,7 +35,7 @@ RSpec.describe MasterControl::Models::Carrier do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::Carrier.json_schema, carrier)
+    JSON::Validator.validate!(MasterControl::Models::WorkQueueRule.json_schema, work_queue_rule)
   end
 
   context 'happy path' do
@@ -51,19 +45,16 @@ RSpec.describe MasterControl::Models::Carrier do
   describe 'required attributes (not nil)' do
     [
       :canonical_klass,
-      :id,
-      :master_control_version,
       :is_sync_update,
+      :id,
       :version,
       :name,
-      :carrier_type_name,
-      :carrier_type_code,
-      :carrier_family_name,
-      :carrier_family_code,
+      :system_code,
       :created_at,
       :updated_at,
       :updated_by_id,
-      :created_by_id
+      :created_by_id,
+      :active
     ].each do |attribute|
       context attribute do
         let(attribute) { nil }

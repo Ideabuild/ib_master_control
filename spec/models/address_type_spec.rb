@@ -11,6 +11,8 @@ RSpec.describe MasterControl::Models::AddressType do
   let(:id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:system_code) { 'billing' }
+  let(:address_type_category_name) { 'Patient' }
+  let(:address_type_category_code) { 'patient' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -26,6 +28,8 @@ RSpec.describe MasterControl::Models::AddressType do
       id: id,
       name: name,
       system_code: system_code,
+      address_type_category_name: address_type_category_name,
+      address_type_category_code: address_type_category_code,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -50,6 +54,8 @@ RSpec.describe MasterControl::Models::AddressType do
       :version,
       :name,
       :system_code,
+      :address_type_category_name,
+      :address_type_category_code,
       :created_at,
       :updated_at,
       :updated_by_id,

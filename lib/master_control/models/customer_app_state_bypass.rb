@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class WorkQueueRule < MasterControl::Models::Base
+    class CustomerAppStateBypass < MasterControl::Models::Base
       attributes \
         :id,
+        :customer_app_state_id,
+        :app_model_id,
         :name,
         :system_code,
         :version,
@@ -27,6 +29,8 @@ module MasterControl
               is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
               active: { type: 'boolean' },
+              customer_app_state_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              app_model_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               name: { type: 'string' },
               system_code: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
@@ -41,6 +45,8 @@ module MasterControl
               :version,
               :id,
               :active,
+              :customer_app_state_id,
+              :app_model_id,
               :name,
               :system_code,
               :created_at,

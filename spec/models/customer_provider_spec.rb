@@ -34,7 +34,8 @@ RSpec.describe MasterControl::Models::CustomerProvider do
   let(:other_first_name) { Faker::Name.first_name }
   let(:other_middle_name) { Faker::Name.middle_name }
   let(:other_last_name) { Faker::Name.last_name }
-  let(:provider_type) { "Individual" }
+  let(:provider_type_name) { "Individual" }
+  let(:provider_type_code) { "individual" }
   let(:external_reference_identifier) { "ZooBoy" }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
@@ -63,7 +64,8 @@ RSpec.describe MasterControl::Models::CustomerProvider do
       other_first_name: other_first_name,
       other_middle_name: other_middle_name,
       other_last_name: other_last_name,
-      provider_type: provider_type,
+      provider_type_name: provider_type_name,
+      provider_type_code: provider_type_code,
       external_reference_identifier: external_reference_identifier,
       created_at: created_at,
       updated_at: updated_at,
@@ -92,7 +94,7 @@ RSpec.describe MasterControl::Models::CustomerProvider do
       :npi,
       :customer_id,
       :provider_id,
-      :provider_type,
+      :provider_type_name,
       :external_reference_identifier,
       :created_at,
       :updated_at

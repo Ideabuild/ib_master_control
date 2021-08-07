@@ -1,11 +1,17 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class WorkQueueRule < MasterControl::Models::Base
+    class WorkQueueRuleCriteria < MasterControl::Models::Base
       attributes \
         :id,
+        :work_queue_rule_id,
         :name,
         :system_code,
+        :use_model_association,
+        :criteria_app_model_association_id,
+        :criteria_column_id,
+        :criteria_value,
+        :criteria_type_id,
         :version,
         :is_sync_update,
         :created_at,
@@ -29,6 +35,12 @@ module MasterControl
               active: { type: 'boolean' },
               name: { type: 'string' },
               system_code: { type: 'string' },
+              work_queue_rule_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              use_model_association: { type: 'boolean' },
+              criteria_app_model_association_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              criteria_column_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              criteria_value: { type: 'string' },
+              criteria_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -43,6 +55,12 @@ module MasterControl
               :active,
               :name,
               :system_code,
+              :work_queue_rule_id,
+              :use_model_association,
+              :criteria_app_model_association_id,
+              :criteria_column_id,
+              :criteria_value,
+              :criteria_type_id,
               :created_at,
               :updated_at,
               :updated_by_id,

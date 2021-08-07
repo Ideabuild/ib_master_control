@@ -1,39 +1,43 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::WorkGroupRule do
+RSpec.describe MasterControl::Models::WorkQueueRuleCriteria do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::WorkGroupRule' }
+  let(:canonical_klass) { 'MasterControl::Models::WorkQueueRuleCriteria' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:work_group_rule_id) { SecureRandom.uuid }
-  let(:app_model_id) { SecureRandom.uuid }
+  let(:work_queue_rule_id) { SecureRandom.uuid }
   let(:name) { 'A Name' }
   let(:system_code) { 'the_code' }
-  let(:sort_field) { 'the_code' }
-  let(:sort_direction) { 'desc' }
+  let(:use_model_association) { true }
+  let(:criteria_app_model_association_id) { SecureRandom.uuid }
+  let(:criteria_column_id) { SecureRandom.uuid }
+  let(:criteria_value) { 'the_code' }
+  let(:criteria_type_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:work_group_rule) do
+  let(:work_queue_rule_criteria) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      work_group_rule_id: work_group_rule_id,
-      app_model_id: app_model_id,
+      work_queue_rule_id: work_queue_rule_id,
       name: name,
       system_code: system_code,
-      sort_field: sort_field,
-      sort_direction: sort_direction,
+      use_model_association: use_model_association,
+      criteria_app_model_association_id: criteria_app_model_association_id,
+      criteria_column_id: criteria_column_id,
+      criteria_value: criteria_value,
+      criteria_type_id: criteria_type_id,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -43,7 +47,7 @@ RSpec.describe MasterControl::Models::WorkGroupRule do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::WorkGroupRule.json_schema, work_group_rule)
+    JSON::Validator.validate!(MasterControl::Models::WorkQueueRuleCriteria.json_schema, work_queue_rule_criteria)
   end
 
   context 'happy path' do
@@ -58,6 +62,12 @@ RSpec.describe MasterControl::Models::WorkGroupRule do
       :version,
       :name,
       :system_code,
+      :work_queue_rule_id,
+      :use_model_association,
+      :criteria_app_model_association_id,
+      :criteria_column_id,
+      :criteria_value,
+      :criteria_type_id,
       :created_at,
       :updated_at,
       :updated_by_id,

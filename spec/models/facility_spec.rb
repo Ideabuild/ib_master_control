@@ -11,7 +11,8 @@ RSpec.describe MasterControl::Models::Facility do
   let(:id) { SecureRandom.uuid }
   let(:name) { Faker::Company.name }
   let(:customer_id) { SecureRandom.uuid }
-  let(:facility_type_id) { SecureRandom.uuid }
+  let(:facility_type_name) { 'Rehab' }
+  let(:facility_type_code) { 'rehab' }
   let(:aasm_state) { 'new' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
@@ -28,7 +29,8 @@ RSpec.describe MasterControl::Models::Facility do
       id: id,
       name: name,
       customer_id: customer_id,
-      facility_type_id: facility_type_id,
+      facility_type_name: facility_type_name,
+      facility_type_code: facility_type_code,
       aasm_state: aasm_state,
       created_at: created_at,
       updated_at: updated_at,
@@ -55,7 +57,8 @@ RSpec.describe MasterControl::Models::Facility do
       :version,
       :name,
       :customer_id,
-      :facility_type_id,
+      :facility_type_name,
+      :facility_type_code,
       :aasm_state,
       :created_at,
       :updated_at,

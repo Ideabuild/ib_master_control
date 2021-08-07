@@ -1,11 +1,21 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class WorkQueueRule < MasterControl::Models::Base
+    class WorkQueue < MasterControl::Models::Base
       attributes \
         :id,
+        :work_group_id,
+        :customer_id,
         :name,
         :system_code,
+        :is_group_by_queue,
+        :group_by_model_association_id,
+        :group_by_column_id,
+        :order_by_type_id,
+        :order_by_model_association_id,
+        :order_by_column_id,
+        :order_by_direction,
+        :priority_level,
         :version,
         :is_sync_update,
         :created_at,
@@ -13,7 +23,6 @@ module MasterControl
         :updated_by_id,
         :created_by_id,
         :active
-
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -27,8 +36,18 @@ module MasterControl
               is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
               active: { type: 'boolean' },
+              customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              work_group_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               name: { type: 'string' },
               system_code: { type: 'string' },
+              is_group_by_queue: { type: 'boolean' },
+              group_by_model_association_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              group_by_column_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              order_by_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              order_by_model_association_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              order_by_column_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              order_by_direction: { type: 'string' },
+              priority_level: { type: 'integer' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -41,8 +60,13 @@ module MasterControl
               :version,
               :id,
               :active,
+              :customer_id,
+              :work_group_id,
               :name,
               :system_code,
+              :is_group_by_queue,
+              :order_by_type_id,
+              :priority_level,
               :created_at,
               :updated_at,
               :updated_by_id,

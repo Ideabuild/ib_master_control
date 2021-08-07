@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class WorkGroupRuleType < MasterControl::Models::Base
+    class AppModelAssociation < MasterControl::Models::Base
       attributes \
         :id,
+        :app_model_id,
         :name,
         :system_code,
+        :class_name,
+        :association_model_id,
         :version,
         :is_sync_update,
         :created_at,
@@ -27,8 +30,11 @@ module MasterControl
               is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
               active: { type: 'boolean' },
+              app_model_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               name: { type: 'string' },
               system_code: { type: 'string' },
+              class_name: { type: 'string' },
+              association_model_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -40,9 +46,12 @@ module MasterControl
               :is_sync_update,
               :version,
               :id,
+              :app_model_id,
               :active,
               :name,
               :system_code,
+              :class_name,
+              :association_model_id,
               :created_at,
               :updated_at,
               :updated_by_id,

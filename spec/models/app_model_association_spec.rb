@@ -1,35 +1,37 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::CustomerWorkGroup do
+RSpec.describe MasterControl::Models::AppModelAssociation do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::CustomerWorkGroup' }
+  let(:canonical_klass) { 'MasterControl::Models::AppModelAssociation' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:customer_id) { SecureRandom.uuid }
-  let(:work_group_id) { SecureRandom.uuid }
-  let(:name) { 'A Name' }
+  let(:app_model_id) { SecureRandom.uuid }
+  let(:name) { 'A name' }
   let(:system_code) { 'the_code' }
+  let(:class_name) { 'User' }
+  let(:association_model_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:customer_work_group) do
+  let(:app_model_association) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      customer_id: customer_id,
-      work_group_id: work_group_id,
+      app_model_id: app_model_id,
       name: name,
       system_code: system_code,
+      association_model_id: association_model_id,
+      class_name: class_name,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -39,7 +41,7 @@ RSpec.describe MasterControl::Models::CustomerWorkGroup do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::CustomerWorkGroup.json_schema, customer_work_group)
+    JSON::Validator.validate!(MasterControl::Models::AppModelAssociation.json_schema, app_model_association)
   end
 
   context 'happy path' do
@@ -52,10 +54,10 @@ RSpec.describe MasterControl::Models::CustomerWorkGroup do
       :is_sync_update,
       :id,
       :version,
-      :customer_id,
-      :work_group_id,
       :name,
       :system_code,
+      :class_name,
+      :association_model_id,
       :created_at,
       :updated_at,
       :updated_by_id,
