@@ -62,7 +62,6 @@ RSpec.describe MasterControl::Models::Patient do
       :date_of_birth,
       :gender_id,
       :customer_id,
-      :ssn,
       :chart_number,
       :version,
       :created_at,

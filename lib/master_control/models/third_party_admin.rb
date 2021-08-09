@@ -1,25 +1,21 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class Patient < MasterControl::Models::Base
-      attributes  \
+    class ThirdPartyAdmin < MasterControl::Models::Base
+      attributes \
         :id,
-        :customer_id,
-        :gender_id,
-        :date_of_birth,
-        :first_name,
-        :middle_name,
-        :last_name,
-        :chart_number,
-        :is_deceased,
-        :ssn,
+        :name,
+        :system_code,
+        :third_party_admin_type_name,
+        :third_party_admin_type_system_code,
         :version,
         :is_sync_update,
         :created_at,
         :updated_at,
-        :created_at,
-        :updated_at,
+        :updated_by_id,
+        :created_by_id,
         :active
+
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -27,20 +23,16 @@ module MasterControl
           {
             type: 'object',
             properties: {
+              id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               canonical_klass: { type: 'string' },
               master_control_version: { type: 'string' },
               is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
-              id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              gender_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              date_of_birth: { type: 'string', format: 'date' },
-              chart_number: { type: 'string' },
-              first_name: { type: 'string' },
-              middle_name: { type: ['string', 'null'] },
-              last_name: { type: 'string' },
-              ssn: { type: 'string' },
-              is_deceased: { type: 'boolean' },
+              active: { type: 'boolean' },
+              name: { type: 'string' },
+              system_code: { type: 'string' },
+              third_party_admin_type_name: { type: 'string' },
+              third_party_admin_type_system_code: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -51,14 +43,16 @@ module MasterControl
               :master_control_version,
               :is_sync_update,
               :version,
-              :first_name,
-              :last_name,
-              :chart_number,
-              :date_of_birth,
-              :customer_id,
-              :gender_id,
+              :id,
+              :active,
+              :name,
+              :system_code,
+              :third_party_admin_type_name,
+              :third_party_admin_type_system_code,
               :created_at,
-              :updated_at
+              :updated_at,
+              :updated_by_id,
+              :created_by_id
             ],
             additionalProperties: false
           }.to_json

@@ -14,7 +14,7 @@ RSpec.describe MasterControl::Models::Customer do
   let(:active) { true }
   let(:aasm_state) { 'new' }
   let(:customer_type_name) { 'Management Customer' }
-  let(:customer_type_code) { 'management_customer' }
+  let(:customer_type_system_code) { 'management_customer' }
   let(:management_customer_id) { SecureRandom.uuid }
   let(:owner_id) { SecureRandom.uuid }
   let(:ib_applications) { [{ id: SecureRandom.uuid, name: 'ib_authenticate' }] }
@@ -42,7 +42,7 @@ RSpec.describe MasterControl::Models::Customer do
       active: active,
       aasm_state: aasm_state,
       customer_type_name: customer_type_name,
-      customer_type_code: customer_type_code,
+      customer_type_system_code: customer_type_system_code,
       management_customer_id: management_customer_id,
       updated_by_id: updated_by_id,
       created_by_id: created_by_id,
@@ -79,7 +79,7 @@ RSpec.describe MasterControl::Models::Customer do
       :owner_id,
       :active,
       :customer_type_name,
-      :customer_type_code,
+      :customer_type_system_code,
       :updated_by_id,
       :created_by_id,
       :ib_applications

@@ -1,37 +1,57 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::Facility do
+RSpec.describe MasterControl::Models::InsuranceCoverage do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::Facility' }
+  let(:canonical_klass) { 'MasterControl::Models::InsuranceCoverage' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:name) { Faker::Company.name }
   let(:customer_id) { SecureRandom.uuid }
-  let(:facility_type_name) { 'Rehab' }
-  let(:facility_type_system_code) { 'rehab' }
-  let(:aasm_state) { 'new' }
+  let(:patient_id) { SecureRandom.uuid }
+  let(:customer_provider_id) { SecureRandom.uuid }
+  let(:insurance_sequence_id) { SecureRandom.uuid }
+  let(:carrier_id) { SecureRandom.uuid }
+  let(:policy_holder_first_name) { 'Billing' }
+  let(:policy_holder_middle_name) { 'Billing' }
+  let(:policy_holder_last_name) { 'Billing' }
+  let(:policy_holder_date_of_birth) { Time.now.to_s(:iso8601) }
+  let(:member_id) { 'Billing' }
+  let(:group_number) { 'Billing' }
+  let(:aasm_state) { 'Billing' }
+  let(:is_valid) { true }
+  let(:last_validated_at) { Time.now.to_s(:iso8601) }
+  let(:insurance_position) { 1 }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:facility) do
+  let(:insurance_coverage) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      name: name,
       customer_id: customer_id,
-      facility_type_name: facility_type_name,
-      facility_type_system_code: facility_type_system_code,
+      patient_id: patient_id,
+      customer_provider_id: customer_provider_id,
+      insurance_sequence_id: insurance_sequence_id,
+      carrier_id: carrier_id,
+      policy_holder_first_name: policy_holder_first_name,
+      policy_holder_middle_name: policy_holder_middle_name,
+      policy_holder_last_name: policy_holder_last_name,
+      policy_holder_date_of_birth: policy_holder_date_of_birth,
+      member_id: member_id,
+      group_number: group_number,
       aasm_state: aasm_state,
+      is_valid: is_valid,
+      last_validated_at: last_validated_at,
+      insurance_position: insurance_position,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -41,7 +61,7 @@ RSpec.describe MasterControl::Models::Facility do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::Facility.json_schema, facility)
+    JSON::Validator.validate!(MasterControl::Models::InsuranceCoverage.json_schema, insurance_coverage)
   end
 
   context 'happy path' do
@@ -55,15 +75,23 @@ RSpec.describe MasterControl::Models::Facility do
       :master_control_version,
       :is_sync_update,
       :version,
-      :name,
       :customer_id,
-      :facility_type_name,
-      :facility_type_system_code,
+      :patient_id,
+      :insurance_sequence_id,
+      :carrier_id,
+      :policy_holder_first_name,
+      :policy_holder_last_name,
+      :policy_holder_date_of_birth,
+      :member_id,
+      :group_number,
       :aasm_state,
+      :is_valid,
+      :insurance_position,
       :created_at,
       :updated_at,
       :updated_by_id,
-      :created_by_id
+      :created_by_id,
+      :active
     ].each do |attribute|
       context attribute do
         let(attribute) { nil }

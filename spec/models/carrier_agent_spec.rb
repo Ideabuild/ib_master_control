@@ -1,37 +1,53 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::Facility do
+RSpec.describe MasterControl::Models::CarrierAgent do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::Facility' }
+  let(:canonical_klass) { 'MasterControl::Models::CarrierAgent' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:name) { Faker::Company.name }
-  let(:customer_id) { SecureRandom.uuid }
-  let(:facility_type_name) { 'Rehab' }
-  let(:facility_type_system_code) { 'rehab' }
-  let(:aasm_state) { 'new' }
+  let(:carrier_id) { SecureRandom.uuid }
+  let(:first_name) { 'Billing' }
+  let(:middle_name) { 'billing' }
+  let(:last_name) { 'billing' }
+  let(:email) { 'Patient' }
+  let(:phone) { 'patient' }
+  let(:fax) { 'patient' }
+  let(:url) { 'patient' }
+  let(:s3_object_key) { 'patient' }
+  let(:document_name) { 'patient' }
+  let(:document_type_name) { 'patient' }
+  let(:document_type_system_code) { 'patient' }
+  let(:notes) { 'patient' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:facility) do
+  let(:carrier_agent) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      name: name,
-      customer_id: customer_id,
-      facility_type_name: facility_type_name,
-      facility_type_system_code: facility_type_system_code,
-      aasm_state: aasm_state,
+      carrier_id: carrier_id,
+      first_name: first_name,
+      middle_name: middle_name,
+      last_name: last_name,
+      email: email,
+      phone: phone,
+      fax: fax,
+      url: url,
+      s3_object_key: s3_object_key,
+      document_name: document_name,
+      document_type_name: document_type_name,
+      document_type_system_code: document_type_system_code,
+      notes: notes,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -41,7 +57,7 @@ RSpec.describe MasterControl::Models::Facility do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::Facility.json_schema, facility)
+    JSON::Validator.validate!(MasterControl::Models::CarrierAgent.json_schema, carrier_agent)
   end
 
   context 'happy path' do
@@ -51,15 +67,13 @@ RSpec.describe MasterControl::Models::Facility do
   describe 'required attributes (not nil)' do
     [
       :canonical_klass,
-      :id,
-      :master_control_version,
       :is_sync_update,
+      :id,
       :version,
-      :name,
-      :customer_id,
-      :facility_type_name,
-      :facility_type_system_code,
-      :aasm_state,
+      :active,
+      :carrier_id,
+      :first_name,
+      :last_name,
       :created_at,
       :updated_at,
       :updated_by_id,

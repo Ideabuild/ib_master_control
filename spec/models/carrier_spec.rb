@@ -11,9 +11,9 @@ RSpec.describe MasterControl::Models::Carrier do
   let(:id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:carrier_type_name) { 'Evil' }
-  let(:carrier_type_code) { 'evil_code' }
+  let(:carrier_type_system_code) { 'evil_code' }
   let(:carrier_family_name) { 'Greedy' }
-  let(:carrier_family_code) { 'greedy_code' }
+  let(:carrier_family_system_code) { 'greedy_code' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -29,9 +29,9 @@ RSpec.describe MasterControl::Models::Carrier do
       id: id,
       name: name,
       carrier_type_name: carrier_type_name,
-      carrier_type_code: carrier_type_code,
+      carrier_type_system_code: carrier_type_system_code,
       carrier_family_name: carrier_family_name,
-      carrier_family_code: carrier_family_code,
+      carrier_family_system_code: carrier_family_system_code,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -57,9 +57,9 @@ RSpec.describe MasterControl::Models::Carrier do
       :version,
       :name,
       :carrier_type_name,
-      :carrier_type_code,
+      :carrier_type_system_code,
       :carrier_family_name,
-      :carrier_family_code,
+      :carrier_family_system_code,
       :created_at,
       :updated_at,
       :updated_by_id,

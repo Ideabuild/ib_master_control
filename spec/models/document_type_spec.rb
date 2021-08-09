@@ -1,26 +1,25 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::Facility do
+RSpec.describe MasterControl::Models::DocumentType do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::Facility' }
+  let(:canonical_klass) { 'MasterControl::Models::DocumentType' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:name) { Faker::Company.name }
-  let(:customer_id) { SecureRandom.uuid }
-  let(:facility_type_name) { 'Rehab' }
-  let(:facility_type_system_code) { 'rehab' }
-  let(:aasm_state) { 'new' }
+  let(:name) { 'Billing' }
+  let(:system_code) { 'billing' }
+  let(:document_type_category_name) { 'Patient' }
+  let(:document_type_category_system_code) { 'patient' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:facility) do
+  let(:document_type) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
@@ -28,10 +27,9 @@ RSpec.describe MasterControl::Models::Facility do
       version: version,
       id: id,
       name: name,
-      customer_id: customer_id,
-      facility_type_name: facility_type_name,
-      facility_type_system_code: facility_type_system_code,
-      aasm_state: aasm_state,
+      system_code: system_code,
+      document_type_category_name: document_type_category_name,
+      document_type_category_system_code: document_type_category_system_code,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -41,7 +39,7 @@ RSpec.describe MasterControl::Models::Facility do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::Facility.json_schema, facility)
+    JSON::Validator.validate!(MasterControl::Models::DocumentType.json_schema, document_type)
   end
 
   context 'happy path' do
@@ -51,15 +49,13 @@ RSpec.describe MasterControl::Models::Facility do
   describe 'required attributes (not nil)' do
     [
       :canonical_klass,
-      :id,
-      :master_control_version,
       :is_sync_update,
+      :id,
       :version,
       :name,
-      :customer_id,
-      :facility_type_name,
-      :facility_type_system_code,
-      :aasm_state,
+      :system_code,
+      :document_type_category_name,
+      :document_type_category_system_code,
       :created_at,
       :updated_at,
       :updated_by_id,
