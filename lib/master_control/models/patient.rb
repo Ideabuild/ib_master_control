@@ -17,8 +17,8 @@ module MasterControl
         :is_sync_update,
         :created_at,
         :updated_at,
-        :created_at,
-        :updated_at,
+        :updated_by_id,
+        :created_by_id,
         :active
 
       class << self
@@ -31,6 +31,7 @@ module MasterControl
               master_control_version: { type: 'string' },
               is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
+              active: { type: 'boolean' },
               id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               gender_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -57,8 +58,11 @@ module MasterControl
               :date_of_birth,
               :customer_id,
               :gender_id,
+              :updated_by_id,
+              :created_by_id,
               :created_at,
-              :updated_at
+              :updated_at,
+              :active
             ],
             additionalProperties: false
           }.to_json

@@ -16,7 +16,6 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
   let(:customer_app_notification_id) { SecureRandom.uuid }
   let(:customer_work_group_id) { SecureRandom.uuid }
   let(:task_model_id) { SecureRandom.uuid }
-  let(:reference_id) { SecureRandom.uuid }
   let(:name) { 'A Name' }
   let(:system_code) { 'the_code' }
   let(:icon) { 'icon' }
@@ -43,7 +42,6 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       customer_app_notification_id: customer_app_notification_id,
       customer_work_group_id: customer_work_group_id,
       task_model_id: task_model_id,
-      reference_id: reference_id,
       name: name,
       system_code: system_code,
       icon: icon,
@@ -79,7 +77,6 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       :customer_app_notification_id,
       :customer_work_group_id,
       :task_model_id,
-      :reference_id,
       :name,
       :system_code,
       :icon,

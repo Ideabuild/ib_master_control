@@ -26,8 +26,8 @@ module MasterControl
         :is_sync_update,
         :created_at,
         :updated_at,
-        :created_at,
-        :updated_at,
+        :updated_by_id,
+        :created_by_id,
         :active
 
       class << self
@@ -79,6 +79,8 @@ module MasterControl
               :aasm_state,
               :created_at,
               :updated_at,
+              :updated_by_id,
+              :created_by_id,
               :active
             ],
             additionalProperties: false

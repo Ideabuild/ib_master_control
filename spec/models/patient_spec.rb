@@ -8,6 +8,7 @@ RSpec.describe MasterControl::Models::Patient do
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
+  let(:active) { true }
   let(:customer_id) { SecureRandom.uuid }
   let(:date_of_birth) { Faker::Date.backward(days: 2500).to_s(:iso8601) }
   let(:first_name) { Faker::Name.first_name }
@@ -28,6 +29,7 @@ RSpec.describe MasterControl::Models::Patient do
       master_control_version: master_control_version,
       is_sync_update: is_sync_update,
       version: version,
+      active: active,
       customer_id: customer_id,
       first_name: first_name,
       middle_name: middle_name,
@@ -65,7 +67,10 @@ RSpec.describe MasterControl::Models::Patient do
       :chart_number,
       :version,
       :created_at,
-      :updated_at
+      :updated_at,
+      :updated_by_id,
+      :created_by_id,
+      :active
     ].each do |attribute|
       context attribute do
         let(attribute) { nil }
