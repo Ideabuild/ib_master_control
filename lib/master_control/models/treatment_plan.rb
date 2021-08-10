@@ -54,7 +54,6 @@ module MasterControl
               treating_provider_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_service_line_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               backup_service_line_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              current_authorization_number: { type: ['string', 'null'] },
               proposed_duration: { type: 'integer' },
               current_approved_duration: { type: ['integer', 'null'] },
               total_approved_duration: { type: ['integer', 'null'] },
