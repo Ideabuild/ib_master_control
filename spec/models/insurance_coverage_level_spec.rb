@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::InsuranceServiceType do
+RSpec.describe MasterControl::Models::InsuranceCoverageLevel do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::InsuranceServiceType' }
+  let(:canonical_klass) { 'MasterControl::Models::InsuranceCoverageLevel' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
@@ -17,7 +17,7 @@ RSpec.describe MasterControl::Models::InsuranceServiceType do
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:insurance_service_type) do
+  let(:insurance_coverage_level) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
@@ -35,7 +35,7 @@ RSpec.describe MasterControl::Models::InsuranceServiceType do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::InsuranceServiceType.json_schema, insurance_service_type)
+    JSON::Validator.validate!(MasterControl::Models::InsuranceCoverageLevel.json_schema, insurance_coverage_level)
   end
 
   context 'happy path' do
