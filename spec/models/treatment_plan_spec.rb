@@ -31,6 +31,8 @@ RSpec.describe MasterControl::Models::TreatmentPlan do
   let(:current_authorization_number) { 'Billing' }
   let(:current_auhorization_expires_at) { Time.now.to_s(:iso8601) }
   let(:aasm_state) { 'Billing' }
+  let(:has_state_event) { true }
+  let(:state_event) { 'update_state!' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -66,6 +68,8 @@ RSpec.describe MasterControl::Models::TreatmentPlan do
       current_authorization_number: current_authorization_number,
       current_auhorization_expires_at: current_auhorization_expires_at,
       aasm_state: aasm_state,
+      has_state_event: has_state_event,
+      state_event: state_event,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -101,6 +105,7 @@ RSpec.describe MasterControl::Models::TreatmentPlan do
       :proposed_started_at,
       :estimated_end_at,
       :aasm_state,
+      :has_state_event,
       :created_at,
       :updated_at,
       :updated_by_id,

@@ -18,6 +18,8 @@ RSpec.describe MasterControl::Models::Patient do
   let(:middle_name) { 'Z' }
   let(:chart_number) { 'TRRA0000' }
   let(:ssn) { Faker::IDNumber.valid }
+  let(:has_state_event) { true }
+  let(:state_event) { 'update_state!' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -39,6 +41,8 @@ RSpec.describe MasterControl::Models::Patient do
       is_deceased: is_deceased,
       chart_number: chart_number,
       ssn: ssn,
+      has_state_event: has_state_event,
+      state_event: state_event,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -65,6 +69,7 @@ RSpec.describe MasterControl::Models::Patient do
       :gender_id,
       :customer_id,
       :chart_number,
+      :has_state_event,
       :version,
       :created_at,
       :updated_at,

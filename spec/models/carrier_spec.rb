@@ -14,6 +14,8 @@ RSpec.describe MasterControl::Models::Carrier do
   let(:carrier_type_system_code) { 'evil_code' }
   let(:carrier_family_name) { 'Greedy' }
   let(:carrier_family_system_code) { 'greedy_code' }
+  let(:has_state_event) { true }
+  let(:state_event) { 'update_state!' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -32,6 +34,8 @@ RSpec.describe MasterControl::Models::Carrier do
       carrier_type_system_code: carrier_type_system_code,
       carrier_family_name: carrier_family_name,
       carrier_family_system_code: carrier_family_system_code,
+      has_state_event: has_state_event,
+      state_event: state_event,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -60,6 +64,7 @@ RSpec.describe MasterControl::Models::Carrier do
       :carrier_type_system_code,
       :carrier_family_name,
       :carrier_family_system_code,
+      :has_state_event,
       :created_at,
       :updated_at,
       :updated_by_id,

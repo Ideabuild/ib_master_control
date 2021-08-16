@@ -1,43 +1,37 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::TreatmentPlanDocument do
+RSpec.describe MasterControl::Models::AppColumn do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::TreatmentPlanDocument' }
+  let(:canonical_klass) { 'MasterControl::Models::AppColumn' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:treatment_plan_id) { SecureRandom.uuid }
-  let(:s3_bucket) { 'Billing' }
-  let(:s3_object_key) { 'patient' }
-  let(:document_name) { 'patient' }
-  let(:document_type_name) { 'patient' }
-  let(:document_type_system_code) { 'patient' }
-  let(:has_state_event) { true }
-  let(:state_event) { 'update_state!' }
+  let(:app_model_id) { SecureRandom.uuid }
+  let(:name) { 'A name' }
+  let(:system_code) { 'the_code' }
+  let(:is_selectable) { true }
+  let(:data_type) { 'string' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:treatment_plan_document) do
+  let(:app_column) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      treatment_plan_id: treatment_plan_id,
-      s3_bucket: s3_bucket,
-      s3_object_key: s3_object_key,
-      document_name: document_name,
-      document_type_name: document_type_name,
-      document_type_system_code: document_type_system_code,
-      has_state_event: has_state_event,
-      state_event: state_event,
+      app_model_id: app_model_id,
+      name: name,
+      system_code: system_code,
+      is_selectable: is_selectable,
+      data_type: data_type,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -47,7 +41,7 @@ RSpec.describe MasterControl::Models::TreatmentPlanDocument do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::TreatmentPlanDocument.json_schema, treatment_plan_document)
+    JSON::Validator.validate!(MasterControl::Models::AppColumn.json_schema, app_column)
   end
 
   context 'happy path' do
@@ -60,17 +54,16 @@ RSpec.describe MasterControl::Models::TreatmentPlanDocument do
       :is_sync_update,
       :id,
       :version,
-      :active,
-      :treatment_plan_id,
-      :s3_object_key,
-      :document_name,
-      :document_type_name,
-      :document_type_system_code,
-      :has_state_event,
+      :app_model_id,
+      :name,
+      :system_code,
+      :is_selectable,
+      :data_type,
       :created_at,
       :updated_at,
       :updated_by_id,
-      :created_by_id
+      :created_by_id,
+      :active
     ].each do |attribute|
       context attribute do
         let(attribute) { nil }

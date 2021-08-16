@@ -15,6 +15,8 @@ RSpec.describe MasterControl::Models::User do
   let(:last_name) { Faker::Name.last_name }
   let(:aasm_state) { 'new' }
   let(:customer_id) { SecureRandom.uuid }
+  let(:has_state_event) { true }
+  let(:state_event) { 'update_state!' }
   let(:roles) { [{ id: SecureRandom.uuid, name: 'Admin' }] }
   let(:ib_applications) { [{ id: SecureRandom.uuid, name: 'ib_authenticate' }] }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -35,6 +37,8 @@ RSpec.describe MasterControl::Models::User do
       last_name: last_name,
       aasm_state: aasm_state,
       customer_id: customer_id,
+      has_state_event: has_state_event,
+      state_event: state_event,
       updated_by_id: updated_by_id,
       created_by_id: created_by_id,
       roles: roles,
@@ -64,6 +68,7 @@ RSpec.describe MasterControl::Models::User do
       :first_name,
       :last_name,
       :aasm_state,
+      :has_state_event,
       :updated_by_id,
       :created_by_id,
       :roles,
