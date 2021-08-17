@@ -19,8 +19,8 @@ RSpec.describe MasterControl::Models::CarrierAgent do
   let(:url) { 'patient' }
   let(:s3_object_key) { 'patient' }
   let(:document_name) { 'patient' }
-  let(:document_type_name) { 'patient' }
-  let(:document_type_system_code) { 'patient' }
+  let(:document_type_id) { SecureRandom.uuid }
+  let(:carrier_agent_type_id) { SecureRandom.uuid }
   let(:notes) { 'patient' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
@@ -45,8 +45,8 @@ RSpec.describe MasterControl::Models::CarrierAgent do
       url: url,
       s3_object_key: s3_object_key,
       document_name: document_name,
-      document_type_name: document_type_name,
-      document_type_system_code: document_type_system_code,
+      document_type_id: document_type_id,
+      carrier_agent_type_id: carrier_agent_type_id,
       notes: notes,
       created_at: created_at,
       updated_at: updated_at,
@@ -74,6 +74,7 @@ RSpec.describe MasterControl::Models::CarrierAgent do
       :carrier_id,
       :first_name,
       :last_name,
+      :carrier_agent_type_id,
       :created_at,
       :updated_at,
       :updated_by_id,
