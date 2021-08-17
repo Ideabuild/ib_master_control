@@ -39,7 +39,7 @@ module MasterControl
               last_name: { type: 'string' },
               aasm_state: { type: 'string' },
               has_state_event: { type: 'boolean' },
-              state_event: { type: 'string' },
+              state_event: { type: ['string', 'null'] },
               customer_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               roles: {
                 type: 'array',

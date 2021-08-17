@@ -48,7 +48,7 @@ module MasterControl
               customer_type_name: { type: ['string'] },
               customer_type_system_code: { type: ['string'] },
               has_state_event: { type: 'boolean' },
-              state_event: { type: 'string' },
+              state_event: { type: ['string', 'null'] },
               amd_login_url: { type: ['string', 'null'] },
               amd_username: { type:  ['string', 'null'] },
               amd_password_encrypted: { type: ['string', 'null'] },

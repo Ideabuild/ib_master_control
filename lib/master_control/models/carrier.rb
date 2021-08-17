@@ -38,7 +38,7 @@ module MasterControl
               carrier_family_name: { type: 'string' },
               carrier_family_system_code: { type: 'string' },
               has_state_event: { type: 'boolean' },
-              state_event: { type: 'string' },
+              state_event: { type: ['string', 'null'] },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },

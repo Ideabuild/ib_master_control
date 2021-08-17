@@ -71,7 +71,7 @@ module MasterControl
               current_auhorization_expires_at: { type: ['string', 'null'], format: 'date' },
               aasm_state: { type: 'string' },
               has_state_event: { type: 'boolean' },
-              state_event: { type: 'string' },
+              state_event: { type: ['string', 'null'] },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
