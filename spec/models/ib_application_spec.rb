@@ -11,6 +11,11 @@ RSpec.describe MasterControl::Models::IbApplication do
   let(:id) { SecureRandom.uuid }
   let(:name) { 'AMD Integrator' }
   let(:system_code) { 'AMD_INTEGRATOR' }
+  let(:development_url) { 'AMD_INTEGRATOR' }
+  let(:staging_url) { 'AMD_INTEGRATOR' }
+  let(:training_url) { 'AMD_INTEGRATOR' }
+  let(:demo_url) { 'AMD_INTEGRATOR' }
+  let(:production_url) { 'AMD_INTEGRATOR' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -26,6 +31,11 @@ RSpec.describe MasterControl::Models::IbApplication do
       id: id,
       name: name,
       system_code: system_code,
+      development_url: development_url,
+      staging_url: staging_url,
+      training_url: training_url,
+      demo_url: demo_url,
+      production_url: production_url,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -51,6 +61,11 @@ RSpec.describe MasterControl::Models::IbApplication do
       :version,
       :name,
       :system_code,
+      :development_url,
+      :staging_url,
+      :training_url,
+      :demo_url,
+      :production_url,  
       :created_at,
       :updated_at,
       :updated_by_id,
