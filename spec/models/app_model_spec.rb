@@ -12,6 +12,7 @@ RSpec.describe MasterControl::Models::AppModel do
   let(:name) { 'A name' }
   let(:system_code) { 'the_code' }
   let(:is_workflow) { true }
+  let(:ib_application_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -28,6 +29,7 @@ RSpec.describe MasterControl::Models::AppModel do
       name: name,
       system_code: system_code,
       is_workflow: is_workflow,
+      ib_application_id: ib_application_id,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -53,6 +55,7 @@ RSpec.describe MasterControl::Models::AppModel do
       :name,
       :system_code,
       :is_workflow,
+      :ib_application_id,
       :created_at,
       :updated_at,
       :updated_by_id,
