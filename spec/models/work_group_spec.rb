@@ -11,6 +11,9 @@ RSpec.describe MasterControl::Models::WorkGroup do
   let(:id) { SecureRandom.uuid }
   let(:name) { 'A Name' }
   let(:system_code) { 'the_code' }
+  let(:task_app_model_id) { SecureRandom.uuid }
+  let(:app_model_id) { SecureRandom.uuid }
+  let(:ib_application_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -26,6 +29,9 @@ RSpec.describe MasterControl::Models::WorkGroup do
       id: id,
       name: name,
       system_code: system_code,
+      task_app_model_id: task_app_model_id,
+      app_model_id: app_model_id,
+      ib_application_id: ib_application_id,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -50,6 +56,9 @@ RSpec.describe MasterControl::Models::WorkGroup do
       :version,
       :name,
       :system_code,
+      :task_app_model_id,
+      :app_model_id,
+      :ib_application_id,
       :created_at,
       :updated_at,
       :updated_by_id,
