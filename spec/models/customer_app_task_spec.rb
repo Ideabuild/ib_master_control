@@ -14,7 +14,7 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
   let(:app_model_id) { SecureRandom.uuid }
   let(:app_state_id) { SecureRandom.uuid }
   let(:customer_app_notification_id) { SecureRandom.uuid }
-  let(:customer_work_group_id) { SecureRandom.uuid }
+  let(:work_group_id) { SecureRandom.uuid }
   let(:task_model_id) { SecureRandom.uuid }
   let(:name) { 'A Name' }
   let(:system_code) { 'the_code' }
@@ -22,6 +22,7 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
   let(:url) { '/ads/aghg/sssa' }
   let(:grace_period) { 1 }
   let(:due_in) { 3 }
+  let(:priority_level) { 3 }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -40,7 +41,7 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       app_model_id: app_model_id,
       app_state_id: app_state_id,
       customer_app_notification_id: customer_app_notification_id,
-      customer_work_group_id: customer_work_group_id,
+      work_group_id: work_group_id,
       task_model_id: task_model_id,
       name: name,
       system_code: system_code,
@@ -48,6 +49,7 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       url: url,
       grace_period: grace_period,
       due_in: due_in,
+      priority_level: priority_level,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -75,7 +77,7 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       :app_model_id,
       :app_state_id,
       :customer_app_notification_id,
-      :customer_work_group_id,
+      :work_group_id,
       :task_model_id,
       :name,
       :system_code,
