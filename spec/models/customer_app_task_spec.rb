@@ -76,7 +76,6 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       :app_task_id,
       :app_model_id,
       :app_state_id,
-      :customer_app_notification_id,
       :work_group_id,
       :task_model_id,
       :name,

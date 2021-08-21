@@ -70,7 +70,6 @@ RSpec.describe MasterControl::Models::AppTask do
       :app_state_id,
       :task_model_id,
       :work_group_id,
-      :app_notification_id,
       :name,
       :system_code,
       :icon,
