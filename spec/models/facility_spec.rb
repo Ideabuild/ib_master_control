@@ -13,7 +13,6 @@ RSpec.describe MasterControl::Models::Facility do
   let(:customer_id) { SecureRandom.uuid }
   let(:facility_type_name) { 'Rehab' }
   let(:facility_type_system_code) { 'rehab' }
-  let(:aasm_state) { 'new' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -31,7 +30,6 @@ RSpec.describe MasterControl::Models::Facility do
       customer_id: customer_id,
       facility_type_name: facility_type_name,
       facility_type_system_code: facility_type_system_code,
-      aasm_state: aasm_state,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -59,7 +57,6 @@ RSpec.describe MasterControl::Models::Facility do
       :customer_id,
       :facility_type_name,
       :facility_type_system_code,
-      :aasm_state,
       :created_at,
       :updated_at,
       :updated_by_id,
