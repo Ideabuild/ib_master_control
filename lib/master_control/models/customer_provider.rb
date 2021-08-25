@@ -22,7 +22,6 @@ module MasterControl
         :provider_type_system_code,
         :customer_id,
         :provider_id,
-        :external_reference_identifier,
         :is_sync_update,
         :active
 
@@ -52,7 +51,6 @@ module MasterControl
               other_last_name: { type: ['string', 'null'] },
               provider_type_name: { type: 'string' },
               provider_type_system_code: { type: 'string' },
-              external_reference_identifier: { type: 'string' },
               customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               provider_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               gender_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -74,7 +72,6 @@ module MasterControl
               :provider_id,
               :provider_type_name,
               :provider_type_system_code,
-              :external_reference_identifier,
               :created_at,
               :updated_at
             ],
