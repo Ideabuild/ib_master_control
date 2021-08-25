@@ -11,7 +11,7 @@ RSpec.describe MasterControl::Models::InsuranceSequence do
   let(:id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:system_code) { 'billing' }
-  let(:sequence) { 1 }
+  let(:order) { 1 }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -27,7 +27,7 @@ RSpec.describe MasterControl::Models::InsuranceSequence do
       id: id,
       name: name,
       system_code: system_code,
-      sequence: sequence,
+      order: order,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -53,7 +53,7 @@ RSpec.describe MasterControl::Models::InsuranceSequence do
       :version,
       :name,
       :system_code,
-      :sequence,
+      :order,
       :created_at,
       :updated_at,
       :updated_by_id,
