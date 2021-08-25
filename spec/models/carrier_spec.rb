@@ -9,6 +9,7 @@ RSpec.describe MasterControl::Models::Carrier do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
+  let(:customer_app_state_id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:carrier_type_name) { 'Evil' }
   let(:carrier_type_system_code) { 'evil_code' }
@@ -16,6 +17,10 @@ RSpec.describe MasterControl::Models::Carrier do
   let(:carrier_family_system_code) { 'greedy_code' }
   let(:has_state_event) { true }
   let(:state_event) { 'update_state!' }
+  let(:phone_number) { '(707) 555-5555' }
+  let(:fax_number) { '(707) 555-5555' }
+  let(:email) { 'ideabuild@happy.com' }
+  let(:url) { '/boo/foo' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -29,6 +34,7 @@ RSpec.describe MasterControl::Models::Carrier do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
+      customer_app_state_id: customer_app_state_id,
       name: name,
       carrier_type_name: carrier_type_name,
       carrier_type_system_code: carrier_type_system_code,
@@ -36,6 +42,10 @@ RSpec.describe MasterControl::Models::Carrier do
       carrier_family_system_code: carrier_family_system_code,
       has_state_event: has_state_event,
       state_event: state_event,
+      phone_number: phone_number,
+      fax_number: fax_number,
+      email: email,
+      url: url,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -59,6 +69,7 @@ RSpec.describe MasterControl::Models::Carrier do
       :master_control_version,
       :is_sync_update,
       :version,
+      :customer_app_state_id,
       :name,
       :carrier_type_name,
       :carrier_type_system_code,
