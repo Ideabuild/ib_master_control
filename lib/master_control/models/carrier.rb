@@ -5,6 +5,7 @@ module MasterControl
       attributes \
         :id,
         :name,
+        :aasm_state,
         :customer_app_state_id,
         :carrier_type_name,
         :carrier_type_system_code,
@@ -38,6 +39,7 @@ module MasterControl
               version: { type: 'integer' },
               active: { type: 'boolean' },
               name: { type: 'string' },
+              aasm_state: { type: 'string' },
               customer_app_state_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               carrier_type_name: { type: 'string' },
               carrier_type_system_code: { type: 'string' },
@@ -63,6 +65,7 @@ module MasterControl
               :active,
               :customer_app_state_id,
               :name,
+              :aasm_state,
               :carrier_type_name,
               :carrier_type_system_code,
               :carrier_family_name,

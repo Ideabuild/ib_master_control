@@ -11,6 +11,7 @@ RSpec.describe MasterControl::Models::Carrier do
   let(:id) { SecureRandom.uuid }
   let(:customer_app_state_id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
+  let(:aasm_state) { 'active' }
   let(:carrier_type_name) { 'Evil' }
   let(:carrier_type_system_code) { 'evil_code' }
   let(:carrier_family_name) { 'Greedy' }
@@ -36,6 +37,7 @@ RSpec.describe MasterControl::Models::Carrier do
       id: id,
       customer_app_state_id: customer_app_state_id,
       name: name,
+      aasm_state: aasm_state,
       carrier_type_name: carrier_type_name,
       carrier_type_system_code: carrier_type_system_code,
       carrier_family_name: carrier_family_name,
@@ -71,6 +73,7 @@ RSpec.describe MasterControl::Models::Carrier do
       :version,
       :customer_app_state_id,
       :name,
+      :aasm_state,
       :carrier_type_name,
       :carrier_type_system_code,
       :carrier_family_name,
