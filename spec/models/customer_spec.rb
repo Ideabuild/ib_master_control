@@ -19,6 +19,7 @@ RSpec.describe MasterControl::Models::Customer do
   let(:state_event) { 'update_state!' }
   let(:management_customer_id) { SecureRandom.uuid }
   let(:owner_id) { SecureRandom.uuid }
+  let(:customer_provider_id) { SecureRandom.uuid }
   let(:ib_applications) { [{ id: SecureRandom.uuid, name: 'ib_authenticate' }] }
   let(:amd_login_url) { 'https://partnerlogin.advancedmd.com' }
   let(:amd_username) { 'API_FULL' }
@@ -48,6 +49,7 @@ RSpec.describe MasterControl::Models::Customer do
       has_state_event: has_state_event,
       state_event: state_event,
       management_customer_id: management_customer_id,
+      customer_provider_id: customer_provider_id,
       updated_by_id: updated_by_id,
       created_by_id: created_by_id,
       ib_applications: ib_applications,
@@ -81,6 +83,7 @@ RSpec.describe MasterControl::Models::Customer do
       :npi,
       :aasm_state,
       :owner_id,
+      :customer_provider_id,
       :active,
       :customer_type_name,
       :customer_type_system_code,
