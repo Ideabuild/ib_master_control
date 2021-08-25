@@ -22,6 +22,7 @@ module MasterControl
         :provider_type_system_code,
         :customer_id,
         :provider_id,
+        :version,
         :is_sync_update,
         :active
 
