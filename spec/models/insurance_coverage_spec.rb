@@ -2,7 +2,13 @@
 require 'spec_helper'
 
 RSpec.describe MasterControl::Models::InsuranceCoverage do
-  NULLEABLE_ATTRIBUTES = [].freeze
+  NULLEABLE_ATTRIBUTES = [
+    :is_valid, 
+    :group_number,
+    :last_validated_at,
+    :state_event,
+    :policy_holder_middle_name
+  ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::InsuranceCoverage' }
   let(:master_control_version) { '1.0.0' }
