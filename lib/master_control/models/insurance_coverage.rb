@@ -16,8 +16,6 @@ module MasterControl
         :member_id,
         :group_number,
         :aasm_state,
-        :is_valid,
-        :last_validated_at,
         :insurance_position,
         :has_state_event,
         :state_event,
