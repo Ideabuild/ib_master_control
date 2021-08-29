@@ -25,8 +25,6 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:member_id) { 'Billing' }
   let(:group_number) { 'Billing' }
   let(:aasm_state) { 'Billing' }
-  let(:is_valid) { true }
-  let(:last_validated_at) { Time.now.to_s(:iso8601) }
   let(:insurance_position) { 1 }
   let(:has_state_event) { true }
   let(:state_event) { 'update_state!' }
@@ -55,8 +53,6 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       member_id: member_id,
       group_number: group_number,
       aasm_state: aasm_state,
-      is_valid: is_valid,
-      last_validated_at: last_validated_at,
       insurance_position: insurance_position,
       has_state_event: has_state_event,
       state_event: state_event,
