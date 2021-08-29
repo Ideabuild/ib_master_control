@@ -2,7 +2,11 @@
 require 'spec_helper'
 
 RSpec.describe MasterControl::Models::Patient do
-  NULLEABLE_ATTRIBUTES = [:middle_name].freeze
+  NULLEABLE_ATTRIBUTES = [
+    :middle_name, 
+    :chart_number,
+    :ssn
+  ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::Patient' }
   let(:master_control_version) { '1.0.0' }
@@ -68,7 +72,6 @@ RSpec.describe MasterControl::Models::Patient do
       :date_of_birth,
       :gender_id,
       :customer_id,
-      :chart_number,
       :has_state_event,
       :version,
       :created_at,
