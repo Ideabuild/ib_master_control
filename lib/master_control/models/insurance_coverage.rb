@@ -54,7 +54,7 @@ module MasterControl
               group_number: { type: ['string', 'null'] },
               aasm_state: { type: 'string' },
               is_valid: { type: ['null', 'boolean'] },
-              last_validated_at: { type: ['string', 'null'] },
+              last_validated_at: { type: ['string', 'null'], format: 'date-time' },
               insurance_position: { type: 'integer' },
               has_state_event: { type: 'boolean' },
               state_event: { type: ['string', 'null'] },

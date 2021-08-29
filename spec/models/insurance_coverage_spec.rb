@@ -121,7 +121,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   end
 
   context 'format validations' do
-    [:created_at, :updated_at].each do |attribute|
+    [:created_at, :updated_at, :last_validated_at].each do |attribute|
       context attribute do
         let(attribute) { '' }
 
