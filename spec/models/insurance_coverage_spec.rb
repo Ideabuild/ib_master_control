@@ -6,7 +6,8 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
     :group_number,
     :state_event,
     :policy_holder_middle_name,
-    :intake_id
+    :intake_id,
+    :customer_app_state_id
   ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::InsuranceCoverage' }
@@ -20,6 +21,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:insurance_sequence_id) { SecureRandom.uuid }
   let(:carrier_id) { SecureRandom.uuid }
   let(:intake_id) { SecureRandom.uuid }
+  let(:customer_app_state_id) { SecureRandom.uuid }
   let(:policy_holder_first_name) { 'Billing' }
   let(:policy_holder_middle_name) { 'Billing' }
   let(:policy_holder_last_name) { 'Billing' }
@@ -45,6 +47,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       id: id,
       customer_id: customer_id,
       intake_id: intake_id,
+      customer_app_state_id: customer_app_state_id,
       patient_id: patient_id,
       customer_provider_id: customer_provider_id,
       insurance_sequence_id: insurance_sequence_id,
