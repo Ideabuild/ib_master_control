@@ -5,7 +5,8 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   NULLEABLE_ATTRIBUTES = [
     :group_number,
     :state_event,
-    :policy_holder_middle_name
+    :policy_holder_middle_name,
+    :intake_id
   ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::InsuranceCoverage' }
@@ -18,6 +19,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:customer_provider_id) { SecureRandom.uuid }
   let(:insurance_sequence_id) { SecureRandom.uuid }
   let(:carrier_id) { SecureRandom.uuid }
+  let(:intake_id) { SecureRandom.uuid }
   let(:policy_holder_first_name) { 'Billing' }
   let(:policy_holder_middle_name) { 'Billing' }
   let(:policy_holder_last_name) { 'Billing' }
@@ -42,6 +44,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       version: version,
       id: id,
       customer_id: customer_id,
+      intake_id: intake_id,
       patient_id: patient_id,
       customer_provider_id: customer_provider_id,
       insurance_sequence_id: insurance_sequence_id,
