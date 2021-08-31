@@ -15,6 +15,7 @@ RSpec.describe MasterControl::Models::CustomerDiagnosisCode do
   let(:code) { 'billing' }
   let(:codeset) { 'billing' }
   let(:search_terms) { 'billing' }
+  let(:is_on_verification_form) { true }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -34,6 +35,7 @@ RSpec.describe MasterControl::Models::CustomerDiagnosisCode do
       code: code,
       codeset: codeset,
       search_terms: search_terms,
+      is_on_verification_form: is_on_verification_form,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -63,6 +65,7 @@ RSpec.describe MasterControl::Models::CustomerDiagnosisCode do
       :code,
       :codeset,
       :search_terms,
+      :is_on_verification_form,
       :created_at,
       :updated_at,
       :updated_by_id,
