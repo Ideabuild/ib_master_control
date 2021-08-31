@@ -13,6 +13,7 @@ RSpec.describe MasterControl::Models::CustomerService do
   let(:service_id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:system_code) { 'billing' }
+  let(:is_on_verification_form) { true }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -30,6 +31,7 @@ RSpec.describe MasterControl::Models::CustomerService do
       service_id: service_id,
       name: name,
       system_code: system_code,
+      is_on_verification_form: is_on_verification_form,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -57,6 +59,7 @@ RSpec.describe MasterControl::Models::CustomerService do
       :version,
       :name,
       :system_code,
+      :is_on_verification_form,
       :created_at,
       :updated_at,
       :updated_by_id,

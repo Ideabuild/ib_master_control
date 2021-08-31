@@ -8,6 +8,7 @@ module MasterControl
         :service_id,
         :name,
         :system_code,
+        :is_on_verification_form,
         :version,
         :is_sync_update,
         :created_at,
@@ -34,6 +35,7 @@ module MasterControl
               name: { type: 'string' },
               system_code: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
+              is_on_verification_form: { type: 'boolean' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               created_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
@@ -49,6 +51,7 @@ module MasterControl
               :active,
               :name,
               :system_code,
+              :is_on_verification_form,
               :created_at,
               :updated_at,
               :updated_by_id,
