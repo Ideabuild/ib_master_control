@@ -11,6 +11,10 @@ RSpec.describe MasterControl::Models::ThirdPartyAdmin do
   let(:id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:system_code) { 'billing' }
+  let(:email) { 'Patient' }
+  let(:phone) { 'patient' }
+  let(:fax) { 'patient' }
+  let(:url) { 'patient' }
   let(:third_party_admin_type_name) { 'Patient' }
   let(:third_party_admin_type_system_code) { 'patient' }
   let(:created_at) { Time.now.to_s(:iso8601) }
@@ -28,6 +32,10 @@ RSpec.describe MasterControl::Models::ThirdPartyAdmin do
       id: id,
       name: name,
       system_code: system_code,
+      email: email,
+      phone: phone,
+      fax: fax,
+      url: url,
       third_party_admin_type_name: third_party_admin_type_name,
       third_party_admin_type_system_code: third_party_admin_type_system_code,
       created_at: created_at,
