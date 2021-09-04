@@ -2,7 +2,26 @@
 require 'spec_helper'
 
 RSpec.describe MasterControl::Models::TreatmentPlan do
-  NULLEABLE_ATTRIBUTES = [].freeze
+  NULLEABLE_ATTRIBUTES = [
+    :referring_provider_id,
+    :treating_provider_id,
+    :customer_service_line_id,
+    :backup_service_line_id,
+    :proposed_duration,
+    :current_approved_duration,
+    :total_approved_duration,
+    :duration_qualifier_id,
+    :proposed_started_at,
+    :actual_started_at,
+    :estimated_end_at,
+    :actual_end_at,
+    :review_documents_required_at,
+    :initial_auhorization_at,
+    :current_auhorization_at,
+    :current_authorization_number,
+    :current_auhorization_expires_at,
+    :state_event
+  ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::TreatmentPlan' }
   let(:master_control_version) { '1.0.0' }
@@ -98,12 +117,6 @@ RSpec.describe MasterControl::Models::TreatmentPlan do
       :customer_id,
       :patient_id,
       :facility_id,
-      :referring_provider_id,
-      :customer_service_line_id,
-      :proposed_duration,
-      :duration_qualifier_id,
-      :proposed_started_at,
-      :estimated_end_at,
       :aasm_state,
       :has_state_event,
       :created_at,
