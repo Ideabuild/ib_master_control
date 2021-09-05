@@ -14,7 +14,7 @@ RSpec.describe MasterControl::Models::TreatmentPlanService do
   let(:proposed_service_total) { 220 }
   let(:proposed_services_per_week) { 220 }
   let(:current_approved_services_per_week) { 230 }
-  let(:current_approved_services_total) { 230 }
+  let(:current_approved_services) { 230 }
   let(:total_approved_services_per_week) { 230 }
   let(:total_approved_services) { 230 }
   let(:proposed_started_at) { Time.now.to_s(:iso8601) }
@@ -47,7 +47,7 @@ RSpec.describe MasterControl::Models::TreatmentPlanService do
       proposed_service_total: proposed_service_total,
       proposed_services_per_week: proposed_services_per_week,
       current_approved_services_per_week: current_approved_services_per_week,
-      current_approved_services_total: current_approved_services_total,
+      current_approved_services: current_approved_services,
       total_approved_services_per_week: total_approved_services_per_week,
       total_approved_services: total_approved_services,
       proposed_started_at: proposed_started_at,
