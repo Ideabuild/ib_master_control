@@ -4,6 +4,7 @@ module MasterControl
     class TreatmentPlanService < MasterControl::Models::Base
       attributes  \
         :id,
+        :customer_id,
         :treatment_plan_id,
         :customer_service_id,
         :proposed_service_total,
@@ -44,6 +45,7 @@ module MasterControl
               version: { type: 'integer' },
               active: { type: 'boolean' },
               id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               treatment_plan_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_service_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               proposed_service_total: { type: 'integer' },
@@ -74,6 +76,7 @@ module MasterControl
               :master_control_version,
               :is_sync_update,
               :version,
+              :customer_id,
               :treatment_plan_id,
               :customer_service_id,
               :proposed_service_total,

@@ -9,6 +9,7 @@ RSpec.describe MasterControl::Models::TreatmentPlanService do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
+  let(:customer_id) { SecureRandom.uuid }
   let(:treatment_plan_id) { SecureRandom.uuid }
   let(:customer_service_id) { SecureRandom.uuid }
   let(:proposed_service_total) { 220 }
@@ -42,6 +43,7 @@ RSpec.describe MasterControl::Models::TreatmentPlanService do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
+      customer_id: customer_id,
       treatment_plan_id: treatment_plan_id,
       customer_service_id: customer_service_id,
       proposed_service_total: proposed_service_total,
@@ -86,6 +88,7 @@ RSpec.describe MasterControl::Models::TreatmentPlanService do
       :is_sync_update,
       :version,
       :active,
+      :customer_id,
       :treatment_plan_id,
       :customer_service_id,
       :proposed_service_total,
