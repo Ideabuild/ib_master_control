@@ -21,6 +21,7 @@ module MasterControl
 
       attribute :roles
       attribute :ib_applications
+      attribute :customers
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -52,6 +53,16 @@ module MasterControl
                 }
               },
               ib_applications: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+                    name: { type: 'string' }
+                  }
+                }
+              },
+              customers: {
                 type: 'array',
                 items: {
                   type: 'object',

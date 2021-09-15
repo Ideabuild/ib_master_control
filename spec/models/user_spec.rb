@@ -18,6 +18,7 @@ RSpec.describe MasterControl::Models::User do
   let(:has_state_event) { true }
   let(:state_event) { 'update_state!' }
   let(:roles) { [{ id: SecureRandom.uuid, name: 'Admin' }] }
+  let(:customers) { [{ id: SecureRandom.uuid, name: 'Ideabuild' }] }
   let(:ib_applications) { [{ id: SecureRandom.uuid, name: 'ib_authenticate' }] }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
@@ -42,7 +43,8 @@ RSpec.describe MasterControl::Models::User do
       updated_by_id: updated_by_id,
       created_by_id: created_by_id,
       roles: roles,
-      ib_applications: ib_applications
+      ib_applications: ib_applications,
+      customers: customers
     }
   end
 
