@@ -16,7 +16,8 @@ RSpec.describe MasterControl::Models::WorkQueue do
   let(:is_group_by_queue) { true }
   let(:group_by_model_association_id) { SecureRandom.uuid }
   let(:group_by_column_id) { SecureRandom.uuid }
-  let(:order_by_type_id) { SecureRandom.uuid }
+  let(:order_by_type_name) { 'A Name' }
+  let(:order_by_type_system_code) { 'the_code' }
   let(:order_by_model_association_id) { SecureRandom.uuid }
   let(:order_by_column_id) { SecureRandom.uuid }
   let(:order_by_direction) { 'the_code' }
@@ -42,7 +43,8 @@ RSpec.describe MasterControl::Models::WorkQueue do
       is_group_by_queue: is_group_by_queue,
       group_by_model_association_id: group_by_model_association_id,
       group_by_column_id: group_by_column_id,
-      order_by_type_id: order_by_type_id,
+      order_by_type_name: order_by_type_name,
+      order_by_type_system_code: order_by_type_system_code,
       order_by_model_association_id: order_by_model_association_id,
       order_by_column_id: order_by_column_id,
       order_by_direction: order_by_direction,
@@ -75,7 +77,8 @@ RSpec.describe MasterControl::Models::WorkQueue do
       :work_group_id,
       :customer_id,
       :is_group_by_queue,
-      :order_by_type_id,
+      :order_by_type_name,
+      :order_by_type_system_code,
       :order_by_direction,
       :priority_level,
       :users,
