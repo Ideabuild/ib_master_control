@@ -16,6 +16,7 @@ module MasterControl
         :order_by_column_id,
         :order_by_direction,
         :priority_level,
+        :users,
         :version,
         :is_sync_update,
         :created_at,
