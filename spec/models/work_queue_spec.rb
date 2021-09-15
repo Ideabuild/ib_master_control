@@ -21,6 +21,7 @@ RSpec.describe MasterControl::Models::WorkQueue do
   let(:order_by_column_id) { SecureRandom.uuid }
   let(:order_by_direction) { 'the_code' }
   let(:priority_level) { 50 }
+  let(:users) { [{ id: SecureRandom.uuid }] }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -46,6 +47,7 @@ RSpec.describe MasterControl::Models::WorkQueue do
       order_by_column_id: order_by_column_id,
       order_by_direction: order_by_direction,
       priority_level: priority_level,
+      users: users,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -76,6 +78,7 @@ RSpec.describe MasterControl::Models::WorkQueue do
       :order_by_type_id,
       :order_by_direction,
       :priority_level,
+      :users,
       :created_at,
       :updated_at,
       :updated_by_id,

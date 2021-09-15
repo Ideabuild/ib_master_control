@@ -48,6 +48,15 @@ module MasterControl
               order_by_column_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               order_by_direction: { type: 'string' },
               priority_level: { type: 'integer' },
+              users: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+                  }
+                }
+              },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
