@@ -83,7 +83,6 @@ RSpec.describe MasterControl::Models::Customer do
       :npi,
       :aasm_state,
       :owner_id,
-      :customer_provider_id,
       :active,
       :customer_type_name,
       :customer_type_system_code,
