@@ -12,7 +12,7 @@ module MasterControl
         :group_by_model_association_id,
         :group_by_column_id,
         :order_by_type_name,
-        :order_by_type_system_code,,
+        :order_by_type_system_code,
         :order_by_model_association_id,
         :order_by_column_id,
         :order_by_direction,
