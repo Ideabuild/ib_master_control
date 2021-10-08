@@ -74,7 +74,8 @@ RSpec.describe MasterControl::Models::User do
       :updated_by_id,
       :created_by_id,
       :roles,
-      :ib_applications
+      :ib_applications,
+      :customers
     ].each do |attribute|
       context attribute do
         let(attribute) { nil }

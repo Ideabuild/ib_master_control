@@ -13,6 +13,7 @@ module MasterControl
         :has_state_event,
         :state_event,
         :version,
+        :customers,
         :is_sync_update,
         :created_at,
         :updated_at,
@@ -21,7 +22,6 @@ module MasterControl
 
       attribute :roles
       attribute :ib_applications
-      attribute :customers
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -92,6 +92,7 @@ module MasterControl
               :has_state_event,
               :roles,
               :ib_applications,
+              :customers,
               :created_at,
               :updated_at,
               :updated_by_id,

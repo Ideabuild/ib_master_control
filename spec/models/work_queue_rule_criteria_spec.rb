@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 RSpec.describe MasterControl::Models::WorkQueueRuleCriteria do
-  NULLEABLE_ATTRIBUTES = [].freeze
+  NULLEABLE_ATTRIBUTES = [:criteria_app_model_association_id].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::WorkQueueRuleCriteria' }
   let(:master_control_version) { '1.0.0' }
@@ -64,7 +64,6 @@ RSpec.describe MasterControl::Models::WorkQueueRuleCriteria do
       :system_code,
       :work_queue_rule_id,
       :use_model_association,
-      :criteria_app_model_association_id,
       :criteria_column_id,
       :criteria_value,
       :criteria_type_id,
