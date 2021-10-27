@@ -11,6 +11,7 @@ RSpec.describe MasterControl::Models::Customer do
   let(:id) { SecureRandom.uuid }
   let(:name) { Faker::Company.name }
   let(:npi) { Faker::Lorem.sentence(word_count: 3) }
+  let(:dwh_id) { 132 }
   let(:active) { true }
   let(:aasm_state) { 'new' }
   let(:customer_type_name) { 'Management Customer' }
@@ -41,6 +42,7 @@ RSpec.describe MasterControl::Models::Customer do
       id: id,
       name: name,
       npi: npi,
+      dwh_id: dwh_id,
       owner_id: owner_id,
       active: active,
       aasm_state: aasm_state,
