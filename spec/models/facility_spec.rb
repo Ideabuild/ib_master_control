@@ -11,6 +11,7 @@ RSpec.describe MasterControl::Models::Facility do
   let(:id) { SecureRandom.uuid }
   let(:name) { Faker::Company.name }
   let(:customer_id) { SecureRandom.uuid }
+  let(:attending_provider_id) { SecureRandom.uuid }
   let(:facility_type_name) { 'Rehab' }
   let(:facility_type_system_code) { 'rehab' }
   let(:created_at) { Time.now.to_s(:iso8601) }
@@ -28,6 +29,7 @@ RSpec.describe MasterControl::Models::Facility do
       id: id,
       name: name,
       customer_id: customer_id,
+      attending_provider_id: attending_provider_id,
       facility_type_name: facility_type_name,
       facility_type_system_code: facility_type_system_code,
       created_at: created_at,
@@ -55,6 +57,7 @@ RSpec.describe MasterControl::Models::Facility do
       :version,
       :name,
       :customer_id,
+      :attending_provider_id,
       :facility_type_name,
       :facility_type_system_code,
       :created_at,
