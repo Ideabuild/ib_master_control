@@ -14,7 +14,7 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
   let(:name) { 'Billing' }
   let(:system_code) { 'billing' }
   let(:is_on_verification_form) { true }
-  let(:clinical_assesstment_type_id) { SecureRandom.uuid }
+  let(:clinical_assessment_type_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -34,7 +34,7 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       name: name,
       system_code: system_code,
       is_on_verification_form: is_on_verification_form,
-      clinical_assesstment_type_id: clinical_assesstment_type_id,
+      clinical_assessment_type_id: clinical_assessment_type_id,
       customer_services: customer_services,
       created_at: created_at,
       updated_at: updated_at,
