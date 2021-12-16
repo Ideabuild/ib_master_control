@@ -15,6 +15,7 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
   let(:system_code) { 'billing' }
   let(:is_on_verification_form) { true }
   let(:clinical_assessment_type_id) { SecureRandom.uuid }
+  let(:authorization_review_type_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -35,6 +36,7 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       system_code: system_code,
       is_on_verification_form: is_on_verification_form,
       clinical_assessment_type_id: clinical_assessment_type_id,
+      authorization_review_type_id: authorization_review_type_id,
       customer_services: customer_services,
       created_at: created_at,
       updated_at: updated_at,
@@ -65,6 +67,7 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       :system_code,
       :is_on_verification_form,
       :customer_services,
+      :authorization_review_type_id,
       :created_at,
       :updated_at,
       :updated_by_id,
