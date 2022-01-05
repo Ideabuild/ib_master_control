@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::CustomerAppStateBypassCriteria do
+RSpec.describe MasterControl::Models::CustomerAppStateBypassCriterium do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::CustomerAppStateBypassCriteria' }
+  let(:canonical_klass) { 'MasterControl::Models::CustomerAppStateBypassCriterium' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:customer_app_state_bypass_id) { SecureRandom.uuid }
+  let(:customer_id) { SecureRandom.uuid }
   let(:name) { 'A Name' }
   let(:system_code) { 'the_code' }
   let(:use_model_association) { true }
@@ -24,7 +25,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateBypassCriteria do
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:customer_app_state_bypass_criteria) do
+  let(:customer_app_state_bypass_criterium) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
@@ -32,6 +33,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateBypassCriteria do
       version: version,
       id: id,
       customer_app_state_bypass_id: customer_app_state_bypass_id,
+      customer_id: customer_id,
       name: name,
       system_code: system_code,
       use_model_association: use_model_association,
@@ -49,7 +51,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateBypassCriteria do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::CustomerAppStateBypassCriteria.json_schema, customer_app_state_bypass_criteria)
+    JSON::Validator.validate!(MasterControl::Models::CustomerAppStateBypassCriterium.json_schema, customer_app_state_bypass_criterium)
   end
 
   context 'happy path' do
@@ -63,6 +65,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateBypassCriteria do
       :id,
       :version,
       :customer_app_state_bypass_id,
+      :customer_id,
       :name,
       :system_code,
       :use_model_association,

@@ -10,6 +10,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateBypass do
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:customer_app_state_id) { SecureRandom.uuid }
+  let(:customer_id) { SecureRandom.uuid }
   let(:app_model_id) { SecureRandom.uuid }
   let(:name) { 'A Name' }
   let(:system_code) { 'the_code' }
@@ -27,6 +28,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateBypass do
       version: version,
       id: id,
       customer_app_state_id: customer_app_state_id,
+      customer_id: customer_id,
       app_model_id: app_model_id,
       name: name,
       system_code: system_code,
@@ -54,6 +56,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateBypass do
       :version,
       :customer_app_state_id,
       :app_model_id,
+      :customer_id,
       :name,
       :system_code,
       :created_at,

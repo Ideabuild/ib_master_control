@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class CustomerAppStateBypassCriteria < MasterControl::Models::Base
+    class CustomerAppStateBypassCriterium < MasterControl::Models::Base
       attributes \
         :id,
         :customer_app_state_bypass_id,
+        :customer_id,
         :name,
         :system_code,
         :use_model_association,
@@ -35,6 +36,7 @@ module MasterControl
               version: { type: 'integer' },
               active: { type: 'boolean' },
               customer_app_state_bypass_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               name: { type: 'string' },
               system_code: { type: 'string' },
               use_model_association: { type: 'boolean' },
@@ -56,6 +58,7 @@ module MasterControl
               :id,
               :active,
               :customer_app_state_bypass_id,
+              :customer_id,
               :name,
               :system_code,
               :use_model_association,

@@ -5,6 +5,7 @@ module MasterControl
       attributes \
         :id,
         :customer_app_state_id,
+        :customer_id,
         :app_model_id,
         :name,
         :system_code,
@@ -30,6 +31,7 @@ module MasterControl
               version: { type: 'integer' },
               active: { type: 'boolean' },
               customer_app_state_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               app_model_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               name: { type: 'string' },
               system_code: { type: 'string' },
@@ -46,6 +48,7 @@ module MasterControl
               :id,
               :active,
               :customer_app_state_id,
+              :customer_id,
               :app_model_id,
               :name,
               :system_code,
