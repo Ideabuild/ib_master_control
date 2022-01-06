@@ -12,7 +12,6 @@ RSpec.describe MasterControl::Models::CustomerAppRequiredDocument do
   let(:customer_id) { SecureRandom.uuid }
   let(:document_model_id) { SecureRandom.uuid }
   let(:base_model_id) { SecureRandom.uuid }
-  let(:task_model_id) { SecureRandom.uuid }
   let(:app_state_id) { SecureRandom.uuid }
   let(:customer_app_state_id) { SecureRandom.uuid }
   let(:date_column_id) { SecureRandom.uuid }
@@ -39,7 +38,6 @@ RSpec.describe MasterControl::Models::CustomerAppRequiredDocument do
       customer_id: customer_id,
       document_model_id: document_model_id,
       base_model_id: base_model_id,
-      task_model_id: task_model_id,
       app_state_id: app_state_id,
       customer_app_state_id: customer_app_state_id,
       date_column_id: date_column_id,
@@ -75,7 +73,6 @@ RSpec.describe MasterControl::Models::CustomerAppRequiredDocument do
       :customer_id,
       :document_model_id,
       :base_model_id,
-      :task_model_id,
       :app_state_id,
       :customer_app_state_id,
       :date_column_id,
