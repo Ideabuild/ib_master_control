@@ -18,7 +18,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateBypassCriterium do
   let(:criteria_column_id) { SecureRandom.uuid }
   let(:criteria_value) { 'a value' }
   let(:criteria_type_name) { 'The name' }
-  let(:criteria_type_code) { 'the_code' }
+  let(:criteria_type_system_code) { 'the_code' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -41,7 +41,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateBypassCriterium do
       criteria_column_id: criteria_column_id,
       criteria_value: criteria_value,
       criteria_type_name: criteria_type_name,
-      criteria_type_code: criteria_type_code,
+      criteria_type_system_code: criteria_type_system_code,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -72,7 +72,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateBypassCriterium do
       :criteria_column_id,
       :criteria_value,
       :criteria_type_name,
-      :criteria_type_code,
+      :criteria_type_system_code,
       :created_at,
       :updated_at,
       :updated_by_id,
