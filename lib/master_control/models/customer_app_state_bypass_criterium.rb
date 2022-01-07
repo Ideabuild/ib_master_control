@@ -40,7 +40,7 @@ module MasterControl
               name: { type: 'string' },
               system_code: { type: 'string' },
               use_model_association: { type: 'boolean' },
-              criteria_app_model_association_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              criteria_app_model_association_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               criteria_column_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               criteria_value: { type: 'string' },
               criteria_type_name: { type: 'string' },
