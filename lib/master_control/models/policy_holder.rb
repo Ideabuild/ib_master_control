@@ -14,6 +14,7 @@ module MasterControl
         :ssn,
         :phone,
         :email,
+        :is_sync_update,
         :version,
         :created_at,
         :updated_at,
