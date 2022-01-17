@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::Patient do
+RSpec.describe MasterControl::Models::PolicyHolder do
   NULLEABLE_ATTRIBUTES = [
     :middle_name, 
-    :chart_number,
     :ssn,
     :email,
     :phone
   ].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::Patient' }
+  let(:canonical_klass) { 'MasterControl::Models::PolicyHolder' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
@@ -19,22 +18,18 @@ RSpec.describe MasterControl::Models::Patient do
   let(:date_of_birth) { Faker::Date.backward(days: 2500).to_s(:iso8601) }
   let(:first_name) { Faker::Name.first_name }
   let(:gender_id) { SecureRandom.uuid }
-  let(:is_deceased) { false }
   let(:last_name) { Faker::Name.last_name }
   let(:middle_name) { 'Z' }
   let(:full_name) { Faker::Name.first_name  + ' ' + Faker::Name.last_name }
-  let(:chart_number) { 'TRRA0000' }
   let(:phone) { Faker::PhoneNumber.phone_number }
   let(:email) { Faker::Internet.email }
   let(:ssn) { Faker::IDNumber.valid }
-  let(:has_state_event) { true }
-  let(:state_event) { 'update_state!' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
 
-  let(:patient) do
+  let(:policy_holder) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
@@ -48,13 +43,9 @@ RSpec.describe MasterControl::Models::Patient do
       full_name: full_name,
       date_of_birth: date_of_birth,
       gender_id: gender_id,
-      is_deceased: is_deceased,
-      chart_number: chart_number,
       ssn: ssn,
       phone: phone,
       email: email,
-      has_state_event: has_state_event,
-      state_event: state_event,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -63,7 +54,7 @@ RSpec.describe MasterControl::Models::Patient do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::Patient.json_schema, patient)
+    JSON::Validator.validate!(MasterControl::Models::PolicyHolder.json_schema, policy_holder)
   end
 
   context 'happy path' do
@@ -81,7 +72,6 @@ RSpec.describe MasterControl::Models::Patient do
       :date_of_birth,
       :gender_id,
       :customer_id,
-      :has_state_event,
       :version,
       :created_at,
       :updated_at,

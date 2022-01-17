@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class Patient < MasterControl::Models::Base
+    class PolicyHolder < MasterControl::Models::Base
       attributes  \
         :id,
         :customer_id,
@@ -11,15 +11,10 @@ module MasterControl
         :middle_name,
         :last_name,
         :full_name,
-        :chart_number,
-        :is_deceased,
         :ssn,
         :phone,
         :email,
-        :has_state_event,
-        :state_event,
         :version,
-        :is_sync_update,
         :created_at,
         :updated_at,
         :updated_by_id,
@@ -41,7 +36,6 @@ module MasterControl
               customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               gender_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               date_of_birth: { type: 'string', format: 'date' },
-              chart_number: { type: ['string', 'null'] },
               first_name: { type: 'string' },
               middle_name: { type: ['string', 'null'] },
               last_name: { type: 'string' },
@@ -49,9 +43,6 @@ module MasterControl
               ssn: { type: ['string', 'null'] },
               phone: { type: ['string', 'null'] },
               email: { type: ['string', 'null'] },
-              is_deceased: { type: 'boolean' },
-              has_state_event: { type: 'boolean' },
-              state_event: { type: ['string', 'null'] },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -68,7 +59,6 @@ module MasterControl
               :date_of_birth,
               :customer_id,
               :gender_id,
-              :has_state_event,
               :updated_by_id,
               :created_by_id,
               :created_at,

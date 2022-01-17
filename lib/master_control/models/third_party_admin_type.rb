@@ -1,18 +1,11 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class ThirdPartyAdmin < MasterControl::Models::Base
+    class ThirdPartyAdminType < MasterControl::Models::Base
       attributes \
         :id,
         :name,
         :system_code,
-        :email,
-        :phone,
-        :fax,
-        :url,
-        :third_party_admin_type_id,
-        :third_party_admin_type_name,
-        :third_party_admin_type_system_code,
         :version,
         :is_sync_update,
         :created_at,
@@ -36,13 +29,6 @@ module MasterControl
               active: { type: 'boolean' },
               name: { type: 'string' },
               system_code: { type: 'string' },
-              email: { type: ['string', 'null'] },
-              phone: { type: ['string', 'null'] },
-              fax: { type: ['string', 'null'] },
-              url: { type: ['string', 'null'] },
-              third_party_admin_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              third_party_admin_type_name: { type: 'string' },
-              third_party_admin_type_system_code: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -57,9 +43,6 @@ module MasterControl
               :active,
               :name,
               :system_code,
-              :third_party_admin_type_id,
-              :third_party_admin_type_name,
-              :third_party_admin_type_system_code,
               :created_at,
               :updated_at,
               :updated_by_id,
