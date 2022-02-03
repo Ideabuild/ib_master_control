@@ -20,7 +20,8 @@ module MasterControl
         :aasm_state,
         :is_sync_update,
         :updated_by_id,
-        :version
+        :version,
+        :active
 
 
       class << self

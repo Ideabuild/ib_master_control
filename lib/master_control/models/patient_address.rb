@@ -19,7 +19,8 @@ module MasterControl
         :customer_id,
         :is_sync_update,
         :version,
-        :updated_by_id
+        :updated_by_id,
+        :active
 
 
       class << self
