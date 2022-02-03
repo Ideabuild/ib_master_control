@@ -19,11 +19,11 @@ RSpec.describe MasterControl::Models::PolicyHolderAddress do
   let(:id) { SecureRandom.uuid }
   let(:street_1) { Faker::Address.street_address }
   let(:street_2) { Faker::Address.secondary_address }
-  let(:city) { Faker::Address.city }
+  let(:city_name) { Faker::Address.city }
   let(:city_id) { SecureRandom.uuid }
-  let(:state) { Faker::Address.state_abbr }
+  let(:state_name) { Faker::Address.state_abbr }
   let(:state_id) { SecureRandom.uuid }
-  let(:zipcode) { Faker::Address.zip_code }
+  let(:zipcode_value) { Faker::Address.zip_code }
   let(:zipcode_id) { SecureRandom.uuid }
   let(:fips_code) { '1212-23' }
   let(:latitude) { Faker::Address.latitude }
@@ -44,11 +44,11 @@ RSpec.describe MasterControl::Models::PolicyHolderAddress do
       id: id,
       street_1: street_1,
       street_2: street_2,
-      city: city,
+      city_name: city_name,
       city_id: city_id,
-      state: state,
+      state_name: state_name,
       state_id: state_id,
-      zipcode: zipcode,
+      zipcode_value: zipcode_value,
       zipcode_id: zipcode_id,
       fips_code: fips_code,
       latitude: latitude,
@@ -78,9 +78,9 @@ RSpec.describe MasterControl::Models::PolicyHolderAddress do
       :is_sync_update,
       :version,
       :street_1,
-      :city,
-      :state,
-      :zipcode,
+      :city_name,
+      :state_name,
+      :zipcode_value,
       :policy_holder_id,
       :customer_id,
       :created_at,
