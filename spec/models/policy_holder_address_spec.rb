@@ -3,7 +3,7 @@ require 'spec_helper'
 
 RSpec.describe MasterControl::Models::PolicyHolderAddress do
   NULLEABLE_ATTRIBUTES = [
-                          :street2,
+                          :street_2,
                           :city_id,
                           :state_id,
                           :zipcode_id,
@@ -17,8 +17,8 @@ RSpec.describe MasterControl::Models::PolicyHolderAddress do
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:id) { SecureRandom.uuid }
-  let(:street1) { Faker::Address.street_address }
-  let(:street2) { Faker::Address.secondary_address }
+  let(:street_1) { Faker::Address.street_address }
+  let(:street_2) { Faker::Address.secondary_address }
   let(:city) { Faker::Address.city }
   let(:city_id) { SecureRandom.uuid }
   let(:state) { Faker::Address.state_abbr }
@@ -42,8 +42,8 @@ RSpec.describe MasterControl::Models::PolicyHolderAddress do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      street1: street1,
-      street2: street2,
+      street_1: street_1,
+      street_2: street_2,
       city: city,
       city_id: city_id,
       state: state,
@@ -77,7 +77,7 @@ RSpec.describe MasterControl::Models::PolicyHolderAddress do
       :master_control_version,
       :is_sync_update,
       :version,
-      :street1,
+      :street_1,
       :city,
       :state,
       :zipcode,
