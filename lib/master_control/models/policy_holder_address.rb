@@ -18,7 +18,6 @@ module MasterControl
         :longitude,
         :policy_holder_id,
         :customer_id,
-        :aasm_state,
         :is_sync_update,
         :updated_by_id,
         :version,
