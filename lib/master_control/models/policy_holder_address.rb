@@ -4,6 +4,7 @@ module MasterControl
     class PolicyHolderAddress < MasterControl::Models::Base
       attributes \
         :id,
+        :is_current,
         :street_1,
         :street_2,
         :city_name,
@@ -36,6 +37,7 @@ module MasterControl
               is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
               active: { type: 'boolean' },
+              is_current: { type: 'boolean' },
               street_1: { type: 'string' },
               street_2: { type: ['string', 'null'] },
               city_name: { type: 'string' },
@@ -60,6 +62,7 @@ module MasterControl
               :version,
               :id,
               :active,
+              :is_current,
               :street_1,
               :city_name,
               :state_name,

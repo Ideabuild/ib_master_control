@@ -34,6 +34,7 @@ RSpec.describe MasterControl::Models::PolicyHolderAddress do
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:active) { true }
+  let(:is_current) { true }
 
   let(:policy_holder_address) do
     {
@@ -42,6 +43,7 @@ RSpec.describe MasterControl::Models::PolicyHolderAddress do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
+      is_current: is_current,
       street_1: street_1,
       street_2: street_2,
       city_name: city_name,
@@ -77,6 +79,7 @@ RSpec.describe MasterControl::Models::PolicyHolderAddress do
       :master_control_version,
       :is_sync_update,
       :version,
+      :is_current,
       :street_1,
       :city_name,
       :state_name,
