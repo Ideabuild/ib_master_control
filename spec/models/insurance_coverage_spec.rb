@@ -31,6 +31,8 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:group_number) { 'Billing' }
   let(:aasm_state) { 'Billing' }
   let(:insurance_position) { 1 }
+  let(:set_for_verification) { true }
+  let(:set_for_discovery) { true }
   let(:has_state_event) { true }
   let(:state_event) { 'update_state!' }
   let(:created_at) { Time.now.to_s(:iso8601) }
@@ -62,6 +64,8 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       group_number: group_number,
       aasm_state: aasm_state,
       insurance_position: insurance_position,
+      set_for_verification: set_for_verification,
+      set_for_discovery: set_for_discovery,
       has_state_event: has_state_event,
       state_event: state_event,
       created_at: created_at,
@@ -96,7 +100,9 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       :policy_holder_date_of_birth,
       :member_id,
       :aasm_state,
-      :insurance_position,
+      :set_for_verification,
+      :has_state_event,
+      :set_for_discovery,
       :has_state_event,
       :created_at,
       :updated_at,
