@@ -7,6 +7,8 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
     :state_event,
     :policy_holder_middle_name,
     :intake_id,
+    :is_valid,
+    :last_validated_at,
     :customer_app_state_id
   ].freeze
 
@@ -15,25 +17,27 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:customer_id) { SecureRandom.uuid }
-  let(:patient_id) { SecureRandom.uuid }
-  let(:customer_provider_id) { SecureRandom.uuid }
-  let(:insurance_sequence_id) { SecureRandom.uuid }
+  let(:aasm_state) { 'Billing' }
   let(:carrier_id) { SecureRandom.uuid }
-  let(:intake_id) { SecureRandom.uuid }
-  let(:policy_holder_id) { SecureRandom.uuid }
+  let(:customer_id) { SecureRandom.uuid }
   let(:customer_app_state_id) { SecureRandom.uuid }
+  let(:customer_provider_id) { SecureRandom.uuid }
+  let(:group_number) { 'Billing' }
+  let(:has_state_event) { true }
+  let(:insurance_position) { 1 }
+  let(:insurance_sequence_id) { SecureRandom.uuid }
+  let(:intake_id) { SecureRandom.uuid }
+  let(:is_valid) { false }
+  let(:last_validated_at) { Time.now.to_s(:iso8601) }
+  let(:member_id) { 'Billing' }
+  let(:patient_id) { SecureRandom.uuid }
+  let(:policy_holder_id) { SecureRandom.uuid }
   let(:policy_holder_first_name) { 'Billing' }
   let(:policy_holder_middle_name) { 'Billing' }
   let(:policy_holder_last_name) { 'Billing' }
   let(:policy_holder_date_of_birth) { Time.now.to_s(:iso8601) }
-  let(:member_id) { 'Billing' }
-  let(:group_number) { 'Billing' }
-  let(:aasm_state) { 'Billing' }
-  let(:insurance_position) { 1 }
   let(:set_for_verification) { true }
   let(:set_for_discovery) { true }
-  let(:has_state_event) { true }
   let(:state_event) { 'update_state!' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
@@ -48,25 +52,27 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      customer_id: customer_id,
-      intake_id: intake_id,
-      policy_holder_id: policy_holder_id,
-      customer_app_state_id: customer_app_state_id,
-      patient_id: patient_id,
-      customer_provider_id: customer_provider_id,
-      insurance_sequence_id: insurance_sequence_id,
+      aasm_state: aasm_state,
       carrier_id: carrier_id,
+      customer_app_state_id: customer_app_state_id,
+      customer_id: customer_id,
+      customer_provider_id: customer_provider_id,
+      group_number: group_number,
+      has_state_event: has_state_event,
+      insurance_position: insurance_position,
+      insurance_sequence_id: insurance_sequence_id,
+      intake_id: intake_id,
+      is_valid: is_valid,
+      last_validated_at: last_validated_at,
+      member_id: member_id,
+      patient_id: patient_id,
+      policy_holder_id: policy_holder_id,
       policy_holder_first_name: policy_holder_first_name,
       policy_holder_middle_name: policy_holder_middle_name,
       policy_holder_last_name: policy_holder_last_name,
       policy_holder_date_of_birth: policy_holder_date_of_birth,
-      member_id: member_id,
-      group_number: group_number,
-      aasm_state: aasm_state,
-      insurance_position: insurance_position,
       set_for_verification: set_for_verification,
       set_for_discovery: set_for_discovery,
-      has_state_event: has_state_event,
       state_event: state_event,
       created_at: created_at,
       updated_at: updated_at,
