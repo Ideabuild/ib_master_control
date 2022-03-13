@@ -13,6 +13,7 @@ module MasterControl
         :third_party_admin_type_id,
         :third_party_admin_type_name,
         :third_party_admin_type_system_code,
+        
         :version,
         :is_sync_update,
         :created_at,
@@ -20,6 +21,8 @@ module MasterControl
         :updated_by_id,
         :created_by_id,
         :active
+
+        attribute :carriers
 
 
       class << self
@@ -43,6 +46,16 @@ module MasterControl
               third_party_admin_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               third_party_admin_type_name: { type: 'string' },
               third_party_admin_type_system_code: { type: 'string' },
+              carriers: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+                    name: { type: 'string' }
+                  }
+                }
+              },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },

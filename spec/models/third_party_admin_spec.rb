@@ -18,6 +18,7 @@ RSpec.describe MasterControl::Models::ThirdPartyAdmin do
   let(:third_party_admin_type_id) { SecureRandom.uuid }
   let(:third_party_admin_type_name) { 'Patient' }
   let(:third_party_admin_type_system_code) { 'patient' }
+  let(:carriers) { [{ id: SecureRandom.uuid, name: 'BCBS' }] }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -40,6 +41,7 @@ RSpec.describe MasterControl::Models::ThirdPartyAdmin do
       third_party_admin_type_id: third_party_admin_type_id,
       third_party_admin_type_name: third_party_admin_type_name,
       third_party_admin_type_system_code: third_party_admin_type_system_code,
+      carriers: carriers,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
