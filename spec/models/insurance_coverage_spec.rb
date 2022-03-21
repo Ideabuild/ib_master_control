@@ -99,7 +99,6 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       :version,
       :customer_id,
       :patient_id,
-      :insurance_sequence_id,
       :carrier_id,
       :policy_holder_first_name,
       :policy_holder_last_name,
