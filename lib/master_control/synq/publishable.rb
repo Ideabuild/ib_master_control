@@ -15,6 +15,8 @@ module MasterControl
       module InstanceMethods
         def publish(event)
           MasterControl::Synq::Publisher.publish(event, self)
+          self.is_sync_update = false
+          self.save!
         end
 
         def publish_complete

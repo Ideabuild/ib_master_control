@@ -1,7 +1,7 @@
 PATH
   remote: ../..
   specs:
-    master_control (1.6.3)
+    master_control (1.6.4)
       active_model_serializers (~> 0.10.4)
       activejob (~> 6.1.0)
       activesupport (~> 6.1.0)
