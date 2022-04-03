@@ -46,5 +46,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.8"
   spec.add_development_dependency "rspec-rails", "~> 3.8"
   spec.add_development_dependency "rubocop", "= 0.42.0"
-  spec.add_development_dependency "shoulda-matchers", "= 3.1.1"
+  spec.add_development_dependency "shoulda-matchers", "= 5.1.0"
 end
