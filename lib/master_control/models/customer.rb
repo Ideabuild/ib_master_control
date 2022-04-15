@@ -44,7 +44,7 @@ module MasterControl
               id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               name: { type: 'string' },
               npi: { type: 'string' },
-              dwh_id: { type: 'integer' },
+              dwh_id: { type: ['integer', 'null'] },
               aasm_state: { type: 'string' },
               owner_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_provider_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
