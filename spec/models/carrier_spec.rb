@@ -9,7 +9,6 @@ RSpec.describe MasterControl::Models::Carrier do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:customer_app_state_id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:aasm_state) { 'active' }
   let(:carrier_type_name) { 'Evil' }
@@ -35,7 +34,6 @@ RSpec.describe MasterControl::Models::Carrier do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      customer_app_state_id: customer_app_state_id,
       name: name,
       aasm_state: aasm_state,
       carrier_type_name: carrier_type_name,
@@ -71,9 +69,7 @@ RSpec.describe MasterControl::Models::Carrier do
       :master_control_version,
       :is_sync_update,
       :version,
-      :customer_app_state_id,
       :name,
-      :aasm_state,
       :carrier_type_name,
       :carrier_type_system_code,
       :carrier_family_name,
