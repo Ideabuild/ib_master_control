@@ -34,7 +34,7 @@ module MasterControl
       end
 
       def handle_connection_error(ex)
-        logger.error "Error connecting to RabbitMQ: [#{ex.message}]" if logger
+        logger.error "Error connecting to RabbitMQ: [#{ex.message}] for #{ENV['RABBITMQ_URL']}" if logger
 
         title = 'Error connecting to RabbitMQ'
         message = 'This error was suppressed and not re-thrown ' \
