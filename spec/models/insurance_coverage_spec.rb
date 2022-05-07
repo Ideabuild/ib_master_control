@@ -3,13 +3,16 @@ require 'spec_helper'
 
 RSpec.describe MasterControl::Models::InsuranceCoverage do
   NULLEABLE_ATTRIBUTES = [
+    :customer_app_state_id,
     :group_number,
-    :state_event,
-    :policy_holder_middle_name,
     :intake_id,
     :is_valid,
+    :is_verified,
     :last_validated_at,
-    :customer_app_state_id
+    :last_verified_at,
+    :policy_holder_middle_name,
+    :state_event,
+    :verified_by_id
   ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::InsuranceCoverage' }
@@ -28,7 +31,9 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:insurance_sequence_id) { SecureRandom.uuid }
   let(:intake_id) { SecureRandom.uuid }
   let(:is_valid) { false }
+  let(:is_verified) { false }
   let(:last_validated_at) { Time.now.to_s(:iso8601) }
+  let(:last_verified_at) { Time.now.to_s(:iso8601) }
   let(:member_id) { 'Billing' }
   let(:patient_id) { SecureRandom.uuid }
   let(:policy_holder_id) { SecureRandom.uuid }
@@ -39,6 +44,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:set_for_verification) { true }
   let(:set_for_discovery) { true }
   let(:state_event) { 'update_state!' }
+  let(:verified_by_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -63,7 +69,9 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       insurance_sequence_id: insurance_sequence_id,
       intake_id: intake_id,
       is_valid: is_valid,
+      is_verified: is_verified,
       last_validated_at: last_validated_at,
+      last_verified_at: last_verified_at,
       member_id: member_id,
       patient_id: patient_id,
       policy_holder_id: policy_holder_id,
@@ -74,6 +82,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       set_for_verification: set_for_verification,
       set_for_discovery: set_for_discovery,
       state_event: state_event,
+      verified_by_id: verified_by_id,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
