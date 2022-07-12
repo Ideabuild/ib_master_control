@@ -10,20 +10,22 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:customer_id) { SecureRandom.uuid }
-  let(:app_task_id) { SecureRandom.uuid }
+  let(:app_icon_id) { SecureRandom.uuid }
   let(:app_model_id) { SecureRandom.uuid }
   let(:app_state_id) { SecureRandom.uuid }
+  let(:app_task_id) { SecureRandom.uuid }
+  let(:app_url_id) { SecureRandom.uuid }
   let(:customer_app_notification_id) { SecureRandom.uuid }
-  let(:work_group_id) { SecureRandom.uuid }
-  let(:task_model_id) { SecureRandom.uuid }
+  let(:due_in) { 3 }
+  let(:grace_period) { 1 }
   let(:ib_application_id) { SecureRandom.uuid }
+  let(:is_owner_assigned) { true }
   let(:name) { 'A Name' }
   let(:system_code) { 'the_code' }
-  let(:icon) { 'icon' }
-  let(:url) { '/ads/aghg/sssa' }
-  let(:grace_period) { 1 }
-  let(:due_in) { 3 }
   let(:priority_level) { 3 }
+  let(:task_model_id) { SecureRandom.uuid }
+  let(:use_owner_as_assignee) { true }
+  let(:work_group_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -38,20 +40,22 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       version: version,
       id: id,
       customer_id: customer_id,
-      app_task_id: app_task_id,
+      app_icon_id: app_icon_id,
       app_model_id: app_model_id,
       app_state_id: app_state_id,
+      app_task_id: app_task_id,
+      app_url_id: app_url_id,
       customer_app_notification_id: customer_app_notification_id,
-      work_group_id: work_group_id,
-      ib_application_id: ib_application_id,
-      task_model_id: task_model_id,
-      name: name,
-      system_code: system_code,
-      icon: icon,
-      url: url,
-      grace_period: grace_period,
       due_in: due_in,
+      ib_application_id: ib_application_id,
+      is_owner_assigned: is_owner_assigned,
+      name: name,
+      grace_period: grace_period,
+      system_code: system_code,
+      task_model_id: task_model_id,
+      use_owner_as_assignee: use_owner_as_assignee,
       priority_level: priority_level,
+      work_group_id: work_group_id,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -75,18 +79,21 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       :id,
       :version,
       :customer_id,
-      :app_task_id,
+      :app_icon_id,
       :app_model_id,
       :app_state_id,
-      :work_group_id,
-      :task_model_id,
-      :ib_application_id,
-      :name,
-      :system_code,
-      :icon,
-      :url,
-      :grace_period,
+      :app_task_id,
+      :app_url_id,
       :due_in,
+      :grace_period,
+      :ib_application_id,
+      :is_owner_assigned,
+      :name,
+      :priority_level,
+      :system_code,
+      :task_model_id,
+      :use_owner_as_assignee,
+      :work_group_id,
       :created_at,
       :updated_at,
       :updated_by_id,
