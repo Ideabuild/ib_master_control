@@ -2,7 +2,10 @@
 require 'spec_helper'
 
 RSpec.describe MasterControl::Models::CustomerAppTask do
-  NULLEABLE_ATTRIBUTES = [].freeze
+  NULLEABLE_ATTRIBUTES = [
+    :is_owner_assigned,
+    :use_owner_as_assignee
+  ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::CustomerAppTask' }
   let(:master_control_version) { '1.0.0' }
@@ -21,8 +24,8 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
   let(:ib_application_id) { SecureRandom.uuid }
   let(:is_owner_assigned) { true }
   let(:name) { 'A Name' }
-  let(:system_code) { 'the_code' }
   let(:priority_level) { 3 }
+  let(:system_code) { 'the_code' }
   let(:task_model_id) { SecureRandom.uuid }
   let(:use_owner_as_assignee) { true }
   let(:work_group_id) { SecureRandom.uuid }
@@ -51,10 +54,10 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       is_owner_assigned: is_owner_assigned,
       name: name,
       grace_period: grace_period,
+      priority_level: priority_level,
       system_code: system_code,
       task_model_id: task_model_id,
       use_owner_as_assignee: use_owner_as_assignee,
-      priority_level: priority_level,
       work_group_id: work_group_id,
       created_at: created_at,
       updated_at: updated_at,
