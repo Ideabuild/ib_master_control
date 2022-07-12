@@ -2,10 +2,7 @@
 require 'spec_helper'
 
 RSpec.describe MasterControl::Models::CustomerAppTask do
-  NULLEABLE_ATTRIBUTES = [
-    :is_owner_assigned,
-    :use_owner_as_assignee
-  ].freeze
+  NULLEABLE_ATTRIBUTES = [].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::CustomerAppTask' }
   let(:master_control_version) { '1.0.0' }

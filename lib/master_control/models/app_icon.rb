@@ -6,7 +6,6 @@ module MasterControl
         :id,
         :name,
         :system_code,
-        :url,
         :version,
         :is_sync_update,
         :created_at,
