@@ -16,6 +16,7 @@ module MasterControl
         :created_by_id,
         :active
 
+        attribute :document_rejection_reasons
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -36,7 +37,17 @@ module MasterControl
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              created_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+              created_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              document_rejection_reasons: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+                    name: { type: 'string' }
+                  }
+                }
+              },
             },
             required: [
               :canonical_klass,
