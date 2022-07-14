@@ -4,7 +4,7 @@ module MasterControl
     class DocumentRejectionReason < MasterControl::Models::Base
       attributes \
         :id,
-        :document_category_id,
+        :document_type_category_id,
         :name,
         :system_code,
         :version,
@@ -28,7 +28,7 @@ module MasterControl
               is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
               active: { type: 'boolean' },
-              document_category_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              document_type_category_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               name: { type: 'string' },
               system_code: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
@@ -43,7 +43,7 @@ module MasterControl
               :version,
               :id,
               :active,
-              :document_category_id,
+              :document_type_category_id,
               :name,
               :system_code,
               :created_at,

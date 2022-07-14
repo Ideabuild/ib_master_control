@@ -9,7 +9,7 @@ RSpec.describe MasterControl::Models::DocumentRejectionReason do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:document_category_id) { SecureRandom.uuid }
+  let(:document_type_category_id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:system_code) { 'billing' }
   let(:created_at) { Time.now.to_s(:iso8601) }
@@ -25,7 +25,7 @@ RSpec.describe MasterControl::Models::DocumentRejectionReason do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      document_category_id: document_category_id,
+      document_type_category_id: document_type_category_id,
       name: name,
       system_code: system_code,
       created_at: created_at,
@@ -51,7 +51,7 @@ RSpec.describe MasterControl::Models::DocumentRejectionReason do
       :master_control_version,
       :is_sync_update,
       :version,
-      :document_category_id,
+      :document_type_category_id,
       :name,
       :system_code,
       :created_at,
