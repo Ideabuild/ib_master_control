@@ -44,7 +44,7 @@ module MasterControl
               enrollment_signature_required: { type: 'boolean' },
               secondary_supported: { type: 'boolean' },
               blue_ink_required: { type: 'boolean' },
-              message: { type: 'string' },
+              message: { type: ['string', 'null'] },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
