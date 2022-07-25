@@ -30,6 +30,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:insurance_position) { 1 }
   let(:insurance_sequence_id) { SecureRandom.uuid }
   let(:intake_id) { SecureRandom.uuid }
+  let(:is_cobra) { false }
   let(:is_valid) { false }
   let(:is_verified) { false }
   let(:last_validated_at) { Time.now.to_s(:iso8601) }
@@ -68,6 +69,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       insurance_position: insurance_position,
       insurance_sequence_id: insurance_sequence_id,
       intake_id: intake_id,
+      is_cobra: is_cobra,
       is_valid: is_valid,
       is_verified: is_verified,
       last_validated_at: last_validated_at,
@@ -106,18 +108,19 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       :master_control_version,
       :is_sync_update,
       :version,
-      :customer_id,
-      :patient_id,
+      :aasm_state,
       :carrier_id,
+      :customer_id,
+      :has_state_event,
+      :has_state_event,
+      :is_cobra,
+      :member_id,
+      :patient_id,
       :policy_holder_first_name,
       :policy_holder_last_name,
       :policy_holder_date_of_birth,
-      :member_id,
-      :aasm_state,
       :set_for_verification,
-      :has_state_event,
       :set_for_discovery,
-      :has_state_event,
       :created_at,
       :updated_at,
       :updated_by_id,
