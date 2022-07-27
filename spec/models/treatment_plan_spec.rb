@@ -7,7 +7,6 @@ RSpec.describe MasterControl::Models::TreatmentPlan do
     :treating_provider_id,
     :customer_service_line_id,
     :backup_service_line_id,
-    :proposed_duration,
     :current_approved_duration,
     :total_approved_duration,
     :duration_qualifier_id,
@@ -36,7 +35,6 @@ RSpec.describe MasterControl::Models::TreatmentPlan do
   let(:treating_provider_id) { SecureRandom.uuid }
   let(:customer_service_line_id) { SecureRandom.uuid }
   let(:backup_service_line_id) { SecureRandom.uuid }
-  let(:proposed_duration) { 10 }
   let(:current_approved_duration) { 220 }
   let(:total_approved_duration) { 230 }
   let(:duration_qualifier_id) { SecureRandom.uuid }
@@ -73,7 +71,6 @@ RSpec.describe MasterControl::Models::TreatmentPlan do
       treating_provider_id: treating_provider_id,
       customer_service_line_id: customer_service_line_id,
       backup_service_line_id: backup_service_line_id,
-      proposed_duration: proposed_duration,
       current_approved_duration: current_approved_duration,
       total_approved_duration: total_approved_duration,
       duration_qualifier_id: duration_qualifier_id,
