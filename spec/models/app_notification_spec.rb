@@ -11,8 +11,8 @@ RSpec.describe MasterControl::Models::AppNotification do
   let(:id) { SecureRandom.uuid }
   let(:name) { 'A name' }
   let(:system_code) { 'the_code' }
-  let(:icon) { 'icon' }
-  let(:url) { '/ads/aghg/sssa' }
+  let(:app_icon_id) { SecureRandom.uuid }
+  let(:app_url_id) { SecureRandom.uuid }
   let(:subject) { 'a subject' }
   let(:contents) { 'the contnets' }
   let(:created_at) { Time.now.to_s(:iso8601) }
@@ -30,8 +30,8 @@ RSpec.describe MasterControl::Models::AppNotification do
       id: id,
       name: name,
       system_code: system_code,
-      icon: icon,
-      url: url,
+      app_url_id: app_url_id,
+      app_icon_id: app_icon_id,
       subject: subject,
       contents: contents,
       created_at: created_at,
@@ -58,8 +58,8 @@ RSpec.describe MasterControl::Models::AppNotification do
       :version,
       :name,
       :system_code,
-      :icon,
-      :url,
+      :app_icon_id,
+      :app_url_id,
       :subject,
       :contents,
       :created_at,
