@@ -1,22 +1,20 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::CustomerAppStateTimer do
+RSpec.describe MasterControl::Models::AppStateTimer do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::CustomerAppStateTimer' }
+  let(:canonical_klass) { 'MasterControl::Models::AppStateTimer' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:app_event_id) { SecureRandom.uuid }
   let(:app_model_id) { SecureRandom.uuid }
-  let(:app_state_id) { SecureRandom.uuid }
   let(:criteria_column_id) { SecureRandom.uuid }
   let(:criteria_type_name) { 'A Name' }
   let(:criteria_type_system_code) { 'a_code' }
-  let(:customer_app_state_id) { SecureRandom.uuid }
-  let(:customer_id) { SecureRandom.uuid }
+  let(:app_state_id) { SecureRandom.uuid }
   let(:data_type) { 'datetime' }
   let(:name) { 'A Name' }
   let(:range_limit) { 40 }
@@ -27,7 +25,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateTimer do
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:customer_app_state_timer) do
+  let(:app_state_timer) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
@@ -36,12 +34,10 @@ RSpec.describe MasterControl::Models::CustomerAppStateTimer do
       id: id,
       app_event_id: app_event_id,
       app_model_id: app_model_id,
-      app_state_id: app_state_id,
       criteria_column_id: criteria_column_id,
       criteria_type_name: criteria_type_name,
       criteria_type_system_code: criteria_type_system_code,
-      customer_app_state_id: customer_app_state_id,
-      customer_id: customer_id,
+      app_state_id: app_state_id,
       data_type: data_type,
       name: name,
       range_limit: range_limit,
@@ -55,7 +51,7 @@ RSpec.describe MasterControl::Models::CustomerAppStateTimer do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::CustomerAppStateTimer.json_schema, customer_app_state_timer)
+    JSON::Validator.validate!(MasterControl::Models::AppStateTimer.json_schema, app_state_timer)
   end
 
   context 'happy path' do
@@ -70,12 +66,10 @@ RSpec.describe MasterControl::Models::CustomerAppStateTimer do
       :version,
       :app_event_id,
       :app_model_id,
-      :app_state_id,
       :criteria_column_id,
       :criteria_type_name,
       :criteria_type_system_code,
-      :customer_app_state_id,
-      :customer_id,
+      :app_state_id,
       :data_type,
       :name,
       :range_limit,
