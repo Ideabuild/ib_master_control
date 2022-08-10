@@ -12,6 +12,8 @@ module MasterControl
         :app_state_id,
         :data_type,
         :range_limit,
+        :name,
+        :system_code,
         :version,
         :is_sync_update,
         :created_at,
