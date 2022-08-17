@@ -48,8 +48,9 @@ module MasterControl
 
       def thresholds
         {
-          production: 2.hours.from_now,
+          production: 1.hours.from_now,
           staging: 23.hours.from_now,
+          sandbox: 23.hours.from_now,
           devstaging: 6.months.from_now,
           development: 6.months.from_now,
           test: 1.year.from_now
