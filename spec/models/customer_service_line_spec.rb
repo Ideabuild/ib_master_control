@@ -9,6 +9,7 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
+  let(:auth_follow_up_day_threshold) { 10 }
   let(:customer_id) { SecureRandom.uuid }
   let(:service_line_id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
@@ -32,15 +33,16 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
+      auth_follow_up_day_threshold: auth_follow_up_day_threshold,
+      authorization_review_type_id: authorization_review_type_id,
       customer_id: customer_id,
-      service_line_id: service_line_id,
+      clinical_assessment_type_id: clinical_assessment_type_id,
+      is_on_verification_form: is_on_verification_form,
       name: name,
       order: order,
-      system_code: system_code,
-      is_on_verification_form: is_on_verification_form,
       requires_accreditation: requires_accreditation,
-      clinical_assessment_type_id: clinical_assessment_type_id,
-      authorization_review_type_id: authorization_review_type_id,
+      service_line_id: service_line_id,
+      system_code: system_code,
       customer_services: customer_services,
       created_at: created_at,
       updated_at: updated_at,
@@ -62,18 +64,19 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
     [
       :canonical_klass,
       :id,
-      :customer_id,
-      :service_line_id,
       :master_control_version,
       :is_sync_update,
       :version,
+      :authorization_review_type_id,
+      :auth_follow_up_day_threshold,
+      :customer_id,
+      :customer_services,
+      :is_on_verification_form,
       :name,
       :order,
-      :system_code,
-      :is_on_verification_form,
       :requires_accreditation,
-      :customer_services,
-      :authorization_review_type_id,
+      :service_line_id,
+      :system_code,
       :created_at,
       :updated_at,
       :updated_by_id,

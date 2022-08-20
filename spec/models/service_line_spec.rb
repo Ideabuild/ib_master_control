@@ -9,10 +9,12 @@ RSpec.describe MasterControl::Models::ServiceLine do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:name) { 'Billing' }
-  let(:system_code) { 'billing' }
+  let(:auth_follow_up_day_threshold) { 10 }
   let(:authorization_review_type_id) { SecureRandom.uuid }
   let(:clinical_assessment_type_id) { SecureRandom.uuid }
+  let(:order) { 10 }
+  let(:name) { 'Billing' }
+  let(:system_code) { 'billing' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -27,8 +29,10 @@ RSpec.describe MasterControl::Models::ServiceLine do
       version: version,
       id: id,
       name: name,
+      order: order,
       system_code: system_code,
       authorization_review_type_id: authorization_review_type_id,
+      auth_follow_up_day_threshold: auth_follow_up_day_threshold,
       clinical_assessment_type_id: clinical_assessment_type_id,
       created_at: created_at,
       updated_at: updated_at,
@@ -53,9 +57,11 @@ RSpec.describe MasterControl::Models::ServiceLine do
       :id,
       :master_control_version,
       :version,
-      :name,
-      :system_code,
       :authorization_review_type_id,
+      :auth_follow_up_day_threshold,
+      :name,
+      :order,
+      :system_code,
       :clinical_assessment_type_id,
       :services,
       :created_at,
