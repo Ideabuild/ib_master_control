@@ -2,7 +2,9 @@
 require 'spec_helper'
 
 RSpec.describe MasterControl::Models::CustomerAppRequiredDocument do
-  NULLEABLE_ATTRIBUTES = [].freeze
+  NULLEABLE_ATTRIBUTES = [
+    :date_column_id
+  ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::CustomerAppRequiredDocument' }
   let(:master_control_version) { '1.0.0' }
@@ -19,6 +21,8 @@ RSpec.describe MasterControl::Models::CustomerAppRequiredDocument do
   let(:document_requirement_type_system_code) { 'A Requirement Type Code' }
   let(:document_due_by_type_name) { 'A Due Type Name' }
   let(:document_due_by_type_system_code) { 'A Due Type Code' }
+  let(:document_type_name) { 'A Doc Type Name' }
+  let(:document_type_system_code) { 'A Doc Type Code' }
   let(:name) { 'A Name' }
   let(:system_code) { 'the_code' }
   let(:due_by_days) { 10 }
@@ -45,6 +49,8 @@ RSpec.describe MasterControl::Models::CustomerAppRequiredDocument do
       document_requirement_type_system_code: document_requirement_type_system_code,
       document_due_by_type_name: document_due_by_type_name,
       document_due_by_type_system_code: document_due_by_type_system_code,
+      document_type_name: document_type_name,
+      document_type_system_code: document_type_system_code,
       name: name,
       system_code: system_code,
       due_by_days: due_by_days,
@@ -75,14 +81,15 @@ RSpec.describe MasterControl::Models::CustomerAppRequiredDocument do
       :base_model_id,
       :app_state_id,
       :customer_app_state_id,
-      :date_column_id,
       :document_requirement_type_name,
       :document_requirement_type_system_code,
       :document_due_by_type_name,
       :document_due_by_type_system_code,
+      :document_type_name,
+      :document_type_system_code,
+      :due_by_days,
       :name,
       :system_code,
-      :due_by_days,
       :created_at,
       :updated_at,
       :updated_by_id,
