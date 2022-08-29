@@ -2,7 +2,9 @@
 require 'spec_helper'
 
 RSpec.describe MasterControl::Models::AppRequiredDocument do
-  NULLEABLE_ATTRIBUTES = [].freeze
+  NULLEABLE_ATTRIBUTES = [
+    :date_column_id
+  ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::AppRequiredDocument' }
   let(:master_control_version) { '1.0.0' }
@@ -66,7 +68,6 @@ RSpec.describe MasterControl::Models::AppRequiredDocument do
       :version,
       :app_state_id,
       :base_model_id,
-      :date_column_id,
       :document_due_by_type_id,
       :document_model_id,
       :document_requirement_type_id,
