@@ -21,8 +21,7 @@ RSpec.describe MasterControl::Models::CustomerAppRequiredDocument do
   let(:document_requirement_type_system_code) { 'A Requirement Type Code' }
   let(:document_due_by_type_name) { 'A Due Type Name' }
   let(:document_due_by_type_system_code) { 'A Due Type Code' }
-  let(:document_type_name) { 'A Doc Type Name' }
-  let(:document_type_system_code) { 'A Doc Type Code' }
+  let(:document_type_id) { SecureRandom.uuid }
   let(:name) { 'A Name' }
   let(:system_code) { 'the_code' }
   let(:due_by_days) { 10 }
@@ -49,8 +48,7 @@ RSpec.describe MasterControl::Models::CustomerAppRequiredDocument do
       document_requirement_type_system_code: document_requirement_type_system_code,
       document_due_by_type_name: document_due_by_type_name,
       document_due_by_type_system_code: document_due_by_type_system_code,
-      document_type_name: document_type_name,
-      document_type_system_code: document_type_system_code,
+      document_type_id: document_type_id,
       name: name,
       system_code: system_code,
       due_by_days: due_by_days,
@@ -85,8 +83,7 @@ RSpec.describe MasterControl::Models::CustomerAppRequiredDocument do
       :document_requirement_type_system_code,
       :document_due_by_type_name,
       :document_due_by_type_system_code,
-      :document_type_name,
-      :document_type_system_code,
+      :document_type_id,
       :due_by_days,
       :name,
       :system_code,
