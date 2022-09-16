@@ -40,7 +40,7 @@ module MasterControl
               active: { type: 'boolean' },
               carrier_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               carrier_agent_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              document_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              document_type_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               first_name: { type: 'string' },
               middle_name: { type: ['string', 'null'] },
               last_name: { type: 'string' },
