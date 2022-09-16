@@ -10,8 +10,6 @@ module MasterControl
         :disclaimer_category_name,
         :disclaimer_category_system_code,
         :disclaimer_type_id,
-        :disclaimer_type_name,
-        :disclaimer_type_system_code,
         :document_name,
         :name,
         :order,
