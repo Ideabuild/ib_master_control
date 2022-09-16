@@ -18,8 +18,6 @@ module MasterControl
         :created_by_id,
         :active
 
-        attribute :document_rejection_reasons
-
       class << self
         # rubocop:disable Metrics/MethodLength
         def json_schema
