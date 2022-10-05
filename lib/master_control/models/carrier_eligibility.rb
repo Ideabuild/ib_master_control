@@ -5,7 +5,6 @@ module MasterControl
       attributes \
         :id,
         :eligibility_source_id,
-        :carrier_id,
         :carrier_identifier,
         :pass_through_fee,
         :enrollment_required,
