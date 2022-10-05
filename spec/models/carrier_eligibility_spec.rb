@@ -2,22 +2,35 @@
 require 'spec_helper'
 
 RSpec.describe MasterControl::Models::CarrierEligibility do
-  NULLEABLE_ATTRIBUTES = [].freeze
+  NULLEABLE_ATTRIBUTES = [
+    :enrollment_mandatory_fields,
+    :message,
+    :pass_through_fee,
+    :portal,
+    :state_code,
+    :state_id
+  ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::CarrierEligibility' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
+  let(:blue_ink_required) { true }
+  let(:carrier_identifier) { 'bcbs' }
+  let(:cpid) { 'blue' }
   let(:eligibility_source_id) { SecureRandom.uuid }
-  let(:carrier_identifier) { 'blue' }
-  let(:pass_through_fee) { 54.32 }
   let(:enrollment_required) { true }
   let(:enrollment_mandatory_fields) { 'some fields' }
   let(:enrollment_signature_required) { true }
-  let(:secondary_supported) { true }
-  let(:blue_ink_required) { true }
   let(:message) { 'a message' }
+  let(:name) { 'The Name' }
+  let(:payer_id) { 'bcbs' }
+  let(:portal) { 'bcbs' }
+  let(:state_code) { 'bcbs' }
+  let(:state_id) { SecureRandom.uuid }
+  let(:pass_through_fee) { 54.32 }
+  let(:secondary_supported) { true }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -32,14 +45,20 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      eligibility_source_id: eligibility_source_id,
       carrier_identifier: carrier_identifier,
-      pass_through_fee: pass_through_fee,
+      cpid: cpid,
+      eligibility_source_id: eligibility_source_id,
       enrollment_required: enrollment_required,
       enrollment_mandatory_fields: enrollment_mandatory_fields,
       enrollment_signature_required: enrollment_signature_required,
       secondary_supported: secondary_supported,
       message: message,
+      name: name,
+      pass_through_fee: pass_through_fee,
+      payer_id: payer_id,
+      portal: portal,
+      state_code: state_code,
+      state_id: state_id,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -64,9 +83,12 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
       :master_control_version,
       :is_sync_update,
       :version,
-      :eligibility_source_id,
-      :carrier_identifier,
       :carriers,
+      :cpid,
+      :carrier_identifier,
+      :eligibility_source_id,
+      :name,
+      :payer_id,
       :created_at,
       :updated_at,
       :updated_by_id,
