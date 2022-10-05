@@ -16,6 +16,7 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
+  let(:aasm_state) { 'pending' }
   let(:blue_ink_required) { true }
   let(:carrier_identifier) { 'bcbs' }
   let(:cpid) { 'blue' }
@@ -45,6 +46,7 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
+      aasm_state: aasm_state,
       carrier_identifier: carrier_identifier,
       cpid: cpid,
       eligibility_source_id: eligibility_source_id,
@@ -83,6 +85,7 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
       :master_control_version,
       :is_sync_update,
       :version,
+      :aasm_state,
       :carriers,
       :cpid,
       :carrier_identifier,
