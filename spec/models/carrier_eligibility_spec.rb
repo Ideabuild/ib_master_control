@@ -10,7 +10,6 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:eligibility_source_id) { SecureRandom.uuid }
-  let(:carrier_id) { SecureRandom.uuid }
   let(:carrier_identifier) { 'blue' }
   let(:pass_through_fee) { 54.32 }
   let(:enrollment_required) { true }
@@ -24,6 +23,7 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
+  let(:carriers) { [{ id: SecureRandom.uuid, name: 'Aetna' }] }
 
   let(:carrier_eligibility) do
     {
@@ -33,7 +33,6 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
       version: version,
       id: id,
       eligibility_source_id: eligibility_source_id,
-      carrier_id: carrier_id,
       carrier_identifier: carrier_identifier,
       pass_through_fee: pass_through_fee,
       enrollment_required: enrollment_required,
@@ -45,7 +44,8 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
       updated_at: updated_at,
       updated_by_id: updated_by_id,
       created_by_id: created_by_id,
-      active: active
+      active: active,
+      carriers: carriers
     }
   end
 
@@ -65,8 +65,8 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
       :is_sync_update,
       :version,
       :eligibility_source_id,
-      :carrier_id,
       :carrier_identifier,
+      :carriers,
       :created_at,
       :updated_at,
       :updated_by_id,

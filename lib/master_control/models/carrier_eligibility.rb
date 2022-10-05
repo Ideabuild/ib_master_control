@@ -22,6 +22,8 @@ module MasterControl
         :created_by_id,
         :active
 
+        attribute :carriers
+
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -36,7 +38,6 @@ module MasterControl
               version: { type: 'integer' },
               active: { type: 'boolean' },
               eligibility_source_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              carrier_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               carrier_identifier: { type: 'string' },
               pass_through_fee: { type: 'number' },
               enrollment_required: { type: 'boolean' },
@@ -48,7 +49,17 @@ module MasterControl
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              created_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+              created_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              carriers: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+                    name: { type: 'string' }
+                  }
+                }
+              },
             },
             required: [
               :canonical_klass,
@@ -58,12 +69,12 @@ module MasterControl
               :id,
               :active,
               :eligibility_source_id,
-              :carrier_id,
               :carrier_identifier,
               :created_at,
               :updated_at,
               :updated_by_id,
-              :created_by_id
+              :created_by_id,
+              :carriers
             ],
             additionalProperties: false
           }.to_json
