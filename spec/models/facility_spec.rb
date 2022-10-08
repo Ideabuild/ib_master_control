@@ -4,10 +4,11 @@ require 'spec_helper'
 RSpec.describe MasterControl::Models::Facility do
   NULLEABLE_ATTRIBUTES = [
     :bcbs_carrier_eligibility_id,
+    :customer_app_state_id,
     :emr_login,
     :emr_password,
     :emr_password,
-    :primary_contact_id,
+    :primary_contact_id
   ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::Facility' }
@@ -90,7 +91,6 @@ RSpec.describe MasterControl::Models::Facility do
       :aasm_state,
       :attendance_due_day,
       :attending_provider_id,
-      :customer_app_state_id,
       :customer_id,
       :facility_type_name,
       :facility_type_system_code,

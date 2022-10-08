@@ -47,7 +47,7 @@ module MasterControl
               attendance_due_day: { type: 'string' },
               attending_provider_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               bcbs_carrier_eligibility_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              customer_app_state_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              customer_app_state_id: {  type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               emr_login: { type: ['string', 'null'] },
               emr_password: { type: ['string', 'null'] },
