@@ -3,9 +3,11 @@ require 'spec_helper'
 
 RSpec.describe MasterControl::Models::Facility do
   NULLEABLE_ATTRIBUTES = [
+    :bcbs_carrier_eligibility_id,
     :emr_login,
     :emr_password,
-    :emr_password
+    :emr_password,
+    :primary_contact_id,
   ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::Facility' }
@@ -13,8 +15,11 @@ RSpec.describe MasterControl::Models::Facility do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
+  let(:aasm_state) { 'the_state' }
   let(:attendance_due_day) { 'Wednesday' }
   let(:attending_provider_id) { SecureRandom.uuid }
+  let(:bcbs_carrier_eligibility_id) { SecureRandom.uuid }
+  let(:customer_app_state_id) { SecureRandom.uuid }
   let(:customer_id) { SecureRandom.uuid }
   let(:emr_login) { Faker::Internet.username }
   let(:emr_password) { Faker::Internet.password }
@@ -25,6 +30,7 @@ RSpec.describe MasterControl::Models::Facility do
   let(:facility_type_name) { 'Rehab' }
   let(:facility_type_system_code) { 'rehab' }
   let(:name) { Faker::Company.name }
+  let(:primary_contact_id) { SecureRandom.uuid }
   let(:tax_id) { Faker::Company.french_siret_number }
   let(:timezone_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
@@ -40,18 +46,22 @@ RSpec.describe MasterControl::Models::Facility do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
+      aasm_state: aasm_state,
       attendance_due_day: attendance_due_day,
       attending_provider_id: attending_provider_id,
+      bcbs_carrier_eligibility_id: bcbs_carrier_eligibility_id,
+      customer_app_state_id: customer_app_state_id,
       customer_id: customer_id,
       emr_login: emr_login,
       emr_password: emr_password,
       emr_url: emr_url,
+      facility_type_name: facility_type_name,
+      facility_type_system_code: facility_type_system_code,
       has_emr: has_emr,
       is_medicaid: is_medicaid,
       is_medicare: is_medicare,
       name: name,
-      facility_type_name: facility_type_name,
-      facility_type_system_code: facility_type_system_code,
+      primary_contact_id: primary_contact_id,
       tax_id: tax_id,
       timezone_id: timezone_id,
       created_at: created_at,
@@ -77,8 +87,10 @@ RSpec.describe MasterControl::Models::Facility do
       :master_control_version,
       :is_sync_update,
       :version,
+      :aasm_state,
       :attendance_due_day,
       :attending_provider_id,
+      :customer_app_state_id,
       :customer_id,
       :facility_type_name,
       :facility_type_system_code,
