@@ -24,6 +24,7 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
   let(:enrollment_required) { true }
   let(:enrollment_mandatory_fields) { 'some fields' }
   let(:enrollment_signature_required) { true }
+  let(:is_bcbs) { true }
   let(:message) { 'a message' }
   let(:name) { 'The Name' }
   let(:payer_id) { 'bcbs' }
@@ -53,12 +54,13 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
       enrollment_required: enrollment_required,
       enrollment_mandatory_fields: enrollment_mandatory_fields,
       enrollment_signature_required: enrollment_signature_required,
-      secondary_supported: secondary_supported,
+      is_bcbs: is_bcbs,
       message: message,
       name: name,
       pass_through_fee: pass_through_fee,
       payer_id: payer_id,
       portal: portal,
+      secondary_supported: secondary_supported,
       state_code: state_code,
       state_id: state_id,
       created_at: created_at,
@@ -90,6 +92,7 @@ RSpec.describe MasterControl::Models::CarrierEligibility do
       :cpid,
       :carrier_identifier,
       :eligibility_source_id,
+      :is_bcbs,
       :name,
       :payer_id,
       :created_at,
