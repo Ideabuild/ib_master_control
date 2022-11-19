@@ -15,8 +15,7 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
   let(:app_state_id) { SecureRandom.uuid }
   let(:app_task_id) { SecureRandom.uuid }
   let(:app_url_id) { SecureRandom.uuid }
-  let(:completion_app_state_id) { SecureRandom.uuid }
-  let(:completion_customer_app_state_id) { SecureRandom.uuid }
+  let(:completion_states) { [{ id: SecureRandom.uuid, name: 'pending' }] }
   let(:customer_app_notification_id) { SecureRandom.uuid }
   let(:due_in) { 3 }
   let(:grace_period) { 1 }
@@ -47,8 +46,7 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       app_state_id: app_state_id,
       app_task_id: app_task_id,
       app_url_id: app_url_id,
-      completion_app_state_id: completion_app_state_id,
-      completion_customer_app_state_id: completion_customer_app_state_id,
+      completion_states: completion_states,
       customer_app_notification_id: customer_app_notification_id,
       due_in: due_in,
       ib_application_id: ib_application_id,
@@ -88,8 +86,7 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       :app_state_id,
       :app_task_id,
       :app_url_id,
-      :completion_app_state_id,
-      :completion_customer_app_state_id,
+      :completion_states,
       :due_in,
       :grace_period,
       :ib_application_id,

@@ -9,7 +9,6 @@ module MasterControl
         :app_notification_id,
         :app_state_id,
         :app_url_id,
-        :completion_app_state_id,
         :due_in,
         :ib_application_id,
         :is_owner_assigned,
@@ -27,6 +26,7 @@ module MasterControl
         :created_by_id,
         :active
 
+        attribute :completion_states
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -45,7 +45,16 @@ module MasterControl
               app_notification_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               app_state_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               app_url_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              completion_app_state_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              completion_states: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+                    name: { type: 'string' }
+                  }
+                }
+              },
               due_in: { type: 'integer' },
               grace_period: { type: 'integer' },
               is_owner_assigned: { type: 'boolean' },
@@ -71,7 +80,7 @@ module MasterControl
               :app_model_id,
               :app_state_id,
               :app_url_id,
-              :completion_app_state_id,
+              :completion_states,
               :due_in,
               :grace_period,
               :ib_application_id,

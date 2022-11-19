@@ -10,8 +10,6 @@ module MasterControl
         :app_state_id,
         :app_task_id,
         :app_url_id,
-        :completion_app_state_id,
-        :completion_customer_app_state_id,
         :customer_app_notification_id,
         :due_in,
         :grace_period,
@@ -32,6 +30,7 @@ module MasterControl
         :created_by_id,
         :active
 
+        attribute :completion_states
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -50,8 +49,16 @@ module MasterControl
               app_state_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               app_task_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               app_url_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              completion_app_state_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              completion_customer_app_state_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              completion_states: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+                    name: { type: 'string' }
+                  }
+                }
+              },
               customer_app_notification_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               due_in: { type: 'integer' },
               grace_period: { type: 'integer' },
@@ -82,8 +89,7 @@ module MasterControl
               :app_state_id,
               :app_task_id,
               :app_url_id,
-              :completion_app_state_id,
-              :completion_customer_app_state_id,
+              :completion_states,
               :due_in,
               :grace_period,
               :ib_application_id,
