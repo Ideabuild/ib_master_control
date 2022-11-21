@@ -14,6 +14,7 @@ module MasterControl
         :data_type,
         :name,
         :range_limit,
+        :system_code,
         :version,
         :is_sync_update,
         :created_at,
