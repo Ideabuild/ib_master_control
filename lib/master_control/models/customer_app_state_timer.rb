@@ -12,6 +12,7 @@ module MasterControl
         :customer_app_state_id,
         :customer_id,
         :data_type,
+        :name,
         :range_limit,
         :version,
         :is_sync_update,

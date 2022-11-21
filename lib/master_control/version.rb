@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 module MasterControl
-  VERSION = '1.7.44'
+  VERSION = '1.7.45'
 end
