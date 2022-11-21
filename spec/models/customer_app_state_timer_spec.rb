@@ -11,7 +11,6 @@ RSpec.describe MasterControl::Models::CustomerAppStateTimer do
   let(:id) { SecureRandom.uuid }
   let(:app_event_id) { SecureRandom.uuid }
   let(:app_model_id) { SecureRandom.uuid }
-  let(:app_state_id) { SecureRandom.uuid }
   let(:criteria_column_id) { SecureRandom.uuid }
   let(:criteria_type_name) { 'A Name' }
   let(:criteria_type_system_code) { 'a_code' }
@@ -36,7 +35,6 @@ RSpec.describe MasterControl::Models::CustomerAppStateTimer do
       id: id,
       app_event_id: app_event_id,
       app_model_id: app_model_id,
-      app_state_id: app_state_id,
       criteria_column_id: criteria_column_id,
       criteria_type_name: criteria_type_name,
       criteria_type_system_code: criteria_type_system_code,
@@ -70,7 +68,6 @@ RSpec.describe MasterControl::Models::CustomerAppStateTimer do
       :version,
       :app_event_id,
       :app_model_id,
-      :app_state_id,
       :criteria_column_id,
       :criteria_type_name,
       :criteria_type_system_code,
