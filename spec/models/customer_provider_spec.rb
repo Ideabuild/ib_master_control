@@ -3,15 +3,17 @@ require 'spec_helper'
 
 RSpec.describe MasterControl::Models::CustomerProvider do
   NULLEABLE_ATTRIBUTES = [
-                          :employer_identification_number,
-                          :credentials,
-                          :prefix,
-                          :suffix,
-                          :other_name,
-                          :other_first_name,
-                          :other_middle_name,
-                          :other_last_name
-                          ].freeze
+    :credentials,
+    :employer_identification_number,
+    :first_name,
+    :last_name,
+    :other_name,
+    :other_first_name,
+    :other_middle_name,
+    :other_last_name,
+    :prefix,
+    :suffix
+  ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::CustomerProvider' }
   let(:master_control_version) { '1.0.0' }
@@ -87,8 +89,6 @@ RSpec.describe MasterControl::Models::CustomerProvider do
       :is_sync_update,
       :version,
       :name,
-      :first_name,
-      :last_name,
       :npi,
       :customer_id,
       :provider_id,
