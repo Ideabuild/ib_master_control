@@ -9,25 +9,26 @@ RSpec.describe MasterControl::Models::Customer do
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:id) { SecureRandom.uuid }
-  let(:name) { Faker::Company.name }
-  let(:npi) { Faker::Lorem.sentence(word_count: 3) }
-  let(:dwh_id) { 132 }
   let(:active) { true }
   let(:aasm_state) { 'new' }
-  let(:customer_type_name) { 'Management Customer' }
-  let(:customer_type_system_code) { 'management_customer' }
-  let(:has_state_event) { true }
-  let(:state_event) { 'update_state!' }
-  let(:management_customer_id) { SecureRandom.uuid }
-  let(:owner_id) { SecureRandom.uuid }
-  let(:customer_provider_id) { SecureRandom.uuid }
-  let(:ib_applications) { [{ id: SecureRandom.uuid, name: 'ib_authenticate' }] }
   let(:amd_login_url) { 'https://partnerlogin.advancedmd.com' }
   let(:amd_username) { 'API_FULL' }
   let(:amd_password_encrypted) { 'password' }
   let(:amd_password_encrypted_iv) { 'password' }
   let(:amd_office_key) { '12365' }
   let(:amd_app_name) { 'API' }
+  let(:name) { Faker::Company.name }
+  let(:npi) { Faker::Lorem.sentence(word_count: 3) }
+  let(:customer_provider_id) { SecureRandom.uuid }
+  let(:customer_type_name) { 'Management Customer' }
+  let(:customer_type_system_code) { 'management_customer' }
+  let(:dwh_id) { 132 }
+  let(:has_state_event) { true }
+  let(:management_customer_id) { SecureRandom.uuid }
+  let(:owner_id) { SecureRandom.uuid }
+  let(:state_event) { 'update_state!' }
+  let(:use_management_customer_work_queues) { true }
+  let(:ib_applications) { [{ id: SecureRandom.uuid, name: 'ib_authenticate' }] }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
 
@@ -40,27 +41,28 @@ RSpec.describe MasterControl::Models::Customer do
       created_at: created_at,
       updated_at: updated_at,
       id: id,
-      name: name,
-      npi: npi,
-      dwh_id: dwh_id,
-      owner_id: owner_id,
       active: active,
       aasm_state: aasm_state,
-      customer_type_name: customer_type_name,
-      customer_type_system_code: customer_type_system_code,
-      has_state_event: has_state_event,
-      state_event: state_event,
-      management_customer_id: management_customer_id,
-      customer_provider_id: customer_provider_id,
-      updated_by_id: updated_by_id,
-      created_by_id: created_by_id,
-      ib_applications: ib_applications,
       amd_login_url: amd_login_url,
       amd_username: amd_username,
       amd_password_encrypted: amd_password_encrypted,
       amd_password_encrypted_iv: amd_password_encrypted_iv,
       amd_office_key: amd_office_key,
-      amd_app_name: amd_app_name
+      amd_app_name: amd_app_name,
+      customer_provider_id: customer_provider_id,
+      customer_type_name: customer_type_name,
+      customer_type_system_code: customer_type_system_code,
+      dwh_id: dwh_id,
+      has_state_event: has_state_event,
+      management_customer_id: management_customer_id,
+      name: name,
+      npi: npi,
+      owner_id: owner_id,
+      state_event: state_event,
+      use_management_customer_work_queues: use_management_customer_work_queues,
+      updated_by_id: updated_by_id,
+      created_by_id: created_by_id,
+      ib_applications: ib_applications
     }
   end
 
@@ -80,15 +82,16 @@ RSpec.describe MasterControl::Models::Customer do
       :version,
       :created_at,
       :updated_at,
-      :id,
-      :name,
-      :npi,
-      :aasm_state,
-      :owner_id,
       :active,
+      :id,
+      :aasm_state,
       :customer_type_name,
       :customer_type_system_code,
       :has_state_event,
+      :name,
+      :npi,
+      :owner_id,
+      :use_management_customer_work_queues,
       :updated_by_id,
       :created_by_id,
       :ib_applications
