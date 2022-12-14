@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::WorkQueueRuleCriteria do
+RSpec.describe MasterControl::Models::WorkQueueRuleCriterium do
   NULLEABLE_ATTRIBUTES = [:criteria_app_model_association_id].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::WorkQueueRuleCriteria' }
+  let(:canonical_klass) { 'MasterControl::Models::WorkQueueRuleCriterium' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
@@ -24,7 +24,7 @@ RSpec.describe MasterControl::Models::WorkQueueRuleCriteria do
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:work_queue_rule_criteria) do
+  let(:work_queue_rule_criterium) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
@@ -49,7 +49,7 @@ RSpec.describe MasterControl::Models::WorkQueueRuleCriteria do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::WorkQueueRuleCriteria.json_schema, work_queue_rule_criteria)
+    JSON::Validator.validate!(MasterControl::Models::WorkQueueRuleCriterium.json_schema, work_queue_rule_criterium)
   end
 
   context 'happy path' do

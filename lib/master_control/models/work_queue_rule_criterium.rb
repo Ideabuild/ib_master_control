@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class WorkQueueRuleCriteria < MasterControl::Models::Base
+    class WorkQueueRuleCriterium < MasterControl::Models::Base
       attributes \
         :id,
         :work_queue_rule_id,
