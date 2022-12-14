@@ -11,6 +11,7 @@ RSpec.describe MasterControl::Models::WorkQueueRule do
   let(:id) { SecureRandom.uuid }
   let(:name) { 'A Name' }
   let(:system_code) { 'the_code' }
+  let(:work_queue_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -26,6 +27,7 @@ RSpec.describe MasterControl::Models::WorkQueueRule do
       id: id,
       name: name,
       system_code: system_code,
+      work_queue_id: work_queue_id,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -50,6 +52,7 @@ RSpec.describe MasterControl::Models::WorkQueueRule do
       :version,
       :name,
       :system_code,
+      :work_queue_id,
       :created_at,
       :updated_at,
       :updated_by_id,
