@@ -1,39 +1,37 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::AppModelAssociation do
+RSpec.describe MasterControl::Models::UserRoleConfiguration do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::AppModelAssociation' }
+  let(:canonical_klass) { 'MasterControl::Models::UserRoleConfiguration' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:app_column_id) { SecureRandom.uuid }
-  let(:app_model_id) { SecureRandom.uuid }
-  let(:association_model_id) { SecureRandom.uuid }
-  let(:class_name) { 'User' }
-  let(:name) { 'A name' }
-  let(:system_code) { 'the_code' }
+  let(:receive_role_notifications) { true }
+  let(:receive_role_messages) { true }
+  let(:receive_role_tasks) { true }
+  let(:role_id) { SecureRandom.uuid }
+  let(:user_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:app_model_association) do
+  let(:user_role_configuration) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      app_column_id: app_column_id,
-      app_model_id: app_model_id,
-      association_model_id: association_model_id,
-      class_name: class_name,
-      name: name,
-      system_code: system_code,
+      receive_role_notifications: receive_role_notifications,
+      receive_role_messages: receive_role_messages,
+      receive_role_tasks: receive_role_tasks,
+      role_id: role_id,
+      user_id: user_id,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -43,7 +41,7 @@ RSpec.describe MasterControl::Models::AppModelAssociation do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::AppModelAssociation.json_schema, app_model_association)
+    JSON::Validator.validate!(MasterControl::Models::UserRoleConfiguration.json_schema, user_role_configuration)
   end
 
   context 'happy path' do
@@ -53,20 +51,19 @@ RSpec.describe MasterControl::Models::AppModelAssociation do
   describe 'required attributes (not nil)' do
     [
       :canonical_klass,
-      :is_sync_update,
       :id,
+      :master_control_version,
+      :is_sync_update,
       :version,
-      :app_column_id,
-      :app_model_id,
-      :association_model_id,
-      :class_name,
-      :name,
-      :system_code,
+      :receive_role_notifications,
+      :receive_role_messages,
+      :receive_role_tasks,
+      :role_id,
+      :user_id,
       :created_at,
       :updated_at,
       :updated_by_id,
-      :created_by_id,
-      :active
+      :created_by_id
     ].each do |attribute|
       context attribute do
         let(attribute) { nil }

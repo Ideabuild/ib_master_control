@@ -1,15 +1,21 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class AppModelAssociation < MasterControl::Models::Base
+    class AppStateNotification < MasterControl::Models::Base
       attributes \
         :id,
         :app_model_id,
-        :app_column_id,
-        :association_model_id,
-        :class_name,
+        :app_notification_id,
+        :app_state_id,
+        :content_type,
+        :document_type_id,
+        :has_model_attachment,
+        :has_attachment,
         :name,
+        :original_filename,
         :system_code,
+        :s3_bucket,
+        :s3_object_key,
         :version,
         :is_sync_update,
         :created_at,
@@ -18,6 +24,7 @@ module MasterControl
         :created_by_id,
         :active
 
+        attribute :roles
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -31,12 +38,28 @@ module MasterControl
               is_sync_update: { type: 'boolean' },
               version: { type: 'integer' },
               active: { type: 'boolean' },
-              app_column_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               app_model_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              association_model_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              class_name: { type: 'string' },
+              app_notification_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              app_state_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              content_type: { type: ['string', 'null'] },
+              document_type_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              has_model_attachment: { type: 'boolean' },
+              has_attachment: { type: 'boolean' },
               name: { type: 'string' },
+              original_filename: { type: ['string', 'null'] },
+              roles: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+                    name: { type: 'string' }
+                  }
+                }
+              },
               system_code: { type: 'string' },
+              s3_bucket: { type: ['string', 'null'] },
+              s3_object_key: { type: ['string', 'null'] },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -48,13 +71,15 @@ module MasterControl
               :is_sync_update,
               :version,
               :id,
-              :app_column_id,
-              :app_model_id,
-              :association_model_id,
-              :class_name,
-              :name,
-              :system_code,
               :active,
+              :app_model_id,
+              :app_notification_id,
+              :app_state_id,
+              :has_model_attachment,
+              :has_attachment,
+              :name,
+              :roles,
+              :system_code,
               :created_at,
               :updated_at,
               :updated_by_id,

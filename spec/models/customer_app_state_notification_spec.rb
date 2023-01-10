@@ -1,39 +1,63 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::AppModelAssociation do
-  NULLEABLE_ATTRIBUTES = [].freeze
+RSpec.describe MasterControl::Models::CustomerAppStateNotification do
+  NULLEABLE_ATTRIBUTES = [
+    :content_type,
+    :document_type_id,
+    :original_filename,
+    :s3_bucket,
+    :s3_object_key
+  ].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::AppModelAssociation' }
+  let(:canonical_klass) { 'MasterControl::Models::CustomerAppStateNotification' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:app_column_id) { SecureRandom.uuid }
   let(:app_model_id) { SecureRandom.uuid }
-  let(:association_model_id) { SecureRandom.uuid }
-  let(:class_name) { 'User' }
-  let(:name) { 'A name' }
+  let(:app_state_notification_id) { SecureRandom.uuid }
+  let(:content_type) { 'A Name' }
+  let(:customer_app_notification_id) { SecureRandom.uuid }
+  let(:customer_app_state_id) { SecureRandom.uuid }
+  let(:customer_id) { SecureRandom.uuid }
+  let(:document_type_id) { SecureRandom.uuid }
+  let(:has_model_attachment) { true }
+  let(:has_attachment) { true }
+  let(:name) { 'A Name' }
+  let(:original_filename) { 'boogie.txt' }
+  let(:roles) { [{ id: SecureRandom.uuid, name: 'Admin' }] }
   let(:system_code) { 'the_code' }
+  let(:s3_bucket) { 'a_bucket' }
+  let(:s3_object_key) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:app_model_association) do
+  let(:customer_app_state_notification) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      app_column_id: app_column_id,
       app_model_id: app_model_id,
-      association_model_id: association_model_id,
-      class_name: class_name,
+      app_state_notification_id: app_state_notification_id,
+      content_type: content_type,
+      customer_app_notification_id: customer_app_notification_id,
+      customer_app_state_id: customer_app_state_id,
+      customer_id: customer_id,
+      document_type_id: document_type_id,
+      has_model_attachment: has_model_attachment,
+      has_attachment: has_attachment,
       name: name,
+      original_filename: original_filename,
+      roles: roles,
       system_code: system_code,
+      s3_bucket: s3_bucket,
+      s3_object_key: s3_object_key,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -43,7 +67,7 @@ RSpec.describe MasterControl::Models::AppModelAssociation do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::AppModelAssociation.json_schema, app_model_association)
+    JSON::Validator.validate!(MasterControl::Models::CustomerAppStateNotification.json_schema, customer_app_state_notification)
   end
 
   context 'happy path' do
@@ -56,11 +80,15 @@ RSpec.describe MasterControl::Models::AppModelAssociation do
       :is_sync_update,
       :id,
       :version,
-      :app_column_id,
       :app_model_id,
-      :association_model_id,
-      :class_name,
+      :app_state_notification_id,
+      :customer_app_notification_id,
+      :customer_app_state_id,
+      :customer_id,
+      :has_model_attachment,
+      :has_attachment,
       :name,
+      :roles,
       :system_code,
       :created_at,
       :updated_at,
