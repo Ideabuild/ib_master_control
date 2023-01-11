@@ -2,7 +2,9 @@
 require 'spec_helper'
 
 RSpec.describe MasterControl::Models::AppModelAssociation do
-  NULLEABLE_ATTRIBUTES = [].freeze
+  NULLEABLE_ATTRIBUTES = [
+    :app_column_id
+  ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::AppModelAssociation' }
   let(:master_control_version) { '1.0.0' }
@@ -56,7 +58,6 @@ RSpec.describe MasterControl::Models::AppModelAssociation do
       :is_sync_update,
       :id,
       :version,
-      :app_column_id,
       :app_model_id,
       :association_model_id,
       :class_name,
