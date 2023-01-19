@@ -9,6 +9,7 @@ module MasterControl
         :name,
         :system_code,
         :is_group_by_queue,
+        :is_role_based,
         :group_by_model_association_id,
         :group_by_column_id,
         :order_by_type_name,
@@ -17,6 +18,7 @@ module MasterControl
         :order_by_column_id,
         :order_by_direction,
         :priority_level,
+        :roles,
         :users,
         :version,
         :is_sync_update,
@@ -43,6 +45,7 @@ module MasterControl
               name: { type: 'string' },
               system_code: { type: 'string' },
               is_group_by_queue: { type: 'boolean' },
+              is_role_based: { type: 'boolean' },
               group_by_model_association_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               group_by_column_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               order_by_type_name: { type: 'string' },
@@ -51,6 +54,15 @@ module MasterControl
               order_by_column_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               order_by_direction: { type: 'string' },
               priority_level: { type: 'integer' },
+              roles: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+                  }
+                }
+              },
               users: {
                 type: 'array',
                 items: {
@@ -77,6 +89,7 @@ module MasterControl
               :name,
               :system_code,
               :is_group_by_queue,
+              :is_role_based,
               :order_by_type_name,
               :order_by_type_system_code,
               :priority_level,

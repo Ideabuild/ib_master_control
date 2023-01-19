@@ -14,6 +14,7 @@ RSpec.describe MasterControl::Models::WorkQueue do
   let(:name) { 'A Name' }
   let(:system_code) { 'the_code' }
   let(:is_group_by_queue) { true }
+  let(:is_role_based) { true }
   let(:group_by_model_association_id) { SecureRandom.uuid }
   let(:group_by_column_id) { SecureRandom.uuid }
   let(:order_by_type_name) { 'A Name' }
@@ -22,6 +23,7 @@ RSpec.describe MasterControl::Models::WorkQueue do
   let(:order_by_column_id) { SecureRandom.uuid }
   let(:order_by_direction) { 'the_code' }
   let(:priority_level) { 50 }
+  let(:roles) { [{ id: SecureRandom.uuid }] }
   let(:users) { [{ id: SecureRandom.uuid }] }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
@@ -41,6 +43,7 @@ RSpec.describe MasterControl::Models::WorkQueue do
       name: name,
       system_code: system_code,
       is_group_by_queue: is_group_by_queue,
+      is_role_based: is_role_based,
       group_by_model_association_id: group_by_model_association_id,
       group_by_column_id: group_by_column_id,
       order_by_type_name: order_by_type_name,
@@ -49,6 +52,7 @@ RSpec.describe MasterControl::Models::WorkQueue do
       order_by_column_id: order_by_column_id,
       order_by_direction: order_by_direction,
       priority_level: priority_level,
+      roles: roles,
       users: users,
       created_at: created_at,
       updated_at: updated_at,
@@ -77,10 +81,12 @@ RSpec.describe MasterControl::Models::WorkQueue do
       :work_group_id,
       :customer_id,
       :is_group_by_queue,
+      :is_role_based,
       :order_by_type_name,
       :order_by_type_system_code,
       :order_by_direction,
       :priority_level,
+      :roles,
       :users,
       :created_at,
       :updated_at,
