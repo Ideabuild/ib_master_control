@@ -21,6 +21,7 @@ RSpec.describe MasterControl::Models::Facility do
   let(:attending_provider_id) { SecureRandom.uuid }
   let(:bcbs_carrier_eligibility_id) { SecureRandom.uuid }
   let(:customer_app_state_id) { SecureRandom.uuid }
+  let(:customer_provider_id) { SecureRandom.uuid }
   let(:customer_id) { SecureRandom.uuid }
   let(:emr_login) { Faker::Internet.username }
   let(:emr_password) { Faker::Internet.password }
@@ -31,6 +32,7 @@ RSpec.describe MasterControl::Models::Facility do
   let(:facility_type_name) { 'Rehab' }
   let(:facility_type_system_code) { 'rehab' }
   let(:name) { Faker::Company.name }
+  let(:npi) { Faker::Code.npi }
   let(:primary_contact_id) { SecureRandom.uuid }
   let(:tax_id) { Faker::Company.french_siret_number }
   let(:timezone_id) { SecureRandom.uuid }
@@ -51,8 +53,9 @@ RSpec.describe MasterControl::Models::Facility do
       attendance_due_day: attendance_due_day,
       attending_provider_id: attending_provider_id,
       bcbs_carrier_eligibility_id: bcbs_carrier_eligibility_id,
-      customer_app_state_id: customer_app_state_id,
       customer_id: customer_id,
+      customer_app_state_id: customer_app_state_id,
+      customer_provider_id: customer_provider_id,
       emr_login: emr_login,
       emr_password: emr_password,
       emr_url: emr_url,
@@ -62,6 +65,7 @@ RSpec.describe MasterControl::Models::Facility do
       is_medicaid: is_medicaid,
       is_medicare: is_medicare,
       name: name,
+      npi: npi,
       primary_contact_id: primary_contact_id,
       tax_id: tax_id,
       timezone_id: timezone_id,
@@ -92,12 +96,14 @@ RSpec.describe MasterControl::Models::Facility do
       :attendance_due_day,
       :attending_provider_id,
       :customer_id,
+      :customer_provider_id,
       :facility_type_name,
       :facility_type_system_code,
       :has_emr,
       :is_medicaid,
       :is_medicare,
       :name,
+      :npi,
       :tax_id,
       :timezone_id,
       :created_at,

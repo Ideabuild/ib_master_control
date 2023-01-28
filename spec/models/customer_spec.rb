@@ -27,6 +27,7 @@ RSpec.describe MasterControl::Models::Customer do
   let(:management_customer_id) { SecureRandom.uuid }
   let(:owner_id) { SecureRandom.uuid }
   let(:state_event) { 'update_state!' }
+  let(:tax_id) { SecureRandom.uuid }
   let(:use_management_customer_work_queues) { true }
   let(:ib_applications) { [{ id: SecureRandom.uuid, name: 'ib_authenticate' }] }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -59,6 +60,7 @@ RSpec.describe MasterControl::Models::Customer do
       npi: npi,
       owner_id: owner_id,
       state_event: state_event,
+      tax_id: tax_id,
       use_management_customer_work_queues: use_management_customer_work_queues,
       updated_by_id: updated_by_id,
       created_by_id: created_by_id,
@@ -91,6 +93,7 @@ RSpec.describe MasterControl::Models::Customer do
       :name,
       :npi,
       :owner_id,
+      :tax_id,
       :use_management_customer_work_queues,
       :updated_by_id,
       :created_by_id,
