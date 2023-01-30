@@ -91,7 +91,6 @@ RSpec.describe MasterControl::Models::Customer do
       :customer_type_system_code,
       :has_state_event,
       :name,
-      :npi,
       :owner_id,
       :tax_id,
       :use_management_customer_work_queues,
