@@ -69,7 +69,6 @@ RSpec.describe MasterControl::Models::PolicyHolder do
       :first_name,
       :last_name,
       :full_name,
-      :date_of_birth,
       :gender_id,
       :customer_id,
       :version,
