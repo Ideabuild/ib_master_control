@@ -18,6 +18,7 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
   let(:can_reassign) { true }
   let(:completion_states) { [{ id: SecureRandom.uuid, name: 'pending' }] }
   let(:customer_app_notification_id) { SecureRandom.uuid }
+  let(:customer_app_state_id) { SecureRandom.uuid }
   let(:due_in) { 3 }
   let(:grace_period) { 1 }
   let(:ib_application_id) { SecureRandom.uuid }
@@ -49,6 +50,7 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       can_reassign: can_reassign,
       completion_states: completion_states,
       customer_app_notification_id: customer_app_notification_id,
+      customer_app_state_id: customer_app_state_id,
       customer_id: customer_id,
       due_in: due_in,
       ib_application_id: ib_application_id,
@@ -90,6 +92,7 @@ RSpec.describe MasterControl::Models::CustomerAppTask do
       :app_url_id,
       :can_reassign,
       :completion_states,
+      :customer_app_state_id,
       :due_in,
       :grace_period,
       :ib_application_id,

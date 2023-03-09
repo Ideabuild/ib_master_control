@@ -12,6 +12,7 @@ module MasterControl
         :app_url_id,
         :can_reassign,
         :customer_app_notification_id,
+        :customer_app_state_id,
         :due_in,
         :grace_period,
         :ib_application_id,
@@ -62,6 +63,7 @@ module MasterControl
                 }
               },
               customer_app_notification_id: { type: ['string', 'null'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              customer_app_state_id: { type: ['string'], pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               due_in: { type: 'integer' },
               grace_period: { type: 'integer' },
               ib_application_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -93,6 +95,7 @@ module MasterControl
               :app_task_id,
               :app_url_id,
               :completion_states,
+              :customer_app_state_id,
               :due_in,
               :grace_period,
               :ib_application_id,
