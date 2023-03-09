@@ -9,12 +9,13 @@ RSpec.describe MasterControl::Models::AppNotification do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:name) { 'A name' }
-  let(:system_code) { 'the_code' }
   let(:app_icon_id) { SecureRandom.uuid }
+  let(:app_model_id) { SecureRandom.uuid }
   let(:app_url_id) { SecureRandom.uuid }
-  let(:subject) { 'a subject' }
   let(:contents) { 'the contnets' }
+  let(:name) { 'A name' }
+  let(:subject) { 'a subject' }
+  let(:system_code) { 'the_code' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -28,12 +29,13 @@ RSpec.describe MasterControl::Models::AppNotification do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
-      name: name,
-      system_code: system_code,
-      app_url_id: app_url_id,
       app_icon_id: app_icon_id,
-      subject: subject,
+      app_url_id: app_url_id,
+      app_model_id: app_model_id,
       contents: contents,
+      name: name,
+      subject: subject,
+      system_code: system_code,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -56,12 +58,13 @@ RSpec.describe MasterControl::Models::AppNotification do
       :is_sync_update,
       :id,
       :version,
-      :name,
-      :system_code,
       :app_icon_id,
+      :app_model_id,
       :app_url_id,
-      :subject,
       :contents,
+      :name,
+      :subject,
+      :system_code,
       :created_at,
       :updated_at,
       :updated_by_id,

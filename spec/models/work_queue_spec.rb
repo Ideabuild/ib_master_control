@@ -17,6 +17,7 @@ RSpec.describe MasterControl::Models::WorkQueue do
   let(:is_role_based) { true }
   let(:group_by_model_association_id) { SecureRandom.uuid }
   let(:group_by_column_id) { SecureRandom.uuid }
+  let(:max_assignable_per_user) { 50 }
   let(:order_by_type_name) { 'A Name' }
   let(:order_by_type_system_code) { 'the_code' }
   let(:order_by_model_association_id) { SecureRandom.uuid }
@@ -46,6 +47,7 @@ RSpec.describe MasterControl::Models::WorkQueue do
       is_role_based: is_role_based,
       group_by_model_association_id: group_by_model_association_id,
       group_by_column_id: group_by_column_id,
+      max_assignable_per_user: max_assignable_per_user,
       order_by_type_name: order_by_type_name,
       order_by_type_system_code: order_by_type_system_code,
       order_by_model_association_id: order_by_model_association_id,
@@ -82,6 +84,7 @@ RSpec.describe MasterControl::Models::WorkQueue do
       :customer_id,
       :is_group_by_queue,
       :is_role_based,
+      :max_assignable_per_user,
       :order_by_type_name,
       :order_by_type_system_code,
       :order_by_direction,
