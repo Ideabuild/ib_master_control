@@ -10,9 +10,11 @@ RSpec.describe MasterControl::Models::User do
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:id) { SecureRandom.uuid }
   let(:active) { true }
+  let(:customer_app_state_id) { SecureRandom.uuid }
   let(:email) { Faker::Internet.email }
   let(:first_name) { Faker::Name.first_name }
   let(:last_name) { Faker::Name.last_name }
+  let(:name) { Faker::Name.last_name }
   let(:aasm_state) { 'new' }
   let(:customer_id) { SecureRandom.uuid }
   let(:has_state_event) { true }
@@ -33,9 +35,11 @@ RSpec.describe MasterControl::Models::User do
       updated_at: updated_at,
       id: id,
       active: active,
+      customer_app_state_id: customer_app_state_id,
       email: email,
       first_name: first_name,
       last_name: last_name,
+      name: name,
       aasm_state: aasm_state,
       customer_id: customer_id,
       has_state_event: has_state_event,
@@ -64,13 +68,14 @@ RSpec.describe MasterControl::Models::User do
       :version,
       :created_at,
       :updated_at,
-      :id,
       :active,
+      :id,
+      :aasm_state,
       :email,
+      :has_state_event,
       :first_name,
       :last_name,
-      :aasm_state,
-      :has_state_event,
+      :name,
       :updated_by_id,
       :created_by_id,
       :roles,
