@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 module MasterControl
   module Models
-    class WorkGroup < MasterControl::Models::Base
+    class AppFunction < MasterControl::Models::Base
       attributes \
         :id,
         :app_area_id,
-        :app_model_id,
-        :ib_application_id,
-        :is_managed,
         :name,
         :system_code,
-        :task_app_model_id,
+        :order,
         :version,
         :is_sync_update,
         :created_at,
@@ -33,12 +30,9 @@ module MasterControl
               version: { type: 'integer' },
               active: { type: 'boolean' },
               app_area_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              app_model_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              ib_application_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
-              is_managed: { type: 'boolean' },
               name: { type: 'string' },
               system_code: { type: 'string' },
-              task_app_model_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              order: { type: 'integer' },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -52,12 +46,9 @@ module MasterControl
               :id,
               :active,
               :app_area_id,
-              :app_model_id,
-              :ib_application_id,
-              :is_managed,
               :name,
               :system_code,
-              :task_app_model_id,
+              :order,
               :created_at,
               :updated_at,
               :updated_by_id,

@@ -1,33 +1,35 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-RSpec.describe MasterControl::Models::InsuranceSequence do
+RSpec.describe MasterControl::Models::AppFunction do
   NULLEABLE_ATTRIBUTES = [].freeze
 
-  let(:canonical_klass) { 'MasterControl::Models::InsuranceSequence' }
+  let(:canonical_klass) { 'MasterControl::Models::AppFunction' }
   let(:master_control_version) { '1.0.0' }
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
+  let(:app_area_id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
-  let(:system_code) { 'billing' }
   let(:order) { 1 }
+  let(:system_code) { 'billing' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
   let(:active) { true }
 
-  let(:insurance_sequence) do
+  let(:app_function) do
     {
       canonical_klass: canonical_klass,
       master_control_version: master_control_version,
       is_sync_update: is_sync_update,
       version: version,
       id: id,
+      app_area_id: app_area_id,
       name: name,
-      system_code: system_code,
       order: order,
+      system_code: system_code,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
@@ -37,7 +39,7 @@ RSpec.describe MasterControl::Models::InsuranceSequence do
   end
 
   def validate!
-    JSON::Validator.validate!(MasterControl::Models::InsuranceSequence.json_schema, insurance_sequence)
+    JSON::Validator.validate!(MasterControl::Models::AppFunction.json_schema, app_function)
   end
 
   context 'happy path' do
@@ -51,9 +53,10 @@ RSpec.describe MasterControl::Models::InsuranceSequence do
       :master_control_version,
       :is_sync_update,
       :version,
+      :app_area_id,
       :name,
-      :system_code,
       :order,
+      :system_code,
       :created_at,
       :updated_at,
       :updated_by_id,

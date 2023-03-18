@@ -9,6 +9,7 @@ RSpec.describe MasterControl::Models::WorkGroup do
   let(:is_sync_update) { true }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
+  let(:app_area_id) { SecureRandom.uuid }
   let(:app_model_id) { SecureRandom.uuid }
   let(:ib_application_id) { SecureRandom.uuid }
   let(:is_managed) { Faker::Boolean.boolean }
@@ -28,6 +29,7 @@ RSpec.describe MasterControl::Models::WorkGroup do
       is_sync_update: is_sync_update,
       version: version,
       id: id,
+      app_area_id: app_area_id,
       app_model_id: app_model_id,
       ib_application_id: ib_application_id,
       is_managed: is_managed,
@@ -56,6 +58,7 @@ RSpec.describe MasterControl::Models::WorkGroup do
       :is_sync_update,
       :id,
       :version,
+      :app_area_id,
       :app_model_id,
       :ib_application_id,
       :is_managed,
