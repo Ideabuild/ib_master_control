@@ -3,6 +3,7 @@ require 'spec_helper'
 
 RSpec.describe MasterControl::Models::InsuranceCoverage do
   NULLEABLE_ATTRIBUTES = [
+    :carrier_name,
     :customer_app_state_id,
     :group_number,
     :intake_id,
@@ -22,6 +23,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:id) { SecureRandom.uuid }
   let(:aasm_state) { 'Billing' }
   let(:carrier_id) { SecureRandom.uuid }
+  let(:carrier_name) { 'Billing' }
   let(:customer_id) { SecureRandom.uuid }
   let(:customer_app_state_id) { SecureRandom.uuid }
   let(:customer_provider_id) { SecureRandom.uuid }
@@ -61,6 +63,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       id: id,
       aasm_state: aasm_state,
       carrier_id: carrier_id,
+      carrier_name: carrier_name,
       customer_app_state_id: customer_app_state_id,
       customer_id: customer_id,
       customer_provider_id: customer_provider_id,
