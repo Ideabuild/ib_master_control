@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 module MasterControl
   module Constants
+
+    ADMIN_USER_EMAIL = 'support@ideabuild.com'
     module AmdAnalytics
       SYSTEM = 'amd_analytics'
     end
