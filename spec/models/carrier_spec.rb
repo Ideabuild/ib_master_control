@@ -15,6 +15,7 @@ RSpec.describe MasterControl::Models::Carrier do
   let(:carrier_type_system_code) { 'evil_code' }
   let(:carrier_family_name) { 'Greedy' }
   let(:carrier_family_system_code) { 'greedy_code' }
+  let(:is_consent_required) { true }
   let(:has_state_event) { true }
   let(:state_event) { 'update_state!' }
   let(:phone_number) { '(707) 555-5555' }
@@ -40,6 +41,7 @@ RSpec.describe MasterControl::Models::Carrier do
       carrier_type_system_code: carrier_type_system_code,
       carrier_family_name: carrier_family_name,
       carrier_family_system_code: carrier_family_system_code,
+      is_consent_required: is_consent_required,
       has_state_event: has_state_event,
       state_event: state_event,
       phone_number: phone_number,
@@ -74,6 +76,7 @@ RSpec.describe MasterControl::Models::Carrier do
       :carrier_type_system_code,
       :carrier_family_name,
       :carrier_family_system_code,
+      :is_consent_required,
       :has_state_event,
       :created_at,
       :updated_at,
