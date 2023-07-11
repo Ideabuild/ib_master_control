@@ -29,6 +29,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:customer_provider_id) { SecureRandom.uuid }
   let(:group_number) { 'Billing' }
   let(:has_state_event) { true }
+  let(:has_valid_consent_on_file) {false }
   let(:insurance_position) { 1 }
   let(:insurance_sequence_id) { SecureRandom.uuid }
   let(:intake_id) { SecureRandom.uuid }
@@ -69,6 +70,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       customer_provider_id: customer_provider_id,
       group_number: group_number,
       has_state_event: has_state_event,
+      has_valid_consent_on_file: has_valid_consent_on_file,
       insurance_position: insurance_position,
       insurance_sequence_id: insurance_sequence_id,
       intake_id: intake_id,
@@ -115,7 +117,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       :carrier_id,
       :customer_id,
       :has_state_event,
-      :has_state_event,
+      :has_valid_consent_on_file,
       :is_cobra,
       :member_id,
       :patient_id,
