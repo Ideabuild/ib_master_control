@@ -30,6 +30,7 @@ RSpec.describe MasterControl::Models::Customer do
   let(:tax_id) { SecureRandom.uuid }
   let(:use_management_customer_work_queues) { true }
   let(:ib_applications) { [{ id: SecureRandom.uuid, name: 'ib_authenticate' }] }
+  let(:managed_customers) { [{ id: SecureRandom.uuid}] }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
 
@@ -64,7 +65,8 @@ RSpec.describe MasterControl::Models::Customer do
       use_management_customer_work_queues: use_management_customer_work_queues,
       updated_by_id: updated_by_id,
       created_by_id: created_by_id,
-      ib_applications: ib_applications
+      ib_applications: ib_applications,
+      managed_customers: managed_customers
     }
   end
 
@@ -96,7 +98,8 @@ RSpec.describe MasterControl::Models::Customer do
       :use_management_customer_work_queues,
       :updated_by_id,
       :created_by_id,
-      :ib_applications
+      :ib_applications,
+      :managed_customers
     ].each do |attribute|
       context attribute do
         let(attribute) { nil }
