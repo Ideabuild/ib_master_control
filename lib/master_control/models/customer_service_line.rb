@@ -23,6 +23,8 @@ module MasterControl
         :active
 
       attribute :customer_services
+      attribute :required_documents
+      attribute :optional_documents
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -60,6 +62,24 @@ module MasterControl
                     system_code: { type: 'string' }
                   }
                 }
+              },
+              required_documents: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+                  }
+                }
+              },
+              optional_documents: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+                  }
+                }
               }
             },
             required: [
@@ -71,7 +91,6 @@ module MasterControl
               :authorization_review_type_id,
               :auth_follow_up_day_threshold,
               :customer_id,
-              :customer_services,
               :is_on_verification_form,
               :name,
               :order,

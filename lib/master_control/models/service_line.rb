@@ -18,6 +18,8 @@ module MasterControl
         :active
 
         attribute :services
+        attribute :required_documents
+        attribute :optional_documents
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -50,6 +52,24 @@ module MasterControl
                     system_code: { type: 'string' }
                   }
                 }
+              },
+              required_documents: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+                  }
+                }
+              },
+              optional_documents: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+                  }
+                }
               }
             },
             required: [
@@ -63,7 +83,6 @@ module MasterControl
               :clinical_assessment_type_id,
               :name,
               :order,
-              :services,
               :system_code,
               :created_at,
               :updated_at,

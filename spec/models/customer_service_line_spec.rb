@@ -10,15 +10,17 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:auth_follow_up_day_threshold) { 10 }
-  let(:customer_id) { SecureRandom.uuid }
-  let(:service_line_id) { SecureRandom.uuid }
-  let(:name) { 'Billing' }
-  let(:order) { 10 }
-  let(:system_code) { 'billing' }
-  let(:is_on_verification_form) { true }
-  let(:requires_accreditation) { true }
-  let(:clinical_assessment_type_id) { SecureRandom.uuid }
   let(:authorization_review_type_id) { SecureRandom.uuid }
+  let(:clinical_assessment_type_id) { SecureRandom.uuid }
+  let(:customer_id) { SecureRandom.uuid }
+  let(:is_on_verification_form) { true }
+  let(:name) { 'Billing' }
+  let(:optional_documents) { [{ id: SecureRandom.uuid }] }
+  let(:order) { 10 }
+  let(:requires_accreditation) { true }
+  let(:required_documents) { [{ id: SecureRandom.uuid }] }
+  let(:service_line_id) { SecureRandom.uuid }
+  let(:system_code) { 'billing' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -39,7 +41,9 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       clinical_assessment_type_id: clinical_assessment_type_id,
       is_on_verification_form: is_on_verification_form,
       name: name,
+      optional_documents: optional_documents,
       order: order,
+      required_documents: required_documents,
       requires_accreditation: requires_accreditation,
       service_line_id: service_line_id,
       system_code: system_code,
@@ -70,7 +74,6 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       :authorization_review_type_id,
       :auth_follow_up_day_threshold,
       :customer_id,
-      :customer_services,
       :is_on_verification_form,
       :name,
       :order,
