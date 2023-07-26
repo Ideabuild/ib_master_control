@@ -22,6 +22,7 @@ module MasterControl
         :name,
         :npi,
         :primary_contact_id,
+        :requires_clinical_retrevial,
         :tax_id,
         :timezone_id,
         :version,
