@@ -34,7 +34,7 @@ RSpec.describe MasterControl::Models::Facility do
   let(:name) { Faker::Company.name }
   let(:npi) { Faker::Code.npi }
   let(:primary_contact_id) { SecureRandom.uuid }
-  let(:requires_clinical_retrevial) { Faker::Boolean.boolean }
+  let(:requires_clinical_retrieval) { Faker::Boolean.boolean }
   let(:tax_id) { Faker::Company.french_siret_number }
   let(:timezone_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
@@ -68,7 +68,7 @@ RSpec.describe MasterControl::Models::Facility do
       name: name,
       npi: npi,
       primary_contact_id: primary_contact_id,
-      requires_clinical_retrevial: requires_clinical_retrevial,
+      requires_clinical_retrieval: requires_clinical_retrieval,
       tax_id: tax_id,
       timezone_id: timezone_id,
       created_at: created_at,
@@ -106,7 +106,7 @@ RSpec.describe MasterControl::Models::Facility do
       :is_medicare,
       :name,
       :npi,
-      :requires_clinical_retrevial,
+      :requires_clinical_retrieval,
       :tax_id,
       :timezone_id,
       :created_at,
