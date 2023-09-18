@@ -17,6 +17,7 @@ RSpec.describe MasterControl::Models::User do
   let(:name) { Faker::Name.last_name }
   let(:aasm_state) { 'new' }
   let(:customer_id) { SecureRandom.uuid }
+  let(:timezone_id) { SecureRandom.uuid }
   let(:has_state_event) { true }
   let(:state_event) { 'update_state!' }
   let(:roles) { [{ id: SecureRandom.uuid, name: 'Admin' }] }
@@ -36,13 +37,14 @@ RSpec.describe MasterControl::Models::User do
       id: id,
       active: active,
       customer_app_state_id: customer_app_state_id,
+      customer_id: customer_id,
       email: email,
       first_name: first_name,
       last_name: last_name,
       name: name,
       aasm_state: aasm_state,
-      customer_id: customer_id,
       has_state_event: has_state_event,
+      timezone_id: timezone_id,
       state_event: state_event,
       updated_by_id: updated_by_id,
       created_by_id: created_by_id,

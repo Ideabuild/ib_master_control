@@ -3,6 +3,7 @@ module MasterControl
   module Constants
 
     ADMIN_USER_EMAIL = 'support@ideabuild.com'
+    SYSTEM_CUSTOMER_TYPE_CODE = 'ideabuild'
     module AmdAnalytics
       SYSTEM = 'amd_analytics'
     end
