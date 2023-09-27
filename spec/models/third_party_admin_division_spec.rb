@@ -6,6 +6,7 @@ RSpec.describe MasterControl::Models::ThirdPartyAdminDivision do
     :email,
     :fax,
     :phone,
+    :phone_extension,
     :url
   ].freeze
 
@@ -21,6 +22,7 @@ RSpec.describe MasterControl::Models::ThirdPartyAdminDivision do
   let(:fax) { 'patient' }
   let(:name) { 'Billing' }
   let(:phone) { 'patient' }
+  let(:phone_extension) { 'patient' }
   let(:search_terms) { 'home depot' }
   let(:system_code) { 'billing' }
   let(:third_party_admin_id) { SecureRandom.uuid }
@@ -45,6 +47,7 @@ RSpec.describe MasterControl::Models::ThirdPartyAdminDivision do
       fax: fax,
       name: name,
       phone: phone,
+      phone_extension: phone_extension,
       search_terms: search_terms,
       system_code: system_code,
       third_party_admin_id: third_party_admin_id,
