@@ -5,6 +5,7 @@ module MasterControl
       attributes \
         :id,
         :third_party_admin_id,
+        :third_party_admin_division_id,
         :address_type_id,
         :is_primary,
         :street_1,
@@ -37,6 +38,7 @@ module MasterControl
               version: { type: 'integer' },
               active: { type: 'boolean' },
               third_party_admin_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              third_party_admin_division_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               address_type_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               is_primary: { type: 'boolean' },
               street_1: { type: 'string' },
@@ -62,6 +64,7 @@ module MasterControl
               :active,
               :id,
               :third_party_admin_id,
+              :third_party_admin_division_id,
               :address_type_id,
               :is_primary,
               :street_1,

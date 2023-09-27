@@ -18,6 +18,7 @@ RSpec.describe MasterControl::Models::ThirdPartyAdminAddress do
   let(:is_sync_update) { true }
   let(:id) { SecureRandom.uuid }
   let(:third_party_admin_id) { SecureRandom.uuid }
+  let(:third_party_admin_division_id) { SecureRandom.uuid }
   let(:address_type_id) { SecureRandom.uuid }
   let(:street_1) { Faker::Address.street_address }
   let(:street_2) { Faker::Address.secondary_address }
@@ -56,6 +57,7 @@ RSpec.describe MasterControl::Models::ThirdPartyAdminAddress do
       latitude: latitude,
       longitude: longitude,
       third_party_admin_id: third_party_admin_id,
+      third_party_admin_division_id: third_party_admin_division_id,
       address_type_id: address_type_id,
       created_at: created_at,
       updated_at: updated_at,
@@ -80,6 +82,7 @@ RSpec.describe MasterControl::Models::ThirdPartyAdminAddress do
       :is_sync_update,
       :version,
       :third_party_admin_id,
+      :third_party_admin_division_id,
       :address_type_id,
       :is_primary,
       :street_1,
