@@ -3,11 +3,22 @@ require 'spec_helper'
 
 RSpec.describe MasterControl::Models::ThirdPartyAdminDivision do
   NULLEABLE_ATTRIBUTES = [
+    :city_id,
+    :city_name,
     :email,
     :fax,
+    :fips_code,
+    :latitude,
+    :longitude,
     :phone,
     :phone_extension,
-    :url
+    :state_id,
+    :state_name,
+    :street_1,
+    :street_2,
+    :url,
+    :zipcode_id,
+    :zipcode_value
   ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::ThirdPartyAdmin' }
@@ -16,17 +27,28 @@ RSpec.describe MasterControl::Models::ThirdPartyAdminDivision do
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
   let(:aasm_state) { 'active' }
+  let(:city_name) { Faker::Address.city }
+  let(:city_id) { SecureRandom.uuid }
   let(:customer_id) { SecureRandom.uuid }
   let(:customer_app_state_id) { SecureRandom.uuid }
   let(:email) { 'Patient' }
   let(:fax) { 'patient' }
+  let(:fips_code) { '1212-23' }
+  let(:latitude) { Faker::Address.latitude }
+  let(:longitude) { Faker::Address.longitude }
   let(:name) { 'Billing' }
   let(:phone) { 'patient' }
   let(:phone_extension) { 'patient' }
   let(:search_terms) { 'home depot' }
+  let(:state_name) { Faker::Address.state_abbr }
+  let(:state_id) { SecureRandom.uuid }
+  let(:street_1) { Faker::Address.street_address }
+  let(:street_2) { Faker::Address.secondary_address }
   let(:system_code) { 'billing' }
   let(:third_party_admin_id) { SecureRandom.uuid }
   let(:url) { 'patient' }
+  let(:zipcode_value) { Faker::Address.zip_code }
+  let(:zipcode_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
@@ -41,17 +63,28 @@ RSpec.describe MasterControl::Models::ThirdPartyAdminDivision do
       version: version,
       id: id,
       aasm_state: aasm_state,
+      city_name: city_name,
+      city_id: city_id,
       customer_id: customer_id,
       customer_app_state_id: customer_app_state_id,
       email: email,
       fax: fax,
+      fips_code: fips_code,
+      latitude: latitude,
+      longitude: longitude,
       name: name,
       phone: phone,
       phone_extension: phone_extension,
       search_terms: search_terms,
+      state_name: state_name,
+      state_id: state_id,
+      street_1: street_1,
+      street_2: street_2,
       system_code: system_code,
       third_party_admin_id: third_party_admin_id,
       url: url,
+      zipcode_value: zipcode_value,
+      zipcode_id: zipcode_id,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,
