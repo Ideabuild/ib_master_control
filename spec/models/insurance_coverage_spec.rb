@@ -33,6 +33,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:insurance_position) { 1 }
   let(:insurance_sequence_id) { SecureRandom.uuid }
   let(:intake_id) { SecureRandom.uuid }
+  let(:is_carve_out) { false }
   let(:is_cobra) { false }
   let(:is_valid) { false }
   let(:is_verified) { false }
@@ -74,6 +75,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       insurance_position: insurance_position,
       insurance_sequence_id: insurance_sequence_id,
       intake_id: intake_id,
+      is_carve_out: is_carve_out,
       is_cobra: is_cobra,
       is_valid: is_valid,
       is_verified: is_verified,
@@ -118,6 +120,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       :customer_id,
       :has_state_event,
       :has_valid_consent_on_file,
+      :is_carve_out,
       :is_cobra,
       :member_id,
       :patient_id,
