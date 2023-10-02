@@ -11,6 +11,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
     :is_verified,
     :last_validated_at,
     :last_verified_at,
+    :parent_insurance_coverage_id,
     :policy_holder_middle_name,
     :state_event,
     :verified_by_id
@@ -40,6 +41,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:last_validated_at) { Time.now.to_s(:iso8601) }
   let(:last_verified_at) { Time.now.to_s(:iso8601) }
   let(:member_id) { 'Billing' }
+  let(:parent_insurance_coverage_id) { SecureRandom.uuid }
   let(:patient_id) { SecureRandom.uuid }
   let(:policy_holder_id) { SecureRandom.uuid }
   let(:policy_holder_first_name) { 'Billing' }
@@ -82,6 +84,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       last_validated_at: last_validated_at,
       last_verified_at: last_verified_at,
       member_id: member_id,
+      parent_insurance_coverage_id: parent_insurance_coverage_id,
       patient_id: patient_id,
       policy_holder_id: policy_holder_id,
       policy_holder_first_name: policy_holder_first_name,
