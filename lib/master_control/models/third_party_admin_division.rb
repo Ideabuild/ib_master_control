@@ -15,6 +15,7 @@ module MasterControl
         :latitude,
         :longitude,
         :name,
+        :payer_id,
         :phone,
         :phone_extension,
         :search_terms,
@@ -34,9 +35,6 @@ module MasterControl
         :updated_by_id,
         :created_by_id,
         :active
-
-        attribute :carriers
-
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -61,6 +59,7 @@ module MasterControl
               latitude: { type: ['number', 'null'] },
               longitude: { type: ['number', 'null'] },
               name: { type: 'string' },
+              payer_id: { type: ['string', 'null'] },
               phone: { type: ['string', 'null'] },
               phone_extension: { type: ['string', 'null'] },
               search_terms: { type: 'string' },

@@ -10,6 +10,7 @@ RSpec.describe MasterControl::Models::ThirdPartyAdminDivision do
     :fips_code,
     :latitude,
     :longitude,
+    :payer_id,
     :phone,
     :phone_extension,
     :state_id,
@@ -37,6 +38,7 @@ RSpec.describe MasterControl::Models::ThirdPartyAdminDivision do
   let(:latitude) { Faker::Address.latitude }
   let(:longitude) { Faker::Address.longitude }
   let(:name) { 'Billing' }
+  let(:payer_id) { '65412' }
   let(:phone) { 'patient' }
   let(:phone_extension) { 'patient' }
   let(:search_terms) { 'home depot' }
@@ -73,6 +75,7 @@ RSpec.describe MasterControl::Models::ThirdPartyAdminDivision do
       latitude: latitude,
       longitude: longitude,
       name: name,
+      payer_id: payer_id,
       phone: phone,
       phone_extension: phone_extension,
       search_terms: search_terms,
