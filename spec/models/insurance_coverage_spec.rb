@@ -4,6 +4,11 @@ require 'spec_helper'
 RSpec.describe MasterControl::Models::InsuranceCoverage do
   NULLEABLE_ATTRIBUTES = [
     :carrier_name,
+    :cobra_inquiry_requested_at,
+    :cobra_inquiry_requested_by_id,
+    :cobra_follow_up_at,
+    :cobra_follow_up_count,
+    :cobra_insurance_coverage_id,
     :customer_app_state_id,
     :group_number,
     :intake_id,
@@ -25,6 +30,11 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:aasm_state) { 'Billing' }
   let(:carrier_id) { SecureRandom.uuid }
   let(:carrier_name) { 'Billing' }
+  let(:cobra_inquiry_requested_at) { Time.now.to_s(:iso8601) }
+  let(:cobra_inquiry_requested_by_id) { SecureRandom.uuid }
+  let(:cobra_follow_up_at) { Time.now.to_s(:iso8601) }
+  let(:cobra_follow_up_count) { 10 }
+  let(:cobra_insurance_coverage_id) { SecureRandom.uuid }
   let(:customer_id) { SecureRandom.uuid }
   let(:customer_app_state_id) { SecureRandom.uuid }
   let(:customer_provider_id) { SecureRandom.uuid }
@@ -68,6 +78,11 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       aasm_state: aasm_state,
       carrier_id: carrier_id,
       carrier_name: carrier_name,
+      cobra_inquiry_requested_at: cobra_inquiry_requested_at,
+      cobra_inquiry_requested_by_id: cobra_inquiry_requested_by_id,
+      cobra_follow_up_at: cobra_follow_up_at,
+      cobra_follow_up_count: cobra_follow_up_count,
+      cobra_insurance_coverage_id: cobra_insurance_coverage_id,
       customer_app_state_id: customer_app_state_id,
       customer_id: customer_id,
       customer_provider_id: customer_provider_id,
