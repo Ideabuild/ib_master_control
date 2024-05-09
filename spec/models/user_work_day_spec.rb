@@ -2,7 +2,12 @@
 require 'spec_helper'
 
 RSpec.describe MasterControl::Models::UserWorkDay do
-  NULLEABLE_ATTRIBUTES = [].freeze
+  NULLEABLE_ATTRIBUTES = [
+    :day_end_seconds,
+    :day_start_seconds,
+    :lunch_end_seconds,
+    :lunch_start_seconds,
+  ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::UserWorkDay' }
   let(:master_control_version) { '1.0.0' }
@@ -11,6 +16,7 @@ RSpec.describe MasterControl::Models::UserWorkDay do
   let(:day_end_seconds) { 1 }
   let(:day_index) { 0 }
   let(:day_start_seconds) { 0 }
+  let(:is_work_day) { true }
   let(:lunch_end_seconds) { 0 }
   let(:lunch_start_seconds) { 0 }
   let(:user_id) { SecureRandom.uuid }
@@ -30,6 +36,7 @@ RSpec.describe MasterControl::Models::UserWorkDay do
       day_index: day_index,
       day_end_seconds: day_end_seconds,
       day_start_seconds: day_start_seconds,
+      is_work_day: is_work_day,
       lunch_end_seconds: lunch_end_seconds,
       lunch_start_seconds: lunch_start_seconds,
       user_id: user_id,
@@ -55,11 +62,8 @@ RSpec.describe MasterControl::Models::UserWorkDay do
       :id,
       :master_control_version,
       :version,
-      :day_end_seconds,
       :day_index,
-      :day_start_seconds,
-      :lunch_end_seconds,
-      :lunch_start_seconds,
+      :is_work_day,
       :user_id,
       :created_at,
       :updated_at,
