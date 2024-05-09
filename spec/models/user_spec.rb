@@ -13,11 +13,13 @@ RSpec.describe MasterControl::Models::User do
   let(:customer_app_state_id) { SecureRandom.uuid }
   let(:email) { Faker::Internet.email }
   let(:first_name) { Faker::Name.first_name }
+  let(:is_out_of_office) { true }
   let(:last_name) { Faker::Name.last_name }
   let(:name) { Faker::Name.last_name }
   let(:aasm_state) { 'new' }
   let(:customer_id) { SecureRandom.uuid }
   let(:timezone_id) { SecureRandom.uuid }
+  let(:out_of_office_delegate_id) { SecureRandom.uuid }
   let(:has_state_event) { true }
   let(:state_event) { 'update_state!' }
   let(:roles) { [{ id: SecureRandom.uuid, name: 'Admin' }] }
@@ -40,10 +42,12 @@ RSpec.describe MasterControl::Models::User do
       customer_id: customer_id,
       email: email,
       first_name: first_name,
+      is_out_of_office: is_out_of_office,
       last_name: last_name,
       name: name,
       aasm_state: aasm_state,
       has_state_event: has_state_event,
+      out_of_office_delegate_id: out_of_office_delegate_id,
       timezone_id: timezone_id,
       state_event: state_event,
       updated_by_id: updated_by_id,
@@ -75,6 +79,7 @@ RSpec.describe MasterControl::Models::User do
       :aasm_state,
       :email,
       :has_state_event,
+      :is_out_of_office,
       :first_name,
       :last_name,
       :name,
@@ -93,7 +98,7 @@ RSpec.describe MasterControl::Models::User do
   end
 
   context 'nullable attributes' do
-    [].each do |attribute|
+    [:out_of_office_delegate_id].each do |attribute|
       context attribute do
         let(attribute) { nil }
 
