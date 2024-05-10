@@ -10,6 +10,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
     :cobra_follow_up_count,
     :cobra_insurance_coverage_id,
     :customer_app_state_id,
+    :effective_at,
     :group_number,
     :intake_id,
     :is_valid,
@@ -18,6 +19,9 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
     :last_verified_at,
     :parent_insurance_coverage_id,
     :policy_holder_middle_name,
+    :primary_ended_at,
+    :primary_started_at,
+    :termed_at,
     :state_event,
     :verified_by_id
   ].freeze
@@ -38,6 +42,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:customer_id) { SecureRandom.uuid }
   let(:customer_app_state_id) { SecureRandom.uuid }
   let(:customer_provider_id) { SecureRandom.uuid }
+  let(:effective_at) { Date.today.to_s }
   let(:group_number) { 'Billing' }
   let(:has_state_event) { true }
   let(:has_valid_consent_on_file) {false }
@@ -58,9 +63,12 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:policy_holder_middle_name) { 'Billing' }
   let(:policy_holder_last_name) { 'Billing' }
   let(:policy_holder_date_of_birth) { Time.now.to_s(:iso8601) }
+  let(:primary_ended_at) { Date.today.to_s }
+  let(:primary_started_at) { Date.today.to_s }
   let(:set_for_verification) { true }
   let(:set_for_discovery) { true }
   let(:state_event) { 'update_state!' }
+  let(:termed_at) { Date.today.to_s }
   let(:verified_by_id) { SecureRandom.uuid }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
@@ -86,6 +94,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       customer_app_state_id: customer_app_state_id,
       customer_id: customer_id,
       customer_provider_id: customer_provider_id,
+      effective_at: effective_at,
       group_number: group_number,
       has_state_event: has_state_event,
       has_valid_consent_on_file: has_valid_consent_on_file,
@@ -106,9 +115,12 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       policy_holder_middle_name: policy_holder_middle_name,
       policy_holder_last_name: policy_holder_last_name,
       policy_holder_date_of_birth: policy_holder_date_of_birth,
+      primary_ended_at: primary_ended_at,
+      primary_started_at: primary_started_at,
       set_for_verification: set_for_verification,
       set_for_discovery: set_for_discovery,
       state_event: state_event,
+      termed_at: termed_at,
       verified_by_id: verified_by_id,
       created_at: created_at,
       updated_at: updated_at,
