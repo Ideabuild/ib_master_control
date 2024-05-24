@@ -15,6 +15,10 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
   let(:customer_id) { SecureRandom.uuid }
   let(:is_on_verification_form) { true }
   let(:name) { 'Billing' }
+  let(:no_pa_disclaimer) { 'A disclaimer' }
+  let(:no_pa_max_duration) { 10 }
+  let(:no_pa_max_frequency) { 10 }
+  let(:no_pa_max_quantity) { 10 }
   let(:optional_documents) { [{ id: SecureRandom.uuid }] }
   let(:order) { 10 }
   let(:requires_accreditation) { true }
@@ -41,6 +45,10 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       clinical_assessment_type_id: clinical_assessment_type_id,
       is_on_verification_form: is_on_verification_form,
       name: name,
+      no_pa_disclaimer: no_pa_disclaimer,
+      no_pa_max_duration: no_pa_max_duration,
+      no_pa_max_frequency: no_pa_max_frequency,
+      no_pa_max_quantity: no_pa_max_quantity,
       optional_documents: optional_documents,
       order: order,
       required_documents: required_documents,
@@ -76,6 +84,11 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       :customer_id,
       :is_on_verification_form,
       :name,
+      :no_pa_disclaimer,
+      :no_pa_max_duration,
+      :no_pa_max_frequency,
+      :no_pa_max_quantity,
+      :optional_documents,
       :order,
       :requires_accreditation,
       :service_line_id,
