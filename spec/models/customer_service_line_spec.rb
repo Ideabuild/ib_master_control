@@ -19,11 +19,13 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
   let(:no_pa_max_duration) { 10 }
   let(:no_pa_max_frequency) { 10 }
   let(:no_pa_max_quantity) { 10 }
+  let(:no_pa_documents) { [{ id: SecureRandom.uuid }] }
   let(:optional_documents) { [{ id: SecureRandom.uuid }] }
   let(:order) { 10 }
   let(:requires_accreditation) { true }
   let(:required_documents) { [{ id: SecureRandom.uuid }] }
   let(:service_line_id) { SecureRandom.uuid }
+  let(:ur_documents) { [{ id: SecureRandom.uuid }] }
   let(:system_code) { 'billing' }
   let(:created_at) { Time.now.to_s(:iso8601) }
   let(:updated_at) { Time.now.to_s(:iso8601) }
@@ -49,6 +51,7 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       no_pa_max_duration: no_pa_max_duration,
       no_pa_max_frequency: no_pa_max_frequency,
       no_pa_max_quantity: no_pa_max_quantity,
+      no_pa_documents: no_pa_documents,
       optional_documents: optional_documents,
       order: order,
       required_documents: required_documents,
@@ -56,6 +59,7 @@ RSpec.describe MasterControl::Models::CustomerServiceLine do
       service_line_id: service_line_id,
       system_code: system_code,
       customer_services: customer_services,
+      ur_documents: ur_documents,
       created_at: created_at,
       updated_at: updated_at,
       updated_by_id: updated_by_id,

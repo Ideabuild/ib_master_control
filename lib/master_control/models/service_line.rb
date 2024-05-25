@@ -18,8 +18,10 @@ module MasterControl
         :active
 
         attribute :services
-        attribute :required_documents
+        attribute :no_pa_documents
         attribute :optional_documents
+        attribute :required_documents
+        attribute :ur_documents
 
       class << self
         # rubocop:disable Metrics/MethodLength
@@ -53,7 +55,7 @@ module MasterControl
                   }
                 }
               },
-              required_documents: {
+              no_pa_documents: {
                 type: 'array',
                 items: {
                   type: 'object',
@@ -63,6 +65,24 @@ module MasterControl
                 }
               },
               optional_documents: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+                  }
+                }
+              },
+              required_documents: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] }
+                  }
+                }
+              },
+              ur_documents: {
                 type: 'array',
                 items: {
                   type: 'object',

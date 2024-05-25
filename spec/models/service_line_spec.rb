@@ -19,8 +19,10 @@ RSpec.describe MasterControl::Models::ServiceLine do
   let(:updated_at) { Time.now.to_s(:iso8601) }
   let(:updated_by_id) { SecureRandom.uuid }
   let(:created_by_id) { SecureRandom.uuid }
+  let(:no_pa_documents) { [{ id: SecureRandom.uuid }] }
   let(:optional_documents) { [{ id: SecureRandom.uuid }] }
   let(:required_documents) { [{ id: SecureRandom.uuid }] }
+  let(:ur_documents) { [{ id: SecureRandom.uuid }] }
   let(:services) { [{ id: SecureRandom.uuid, name: 'A service', system_code: 'a_service' }] }
   let(:active) { true }
 
@@ -40,8 +42,10 @@ RSpec.describe MasterControl::Models::ServiceLine do
       updated_at: updated_at,
       updated_by_id: updated_by_id,
       created_by_id: created_by_id,
+      no_pa_documents: no_pa_documents,
       optional_documents: optional_documents,
       required_documents: required_documents,
+      ur_documents: ur_documents,
       services: services,
       active: active
     }
