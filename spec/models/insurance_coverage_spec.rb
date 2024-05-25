@@ -17,6 +17,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
     :is_verified,
     :last_validated_at,
     :last_verified_at,
+    :other_carrier,
     :parent_insurance_coverage_id,
     :policy_holder_middle_name,
     :primary_ended_at,
@@ -56,6 +57,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
   let(:last_validated_at) { Time.now.to_s(:iso8601) }
   let(:last_verified_at) { Time.now.to_s(:iso8601) }
   let(:member_id) { 'Billing' }
+  let(:other_carrier) { 'No Entered' }
   let(:parent_insurance_coverage_id) { SecureRandom.uuid }
   let(:patient_id) { SecureRandom.uuid }
   let(:policy_holder_id) { SecureRandom.uuid }
@@ -108,6 +110,7 @@ RSpec.describe MasterControl::Models::InsuranceCoverage do
       last_validated_at: last_validated_at,
       last_verified_at: last_verified_at,
       member_id: member_id,
+      other_carrier: other_carrier,
       parent_insurance_coverage_id: parent_insurance_coverage_id,
       patient_id: patient_id,
       policy_holder_id: policy_holder_id,
