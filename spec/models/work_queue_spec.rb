@@ -18,12 +18,14 @@ RSpec.describe MasterControl::Models::WorkQueue do
   let(:group_by_model_association_id) { SecureRandom.uuid }
   let(:group_by_column_id) { SecureRandom.uuid }
   let(:max_assignable_per_user) { 50 }
+  let(:max_group_assignable_by_user) { 50 }
   let(:order_by_type_name) { 'A Name' }
   let(:order_by_type_system_code) { 'the_code' }
   let(:order_by_model_association_id) { SecureRandom.uuid }
   let(:order_by_column_id) { SecureRandom.uuid }
   let(:order_by_direction) { 'the_code' }
   let(:priority_level) { 50 }
+  let(:priority_level_adjustment) { 50 }
   let(:roles) { [{ id: SecureRandom.uuid }] }
   let(:users) { [{ id: SecureRandom.uuid }] }
   let(:created_at) { Time.now.to_s(:iso8601) }
@@ -48,12 +50,14 @@ RSpec.describe MasterControl::Models::WorkQueue do
       group_by_model_association_id: group_by_model_association_id,
       group_by_column_id: group_by_column_id,
       max_assignable_per_user: max_assignable_per_user,
+      max_group_assignable_by_user: max_group_assignable_by_user,
       order_by_type_name: order_by_type_name,
       order_by_type_system_code: order_by_type_system_code,
       order_by_model_association_id: order_by_model_association_id,
       order_by_column_id: order_by_column_id,
       order_by_direction: order_by_direction,
       priority_level: priority_level,
+      priority_level_adjustment: priority_level_adjustment,
       roles: roles,
       users: users,
       created_at: created_at,
@@ -85,10 +89,12 @@ RSpec.describe MasterControl::Models::WorkQueue do
       :is_group_by_queue,
       :is_role_based,
       :max_assignable_per_user,
+      :max_group_assignable_by_user,
       :order_by_type_name,
       :order_by_type_system_code,
       :order_by_direction,
       :priority_level,
+      :priority_level_adjustment,
       :roles,
       :users,
       :created_at,
