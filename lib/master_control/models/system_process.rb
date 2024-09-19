@@ -4,7 +4,6 @@ module MasterControl
     class SystemProcess < MasterControl::Models::Base
       attributes \
         :id,
-        :ib_application_id,
         :name,
         :system_code,
         :version,
@@ -26,7 +25,6 @@ module MasterControl
               master_control_version: { type: 'string' },
               version: { type: 'integer' },
               active: { type: 'boolean' },
-              ib_application_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               name: { type: 'string' },
               system_code: { type: 'string' },
               created_at: { type: 'string', format: 'date-time' },
@@ -40,7 +38,6 @@ module MasterControl
               :version,
               :id,
               :active,
-              :ib_application_id,
               :name,
               :system_code,
               :created_at,

@@ -8,7 +8,6 @@ RSpec.describe MasterControl::Models::SystemProcess do
   let(:master_control_version) { '1.0.0' }
   let(:version) { 1 }
   let(:id) { SecureRandom.uuid }
-  let(:ib_application_id) { SecureRandom.uuid }
   let(:name) { 'Billing' }
   let(:system_code) { 'billing' }
   let(:created_at) { Time.now.to_s(:iso8601) }
@@ -23,7 +22,6 @@ RSpec.describe MasterControl::Models::SystemProcess do
       master_control_version: master_control_version,
       version: version,
       id: id,
-      ib_application_id: ib_application_id,
       name: name,
       system_code: system_code,
       created_at: created_at,
@@ -48,7 +46,6 @@ RSpec.describe MasterControl::Models::SystemProcess do
       :id,
       :master_control_version,
       :version,
-      :ib_application_id,
       :name,
       :system_code,
       :created_at,
