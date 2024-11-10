@@ -16,6 +16,7 @@ RSpec.describe MasterControl::Models::Patient do
   let(:version) { 1 }
   let(:active) { true }
   let(:customer_id) { SecureRandom.uuid }
+  let(:aasm_state) { 'state_me' }
   let(:date_of_birth) { Faker::Date.backward(days: 2500).to_s(:iso8601) }
   let(:first_name) { Faker::Name.first_name }
   let(:gender_id) { SecureRandom.uuid }
@@ -41,6 +42,7 @@ RSpec.describe MasterControl::Models::Patient do
       is_sync_update: is_sync_update,
       version: version,
       active: active,
+      aasm_state: aasm_state,
       customer_id: customer_id,
       first_name: first_name,
       middle_name: middle_name,

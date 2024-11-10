@@ -4,6 +4,7 @@ module MasterControl
     class Patient < MasterControl::Models::Base
       attributes  \
         :id,
+        :aasm_state,
         :customer_id,
         :gender_id,
         :date_of_birth,
@@ -38,6 +39,7 @@ module MasterControl
               version: { type: 'integer' },
               active: { type: 'boolean' },
               id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+              aasm_state: { type: 'string' },
               customer_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               gender_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
               date_of_birth: { type: 'string', format: 'date' },
@@ -62,6 +64,7 @@ module MasterControl
               :master_control_version,
               :is_sync_update,
               :version,
+              :aasm_state,
               :first_name,
               :last_name,
               :full_name,
