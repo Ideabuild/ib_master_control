@@ -3,11 +3,12 @@ require 'spec_helper'
 
 RSpec.describe MasterControl::Models::Patient do
   NULLEABLE_ATTRIBUTES = [
-    :middle_name, 
     :chart_number,
-    :ssn,
     :email,
-    :phone
+    :last_discharged_at, 
+    :middle_name, 
+    :phone,
+    :ssn
   ].freeze
 
   let(:canonical_klass) { 'MasterControl::Models::Patient' }
@@ -17,14 +18,15 @@ RSpec.describe MasterControl::Models::Patient do
   let(:active) { true }
   let(:customer_id) { SecureRandom.uuid }
   let(:aasm_state) { 'state_me' }
+  let(:chart_number) { 'TRRA0000' }
   let(:date_of_birth) { Faker::Date.backward(days: 2500).to_s(:iso8601) }
+  let(:last_discharged_at) { Faker::Date.backward(days: 2500).to_s(:iso8601) }
   let(:first_name) { Faker::Name.first_name }
   let(:gender_id) { SecureRandom.uuid }
   let(:is_deceased) { false }
   let(:last_name) { Faker::Name.last_name }
   let(:middle_name) { 'Z' }
   let(:full_name) { Faker::Name.first_name  + ' ' + Faker::Name.last_name }
-  let(:chart_number) { 'TRRA0000' }
   let(:phone) { Faker::PhoneNumber.phone_number }
   let(:email) { Faker::Internet.email }
   let(:ssn) { Faker::IDNumber.valid }
@@ -48,6 +50,7 @@ RSpec.describe MasterControl::Models::Patient do
       middle_name: middle_name,
       last_name: last_name,
       full_name: full_name,
+      last_discharged_at: last_discharged_at,
       date_of_birth: date_of_birth,
       gender_id: gender_id,
       is_deceased: is_deceased,
