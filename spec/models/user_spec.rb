@@ -13,6 +13,7 @@ RSpec.describe MasterControl::Models::User do
   let(:customer_app_state_id) { SecureRandom.uuid }
   let(:email) { Faker::Internet.email }
   let(:first_name) { Faker::Name.first_name }
+  let(:is_mfa_required) { true }
   let(:is_out_of_office) { true }
   let(:last_name) { Faker::Name.last_name }
   let(:name) { Faker::Name.last_name }
@@ -42,6 +43,7 @@ RSpec.describe MasterControl::Models::User do
       customer_id: customer_id,
       email: email,
       first_name: first_name,
+      is_mfa_required: is_mfa_required,
       is_out_of_office: is_out_of_office,
       last_name: last_name,
       name: name,
@@ -79,6 +81,7 @@ RSpec.describe MasterControl::Models::User do
       :aasm_state,
       :email,
       :has_state_event,
+      :is_mfa_required,
       :is_out_of_office,
       :first_name,
       :last_name,
