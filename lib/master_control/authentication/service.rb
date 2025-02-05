@@ -13,6 +13,8 @@ module MasterControl
         data = payload['data'].with_indifferent_access
 
         verify(data)
+
+        verify_mfa(data)
         data
       end
 
@@ -79,6 +81,13 @@ module MasterControl
         if app.nil?
           message = "#{application_key} not found in applications for user #{payload[:id]}"
           raise Exceptions::AccessDeniedError, message
+        end
+      end
+
+      def verify_mfa(payload)
+        if payload[:is_mfa_required]
+          message = "MFA is Required"
+          raise Exceptions::MfaRequiredError, message
         end
       end
 
