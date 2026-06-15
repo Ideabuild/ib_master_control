@@ -58,6 +58,7 @@ module MasterControl
               emr_url: { type: ['string', 'null'] },
               facility_type_name: { type: 'string' },
               facility_type_system_code: { type: 'string' },
+              has_attendance_excel_upload: { type: 'boolean' },
               has_emr: { type: 'boolean' },
               is_medicaid: { type: 'boolean' },
               is_medicare: { type: 'boolean' },

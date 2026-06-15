@@ -26,6 +26,7 @@ RSpec.describe MasterControl::Models::Facility do
   let(:emr_login) { Faker::Internet.username }
   let(:emr_password) { Faker::Internet.password }
   let(:emr_url) { Faker::Internet.url }
+  let(:has_attendance_excel_upload) { Faker::Boolean.boolean }
   let(:has_emr) { Faker::Boolean.boolean }
   let(:is_medicaid) { Faker::Boolean.boolean }
   let(:is_medicare) { Faker::Boolean.boolean }
@@ -62,6 +63,7 @@ RSpec.describe MasterControl::Models::Facility do
       emr_url: emr_url,
       facility_type_name: facility_type_name,
       facility_type_system_code: facility_type_system_code,
+      has_attendance_excel_upload: has_attendance_excel_upload,
       has_emr: has_emr,
       is_medicaid: is_medicaid,
       is_medicare: is_medicare,
@@ -102,6 +104,7 @@ RSpec.describe MasterControl::Models::Facility do
       :facility_type_name,
       :facility_type_system_code,
       :has_emr,
+      :has_attendance_excel_upload,
       :is_medicaid,
       :is_medicare,
       :name,
