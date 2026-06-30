@@ -16,6 +16,7 @@ module MasterControl
         :emr_url,
         :facility_type_name,
         :facility_type_system_code,
+        :has_attendance_excel_upload,
         :has_emr,
         :is_medicaid,
         :is_medicare,
