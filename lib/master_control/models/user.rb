@@ -20,6 +20,7 @@ module MasterControl
         :state_event,
         :version,
         :billing_customers,
+        :authorization_customers,
         :customers,
         :is_sync_update,
         :created_at,
@@ -95,6 +96,16 @@ module MasterControl
                   }
                 }
               },
+              authorization_customers: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
+                    name: { type: 'string' }
+                  }
+                }
+              },
               created_at: { type: 'string', format: 'date-time' },
               updated_at: { type: 'string', format: 'date-time' },
               updated_by_id: { type: 'string', pattern: JSON_SCHEMA_PATTERNS[:uuid] },
@@ -117,6 +128,7 @@ module MasterControl
               :is_mfa_required,
               :roles,
               :ib_applications,
+              :authorization_customers,
               :billing_customers,
               :customers,
               :created_at,
